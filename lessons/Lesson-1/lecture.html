@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Занятие 1 — Введение и настройка</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/lecture.css">
+    <script src="../../js/lang.js" defer></script>
+</head>
+<body>
+
+<div class="lesson-nav">
+    <a href="../../index.html" class="nav-home" data-lang="ru">&#8592; Главная</a>
+    <a href="../../index.html" class="nav-home" data-lang="en">&#8592; Home</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-title" data-lang="ru">Занятие 1: Введение и настройка</span>
+    <span class="nav-title" data-lang="en">Lesson 1: Introduction & Setup</span>
+    <span class="nav-sep">|</span>
+    <span class="nav-active" data-lang="ru">&#x1F468;&#x200D;&#x1F3EB; Лекция</span>
+    <span class="nav-active" data-lang="en">&#x1F468;&#x200D;&#x1F3EB; Lecture</span>
+    <a href="student.html" class="nav-link" data-lang="ru">&#x1F468;&#x200D;&#x1F393; Конспект</a>
+    <a href="student.html" class="nav-link" data-lang="en">&#x1F468;&#x200D;&#x1F393; Notes</a>
+    <a href="tasks.html" class="nav-link" data-lang="ru">&#x1F4CB; Задания</a>
+    <a href="tasks.html" class="nav-link" data-lang="en">&#x1F4CB; Tasks</a>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+</div>
+
+<div class="container">
+
+    <h1 data-lang="ru">Занятие 1: Введение и настройка</h1>
+    <h1 data-lang="en">Lesson 1: Introduction & Setup</h1>
+    <p class="subtitle" data-lang="ru">Что такое React, зачем он нужен, и как подготовить компьютер к разработке</p>
+    <p class="subtitle" data-lang="en">What React is, why it exists, and how to prep your computer for development</p>
+
+    <div class="why" data-lang="ru">
+        <p>Добро пожаловать в React. Это самая популярная библиотека для создания интерфейсов в мире. На ней работают Facebook, Instagram, WhatsApp Web, Netflix, Airbnb, Uber, Discord, Vercel, Shopify. Знание React — это <strong>билет в индустрию</strong>: 40% всех вакансий фронтенд-разработчика в 2026 году требуют именно React.</p>
+        <p>Но сегодня мы <strong>не пишем React-код</strong>. Сегодня мы отвечаем на три вопроса: <em>что такое React</em>, <em>зачем он вообще нужен</em>, и <em>какие инструменты должны быть на компьютере разработчика</em>. Если эти три вещи непонятны — любой код, который мы напишем на следующих занятиях, будет магией. А магия = страх. Наша цель — чтобы вы поняли, <strong>почему</strong> React устроен именно так.</p>
+        <p>В конце занятия вы своими руками подключите React через CDN и напишете первый компонент прямо в одном HTML-файле — без npm, без сборки, без терминала. Увидите, что это не магия. Это JavaScript.</p>
+        <p><strong>После этого занятия вы сможете:</strong></p>
+        <ul>
+            <li>Объяснить простыми словами, что такое React и зачем он нужен</li>
+            <li>Сравнить подход React с «ванильным JS» и jQuery — и понять выгоду</li>
+            <li>Объяснить, что такое компонент и почему это революция</li>
+            <li>Рассказать, что такое виртуальный DOM на уровне аналогии</li>
+            <li>Отличить SPA от многостраничного сайта</li>
+            <li>Назвать 5+ крупных продуктов, написанных на React</li>
+            <li>Установить Node.js и проверить версию</li>
+            <li>Настроить VS Code с нужными расширениями</li>
+            <li>Установить React DevTools в браузер</li>
+            <li>Запустить React-приложение через CDN, без сборки</li>
+        </ul>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Welcome to React. It's the most popular UI library in the world. It powers Facebook, Instagram, WhatsApp Web, Netflix, Airbnb, Uber, Discord, Vercel, Shopify. Knowing React is <strong>a ticket into the industry</strong>: 40% of all front-end job postings in 2026 require React specifically.</p>
+        <p>But today we <strong>don't write React code yet</strong>. Today we answer three questions: <em>what React is</em>, <em>why it exists at all</em>, and <em>which tools should be on a developer's computer</em>. Without these three things, any code we write in later lessons will be magic. And magic = fear. Our goal — for you to understand <strong>why</strong> React is designed the way it is.</p>
+        <p>By the end of the lesson, you'll hook up React via CDN with your own hands and write your first component in a single HTML file — no npm, no build tools, no terminal. You'll see it's not magic. It's JavaScript.</p>
+        <p><strong>After this lesson you'll be able to:</strong></p>
+        <ul>
+            <li>Explain in plain words what React is and why it exists</li>
+            <li>Compare React's approach with "vanilla JS" and jQuery — and see the benefit</li>
+            <li>Explain what a component is and why it's a revolution</li>
+            <li>Describe the virtual DOM on an analogy level</li>
+            <li>Tell an SPA from a multi-page site</li>
+            <li>Name 5+ major products built with React</li>
+            <li>Install Node.js and check the version</li>
+            <li>Set up VS Code with the right extensions</li>
+            <li>Install the React DevTools browser extension</li>
+            <li>Run a React app from a CDN, no build step</li>
+        </ul>
+    </div>
+
+    <div class="toc" data-lang="ru">
+        <div class="toc-title">Содержание</div>
+        <ol>
+            <li><a href="#problem">Проблема без React: почему «голый» JS ломается</a></li>
+            <li><a href="#what-is-react">Что такое React на самом деле</a></li>
+            <li><a href="#components">Компоненты — главная идея React</a></li>
+            <li><a href="#virtual-dom">Виртуальный DOM простыми словами</a></li>
+            <li><a href="#declarative">Декларативный vs императивный подход</a></li>
+            <li><a href="#spa-vs-mpa">SPA vs MPA: одна страница или много</a></li>
+            <li><a href="#who-uses">Кто использует React в мире</a></li>
+            <li><a href="#react-vs-others">React vs Vue vs Angular — коротко</a></li>
+            <li><a href="#tools">Инструменты разработчика</a></li>
+            <li><a href="#nodejs">Node.js и npm: что это и зачем</a></li>
+            <li><a href="#vscode">VS Code и нужные расширения</a></li>
+            <li><a href="#devtools">React DevTools в браузере</a></li>
+            <li><a href="#vite-vs-cra">Vite vs Create React App (обзор, не создаём проект)</a></li>
+            <li><a href="#first-react">Первый React прямо в браузере (CDN)</a></li>
+            <li><a href="#mistakes">8 типичных ошибок новичка на старте</a></li>
+        </ol>
+    </div>
+    <div class="toc" data-lang="en">
+        <div class="toc-title">Table of Contents</div>
+        <ol>
+            <li><a href="#problem">The problem without React: why "raw" JS breaks</a></li>
+            <li><a href="#what-is-react">What React really is</a></li>
+            <li><a href="#components">Components — React's main idea</a></li>
+            <li><a href="#virtual-dom">Virtual DOM in plain words</a></li>
+            <li><a href="#declarative">Declarative vs imperative approach</a></li>
+            <li><a href="#spa-vs-mpa">SPA vs MPA: one page or many</a></li>
+            <li><a href="#who-uses">Who uses React globally</a></li>
+            <li><a href="#react-vs-others">React vs Vue vs Angular — briefly</a></li>
+            <li><a href="#tools">Developer tools</a></li>
+            <li><a href="#nodejs">Node.js and npm: what and why</a></li>
+            <li><a href="#vscode">VS Code and needed extensions</a></li>
+            <li><a href="#devtools">React DevTools in the browser</a></li>
+            <li><a href="#vite-vs-cra">Vite vs Create React App (overview, not creating yet)</a></li>
+            <li><a href="#first-react">First React right in the browser (CDN)</a></li>
+            <li><a href="#mistakes">8 typical beginner mistakes at the start</a></li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <!-- ==================== PROBLEM ==================== -->
+    <h2 id="problem" data-lang="ru">1. Проблема без React: почему «голый» JS ломается</h2>
+    <h2 id="problem-en" data-lang="en">1. The problem without React: why "raw" JS breaks</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Вы уже умеете писать HTML, CSS и базовый JavaScript. И, возможно, думаете: «Зачем мне какой-то React, если я могу всё то же самое сделать через <code>document.getElementById</code>?» Справедливый вопрос. На нём и начнём — с <strong>боли</strong>, которую React решает.</p>
+        <p>Представьте простую задачу: счётчик. Кнопка <code>+</code>, кнопка <code>-</code>, и число на экране. Звучит элементарно. Но как только к счётчику добавляются <em>ещё</em> 10 таких же элементов на странице, связанных списков, форм — код быстро превращается в кашу. Проблема называется <strong>рассинхрон DOM и данных</strong>.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>You already write HTML, CSS and basic JavaScript. And maybe you're thinking: "Why do I need some React if I can do all that with <code>document.getElementById</code>?" Fair question. Let's start right there — with the <strong>pain</strong> that React fixes.</p>
+        <p>Imagine a simple task: a counter. A <code>+</code> button, a <code>-</code> button, and a number on screen. Sounds trivial. But the moment you add <em>10 more</em> such widgets, linked lists, forms — the code turns into soup. The problem is called <strong>DOM-and-data desynchronization</strong>.</p>
+    </div>
+
+    <h3 data-lang="ru">Счётчик на «ванильном» JS:</h3>
+    <h3 data-lang="en">Counter in "vanilla" JS:</h3>
+<pre><code>&lt;div id="counter"&gt;0&lt;/div&gt;
+&lt;button id="plus"&gt;+&lt;/button&gt;
+&lt;button id="minus"&gt;-&lt;/button&gt;
+
+&lt;script&gt;
+    let count = 0;
+    const counterEl = document.getElementById('counter');
+
+    document.getElementById('plus').addEventListener('click', () =&gt; {
+        count = count + 1;
+        counterEl.textContent = count;   // &lt;-- ручное обновление DOM
+    });
+
+    document.getElementById('minus').addEventListener('click', () =&gt; {
+        count = count - 1;
+        counterEl.textContent = count;   // &lt;-- снова ручное обновление
+    });
+&lt;/script&gt;</code></pre>
+
+    <div class="mistake" data-lang="ru">
+        <p><strong>Видите проблему?</strong> Переменная <code>count</code> — это <strong>данные</strong>. А <code>counterEl.textContent = count</code> — это <strong>ручная синхронизация</strong> данных с экраном. Вы должны помнить обновить DOM каждый раз, когда меняются данные. Забыли? На экране старое число, а в коде — новое. Баг.</p>
+        <p>Представьте: 20 компонентов, 50 переменных. В какой-то момент вы забываете обновить один элемент, и всё приложение выглядит «как будто сломано». Это реальная боль. Именно поэтому к 2013 году Facebook создал React.</p>
+    </div>
+    <div class="mistake" data-lang="en">
+        <p><strong>See the problem?</strong> The variable <code>count</code> is <strong>the data</strong>. And <code>counterEl.textContent = count</code> is <strong>manual sync</strong> between data and screen. You have to remember to update the DOM every time the data changes. Forgot once? Old number on screen, new number in code. Bug.</p>
+        <p>Imagine: 20 components, 50 variables. At some point you forget to update one element, and the whole app looks "broken". Real pain. That's exactly why Facebook built React in 2013.</p>
+    </div>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>Аналогия — ресторан без официанта.</strong> Представьте, что на кухне повара пишут меню, а вы — клиент — каждые 5 минут идёте на кухню, читаете что поменялось, и <strong>сами переписываете меню у себя на столе</strong>. Это «ванильный JS». Если забыли — сидите с неактуальной информацией. А React — это официант: повара меняют меню, официант автоматически приносит обновление на ваш стол. Вам думать не надо.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>Analogy — restaurant with no waiter.</strong> Imagine the chefs update the menu in the kitchen, and you, the customer, walk to the kitchen every 5 minutes, read what's changed and <strong>rewrite the menu on your table yourself</strong>. That's "vanilla JS". Forgot? You sit with stale info. React is the waiter: chefs change the menu, the waiter automatically brings the update to your table. You don't have to think about it.</p>
+    </div>
+
+    <h3 data-lang="ru">Тот же счётчик на React:</h3>
+    <h3 data-lang="en">The same counter in React:</h3>
+<pre><code>function Counter() {
+    const [count, setCount] = React.useState(0);
+
+    return (
+        &lt;div&gt;
+            &lt;div&gt;{count}&lt;/div&gt;
+            &lt;button onClick={() =&gt; setCount(count + 1)}&gt;+&lt;/button&gt;
+            &lt;button onClick={() =&gt; setCount(count - 1)}&gt;-&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+
+    <div class="highlight" data-lang="ru">
+        Заметьте: <strong>нет</strong> <code>getElementById</code>, <strong>нет</strong> <code>textContent = count</code>. Вы просто описываете: «На экране должен быть <code>{count}</code>». Меняете <code>count</code> через <code>setCount</code> — экран обновляется сам. Это и есть главная идея React.
+    </div>
+    <div class="highlight" data-lang="en">
+        Notice: <strong>no</strong> <code>getElementById</code>, <strong>no</strong> <code>textContent = count</code>. You just describe: "There should be <code>{count}</code> on screen". Change <code>count</code> via <code>setCount</code> — the screen updates itself. That's React's core idea.
+    </div>
+
+    <hr>
+
+    <!-- ==================== WHAT IS REACT ==================== -->
+    <h2 id="what-is-react" data-lang="ru">2. Что такое React на самом деле</h2>
+    <h2 id="what-is-react-en" data-lang="en">2. What React really is</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Короткое определение: <strong>React — это JavaScript-библиотека для построения пользовательских интерфейсов</strong>. Разберём по словам.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Short definition: <strong>React is a JavaScript library for building user interfaces</strong>. Let's break it down word by word.</p>
+    </div>
+
+    <table data-lang="ru">
+        <tr><th>Слово</th><th>Что это значит на практике</th></tr>
+        <tr><td><strong>JavaScript</strong></td><td>Не отдельный язык. Вы пишете на JS, но с дополнительными возможностями. Всё, что вы знаете о JS, работает в React.</td></tr>
+        <tr><td><strong>Библиотека</strong></td><td>Не фреймворк. Маленький «инструмент», который вы добавляете в проект. Вы решаете, как организовать код.</td></tr>
+        <tr><td><strong>Для построения</strong></td><td>Готовых «страниц из коробки» нет. Вы конструируете из кубиков.</td></tr>
+        <tr><td><strong>Пользовательских интерфейсов</strong></td><td>Всё, что видит пользователь: кнопки, формы, списки, меню, модалки, анимации.</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Word</th><th>Practical meaning</th></tr>
+        <tr><td><strong>JavaScript</strong></td><td>Not a separate language. You write in JS with extra abilities. Everything you know about JS works in React.</td></tr>
+        <tr><td><strong>Library</strong></td><td>Not a framework. A small "tool" you add to a project. You decide how to organize the code.</td></tr>
+        <tr><td><strong>For building</strong></td><td>No ready-made "out-of-the-box" pages. You assemble from blocks.</td></tr>
+        <tr><td><strong>User interfaces</strong></td><td>Everything the user sees: buttons, forms, lists, menus, modals, animations.</td></tr>
+    </table>
+
+    <div class="fun-fact" data-lang="ru">
+        <p><strong>Историческая справка.</strong> React создал Джордан Уолке — инженер Facebook — в 2011 году. Первое применение — новостная лента Facebook.com. В 2013 году код открыли как open-source. Сегодня, в 2026-м, React поддерживают Meta и сообщество из 1500+ контрибьюторов. Текущая версия: <strong>19.x</strong>.</p>
+    </div>
+    <div class="fun-fact" data-lang="en">
+        <p><strong>Historical note.</strong> React was created by Jordan Walke — a Facebook engineer — in 2011. First deployed in the Facebook.com news feed. In 2013 the code was open-sourced. Today, in 2026, React is maintained by Meta and a community of 1,500+ contributors. Current version: <strong>19.x</strong>.</p>
+    </div>
+
+    <div class="important" data-lang="ru">
+        <strong>React — не магия и не «новый JavaScript».</strong> Это обычный JS плюс две библиотеки (<code>react</code> и <code>react-dom</code>) плюс немного «синтаксического сахара» — JSX. Всё, что происходит внутри, можно написать руками. Просто было бы в 10 раз дольше.
+    </div>
+    <div class="important" data-lang="en">
+        <strong>React isn't magic and isn't "a new JavaScript".</strong> It's ordinary JS plus two libraries (<code>react</code> and <code>react-dom</code>) plus a bit of "syntactic sugar" — JSX. Everything that happens inside could be hand-written. It would just be 10× longer.
+    </div>
+
+    <hr>
+
+    <!-- ==================== COMPONENTS ==================== -->
+    <h2 id="components" data-lang="ru">3. Компоненты — главная идея React</h2>
+    <h2 id="components-en" data-lang="en">3. Components — React's main idea</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Если запомнить <strong>одно слово</strong> из всего этого занятия, пусть это будет «компонент». Компоненты — это фундамент React. Всё остальное — детали.</p>
+        <p><strong>Компонент</strong> — это самостоятельный кусок интерфейса, который можно использовать много раз. Кнопка — компонент. Карточка товара — компонент. Меню — компонент. Вся страница — тоже компонент, собранный из меньших.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>If you remember <strong>one word</strong> from this whole lesson, let it be "component". Components are the foundation of React. Everything else is detail.</p>
+        <p>A <strong>component</strong> is a self-contained piece of UI you can reuse many times. A button is a component. A product card is a component. A menu is a component. The whole page is also a component, assembled from smaller ones.</p>
+    </div>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>LEGO.</strong> У вас есть кубики: «стена 2×4», «окно», «дверь», «колесо». Из одних и тех же кубиков вы собираете <em>дом</em>, <em>машину</em>, <em>корабль</em>. Компоненты в React — это те же кубики LEGO. Один раз создаёте кнопку — дальше используете её во всём приложении. Не нужно заново писать стили и поведение.</p>
+        <p><strong>IKEA.</strong> В каталоге IKEA есть <em>ящик Malm</em>, <em>стол Linnmon</em>, <em>стул Ivar</em>. Из этих «компонентов» миллионы людей собирают уникальные комнаты. Никто не производит мебель с нуля. React устроен так же: собираете приложение из готовых и своих компонентов.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>LEGO.</strong> You have bricks: "2×4 wall", "window", "door", "wheel". From the same bricks you build a <em>house</em>, a <em>car</em>, a <em>ship</em>. Components in React are those same LEGO bricks. You build a button once — then use it across the whole app. No need to re-write styles and behavior.</p>
+        <p><strong>IKEA.</strong> The IKEA catalog has the <em>Malm dresser</em>, the <em>Linnmon table</em>, the <em>Ivar chair</em>. From these "components", millions of people build unique rooms. Nobody makes furniture from scratch. React is the same: you assemble the app from ready-made and your own components.</p>
+    </div>
+
+    <div class="diagram" data-lang="ru">
+    Страница Instagram как дерево компонентов:
+
+    &lt;App&gt;
+      ├── &lt;Header/&gt;         (логотип, поиск, уведомления)
+      ├── &lt;Stories/&gt;        (истории сверху)
+      │     └── &lt;StoryCircle/&gt; × 10
+      ├── &lt;Feed/&gt;           (лента постов)
+      │     └── &lt;Post/&gt; × N
+      │           ├── &lt;PostHeader/&gt;
+      │           ├── &lt;PostImage/&gt;
+      │           ├── &lt;PostActions/&gt;   (лайк, коммент, share)
+      │           └── &lt;PostCaption/&gt;
+      └── &lt;Sidebar/&gt;        (предложения подписаться)</div>
+    <div class="diagram" data-lang="en">
+    Instagram page as a component tree:
+
+    &lt;App&gt;
+      ├── &lt;Header/&gt;         (logo, search, notifications)
+      ├── &lt;Stories/&gt;        (stories at the top)
+      │     └── &lt;StoryCircle/&gt; × 10
+      ├── &lt;Feed/&gt;           (post feed)
+      │     └── &lt;Post/&gt; × N
+      │           ├── &lt;PostHeader/&gt;
+      │           ├── &lt;PostImage/&gt;
+      │           ├── &lt;PostActions/&gt;   (like, comment, share)
+      │           └── &lt;PostCaption/&gt;
+      └── &lt;Sidebar/&gt;        (follow suggestions)</div>
+
+    <h3 data-lang="ru">Что даёт компонентный подход:</h3>
+    <h3 data-lang="en">What the component approach gives you:</h3>
+    <ul data-lang="ru">
+        <li><strong>Переиспользование.</strong> Написали <code>&lt;Button /&gt;</code> — используете 200 раз.</li>
+        <li><strong>Изоляция.</strong> Сломалась одна карточка — остальные работают. Не влияют друг на друга.</li>
+        <li><strong>Читаемость.</strong> Смотришь на <code>&lt;Header /&gt; &lt;Feed /&gt; &lt;Footer /&gt;</code> — и сразу понимаешь структуру страницы.</li>
+        <li><strong>Работа в команде.</strong> Один разработчик пишет Header, другой — Feed, третий — Footer. Никто никому не мешает.</li>
+        <li><strong>Тестируемость.</strong> Компонент можно проверить отдельно от всего приложения.</li>
+    </ul>
+    <ul data-lang="en">
+        <li><strong>Reuse.</strong> Wrote <code>&lt;Button /&gt;</code> — used 200 times.</li>
+        <li><strong>Isolation.</strong> One card broke — the rest still work. They don't affect each other.</li>
+        <li><strong>Readability.</strong> Looking at <code>&lt;Header /&gt; &lt;Feed /&gt; &lt;Footer /&gt;</code> — you immediately see the page structure.</li>
+        <li><strong>Teamwork.</strong> One dev writes Header, another writes Feed, a third writes Footer. Nobody blocks anybody.</li>
+        <li><strong>Testability.</strong> You can test a component separately from the whole app.</li>
+    </ul>
+
+    <div class="pro-tip" data-lang="ru">
+        <p>На собеседовании на позицию junior-разработчика 80% вопросов по React крутятся вокруг компонентов: «что такое компонент», «как передать данные в компонент», «как сделать переиспользуемый компонент». Поймёте компоненты глубоко — половина собеседования позади.</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p>In a junior React interview, 80% of React questions are about components: "what is a component", "how do you pass data into a component", "how do you make a reusable component". Understand components deeply — half the interview is already behind you.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== VIRTUAL DOM ==================== -->
+    <h2 id="virtual-dom" data-lang="ru">4. Виртуальный DOM простыми словами</h2>
+    <h2 id="virtual-dom-en" data-lang="en">4. Virtual DOM in plain words</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Термин, который вы услышите на любом React-собеседовании. На первом занятии не обязательно разбираться в деталях — достаточно понимать <em>на уровне аналогии</em>. На уроке 18 мы вернёмся к этому глубже.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>A term you'll hear at any React interview. On lesson 1 you don't need the details — just an <em>analogy-level</em> understanding. We'll come back deeper on lesson 18.</p>
+    </div>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>Черновик и чистовик.</strong> Когда вы пишете сочинение, вы сначала набрасываете черновик. Зачёркиваете, переставляете абзацы, меняете слова. Это быстро и ничего не стоит. Когда черновик готов — <em>только тогда</em> переписываете в чистовик одним движением.</p>
+        <p>React работает так же. DOM (настоящий, в браузере) — это «чистовик»: медленный, дорогой в обновлении. Виртуальный DOM — это «черновик» в памяти JavaScript: быстрый, дешёвый. React делает все расчёты в черновике, а потом <strong>одной операцией</strong> переносит изменения в настоящий DOM.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>Draft and final copy.</strong> When you write an essay, you first sketch a draft. You cross out, move paragraphs, swap words. Fast and free. When the draft is ready — <em>only then</em> you copy it into the final version in one motion.</p>
+        <p>React works the same way. The DOM (the real one in the browser) is the "final copy": slow, expensive to update. The virtual DOM is the "draft" in JavaScript memory: fast, cheap. React does all calculations in the draft and then <strong>in one operation</strong> pushes the changes to the real DOM.</p>
+    </div>
+
+    <div class="diagram" data-lang="ru">
+    Что происходит при клике на кнопку "+" в счётчике:
+
+    [1] Клик по кнопке
+         │
+         ▼
+    [2] React меняет данные в памяти (count = 5 → 6)
+         │
+         ▼
+    [3] React перерисовывает виртуальный DOM (черновик)
+         │
+         ▼
+    [4] React сравнивает старый и новый черновики
+         │      (алгоритм называется "diffing")
+         ▼
+    [5] React находит разницу: изменился только один элемент
+         │
+         ▼
+    [6] React обновляет в настоящем DOM ТОЛЬКО этот один элемент
+         (не трогает остальную страницу)</div>
+    <div class="diagram" data-lang="en">
+    What happens when you click "+" in the counter:
+
+    [1] Button click
+         │
+         ▼
+    [2] React changes the data in memory (count = 5 → 6)
+         │
+         ▼
+    [3] React re-renders the virtual DOM (draft)
+         │
+         ▼
+    [4] React compares old and new drafts
+         │      (the algorithm is called "diffing")
+         ▼
+    [5] React finds the diff: only one element changed
+         │
+         ▼
+    [6] React updates ONLY that one element in the real DOM
+         (doesn't touch the rest of the page)</div>
+
+    <div class="important" data-lang="ru">
+        Итог: <strong>вам не нужно думать о DOM</strong>. Вы описываете «что должно быть», а React оптимально обновляет. Это и есть причина, почему React <em>быстрый</em>: он обновляет только то, что реально изменилось.
+    </div>
+    <div class="important" data-lang="en">
+        Bottom line: <strong>you don't think about the DOM</strong>. You describe "what should be", and React updates optimally. That's why React is <em>fast</em>: it only updates what actually changed.
+    </div>
+
+    <hr>
+
+    <!-- ==================== DECLARATIVE ==================== -->
+    <h2 id="declarative" data-lang="ru">5. Декларативный vs императивный подход</h2>
+    <h2 id="declarative-en" data-lang="en">5. Declarative vs imperative approach</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Ещё одна пара слов, которую любят спрашивать на собеседовании. Разберём на пальцах.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Another pair of words interviewers love. Let's make it simple.</p>
+    </div>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>Такси.</strong> Есть два способа доехать до места:</p>
+        <ol>
+            <li><strong>Императивный:</strong> «Поверни налево. Теперь прямо 300 метров. Теперь направо у светофора. Теперь ещё прямо. Останови тут.» — вы пошагово командуете, <em>как</em> ехать.</li>
+            <li><strong>Декларативный:</strong> «Отвезите меня в аэропорт» — вы говорите <em>куда</em>, а водитель сам решает как.</li>
+        </ol>
+        <p>«Ванильный» JS — императивный: «найди элемент, измени текст, добавь класс, удали другой элемент...». React — декларативный: «на экране должно быть вот это».</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>Taxi.</strong> Two ways to get somewhere:</p>
+        <ol>
+            <li><strong>Imperative:</strong> "Turn left. Now 300 meters straight. Now right at the light. Now more straight. Stop here." — you step-by-step command <em>how</em> to drive.</li>
+            <li><strong>Declarative:</strong> "Take me to the airport" — you say <em>where</em>, and the driver figures out how.</li>
+        </ol>
+        <p>"Vanilla" JS is imperative: "find the element, change the text, add a class, remove another element...". React is declarative: "this is what should be on screen".</p>
+    </div>
+
+    <div class="compare">
+        <div class="wrong">
+            <div class="label" data-lang="ru">Императивно (ваниль JS)</div>
+            <div class="label" data-lang="en">Imperative (vanilla JS)</div>
+<pre><code>const list = document.getElementById('list');
+list.innerHTML = '';
+users.forEach(user =&gt; {
+    const li = document.createElement('li');
+    li.textContent = user.name;
+    list.appendChild(li);
+});</code></pre>
+        </div>
+        <div class="right">
+            <div class="label" data-lang="ru">Декларативно (React)</div>
+            <div class="label" data-lang="en">Declarative (React)</div>
+<pre><code>&lt;ul&gt;
+  {users.map(user =&gt; (
+    &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;
+  ))}
+&lt;/ul&gt;</code></pre>
+        </div>
+    </div>
+
+    <div class="highlight" data-lang="ru">
+        В декларативной версии вы описываете <strong>результат</strong>: «на экране список пользователей». В императивной — <strong>инструкции</strong> «очисти список, создай элемент, добавь в список». Декларативный код читается как схема, императивный — как инструкция сборки IKEA.
+    </div>
+    <div class="highlight" data-lang="en">
+        In the declarative version you describe <strong>the result</strong>: "list of users on screen". In the imperative one — <strong>instructions</strong>: "clear the list, create an element, append to the list". Declarative reads like a diagram, imperative reads like an IKEA manual.
+    </div>
+
+    <hr>
+
+    <!-- ==================== SPA VS MPA ==================== -->
+    <h2 id="spa-vs-mpa" data-lang="ru">6. SPA vs MPA: одна страница или много</h2>
+    <h2 id="spa-vs-mpa-en" data-lang="en">6. SPA vs MPA: one page or many</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Когда мы делали HTML-курс, мы создавали несколько <code>.html</code>-файлов: <code>index.html</code>, <code>about.html</code>, <code>contact.html</code>. При клике на ссылку браузер загружал <strong>новую страницу</strong> — экран мерцал, всё перезагружалось. Это <strong>MPA</strong>: Multi-Page Application, многостраничное приложение.</p>
+        <p>React-приложения устроены иначе: <strong>один</strong> HTML-файл (<code>index.html</code>), а все «страницы» — это компоненты, которые JavaScript показывает и прячет без перезагрузки. Это <strong>SPA</strong>: Single-Page Application, одностраничное приложение.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>In the HTML course we created several <code>.html</code> files: <code>index.html</code>, <code>about.html</code>, <code>contact.html</code>. Click a link — the browser loads <strong>a new page</strong>, the screen flashes, everything reloads. That's <strong>MPA</strong>: Multi-Page Application.</p>
+        <p>React apps work differently: <strong>one</strong> HTML file (<code>index.html</code>), and all "pages" are components that JavaScript shows and hides without reload. That's <strong>SPA</strong>: Single-Page Application.</p>
+    </div>
+
+    <table data-lang="ru">
+        <tr><th></th><th>MPA (классика)</th><th>SPA (React)</th></tr>
+        <tr><td>Сколько HTML-файлов</td><td>Много</td><td>Один</td></tr>
+        <tr><td>При переходе по ссылке</td><td>Перезагружается вся страница</td><td>Меняется только контент, без перезагрузки</td></tr>
+        <tr><td>Ощущение</td><td>Как сайт в 2010-х</td><td>Как нативное приложение</td></tr>
+        <tr><td>Первая загрузка</td><td>Быстрая</td><td>Чуть медленнее (загружает весь JS)</td></tr>
+        <tr><td>Последующие переходы</td><td>Медленнее (новая загрузка)</td><td>Мгновенные</td></tr>
+        <tr><td>Примеры</td><td>Википедия, блог на WordPress</td><td>Instagram, Gmail, Spotify Web</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th></th><th>MPA (classic)</th><th>SPA (React)</th></tr>
+        <tr><td>HTML files</td><td>Many</td><td>One</td></tr>
+        <tr><td>On link click</td><td>Whole page reloads</td><td>Only content swaps, no reload</td></tr>
+        <tr><td>Feel</td><td>Like a site in the 2010s</td><td>Like a native app</td></tr>
+        <tr><td>First load</td><td>Fast</td><td>Slightly slower (loads all JS)</td></tr>
+        <tr><td>Subsequent navigation</td><td>Slower (new load)</td><td>Instant</td></tr>
+        <tr><td>Examples</td><td>Wikipedia, a WordPress blog</td><td>Instagram, Gmail, Spotify Web</td></tr>
+    </table>
+
+    <div class="fun-fact" data-lang="ru">
+        <p>Откройте Gmail, нажмите на письмо, потом на «Входящие» обратно. Заметили — <strong>адрес в строке браузера меняется</strong>, но страница не перезагружается? Это SPA в действии. Gmail был одним из первых SPA в мире, ещё в 2004 году — задолго до React.</p>
+    </div>
+    <div class="fun-fact" data-lang="en">
+        <p>Open Gmail, click a message, then click "Inbox" back. Notice — <strong>the URL in the address bar changes</strong>, but the page doesn't reload? That's SPA in action. Gmail was one of the world's first SPAs back in 2004 — long before React.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== WHO USES ==================== -->
+    <h2 id="who-uses" data-lang="ru">7. Кто использует React в мире</h2>
+    <h2 id="who-uses-en" data-lang="en">7. Who uses React globally</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Это не «молодая модная технология». React работает в продакшене с 2013 года. За 13 лет его внедрили практически все крупные IT-компании. Когда вы учите React, вы учитесь тому, что реально используется миллиардами людей ежедневно.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>This is not a "trendy new tech". React has been in production since 2013. Over 13 years, almost every major IT company has adopted it. When you learn React, you're learning what billions of people use every day.</p>
+    </div>
+
+    <div class="real-world" data-lang="ru">
+        <p><strong>Социальные сети и мессенджеры:</strong> Facebook, Instagram, WhatsApp Web, Threads, Discord, Twitter/X (частично), Reddit.</p>
+        <p><strong>Стриминг и медиа:</strong> Netflix (веб-интерфейс), Twitch, BBC, New York Times.</p>
+        <p><strong>Путешествия и покупки:</strong> Airbnb, Uber, Uber Eats, Shopify (админка), Atlassian.</p>
+        <p><strong>Продуктивность и инструменты:</strong> Notion, Figma (частично), Linear, Vercel, Stripe Dashboard, Zoom Web.</p>
+        <p><strong>Туркменистан и регион:</strong> Ykjam, Sanly, большинство IT-студий в Ашхабаде строят фронтенд именно на React.</p>
+    </div>
+    <div class="real-world" data-lang="en">
+        <p><strong>Social & messaging:</strong> Facebook, Instagram, WhatsApp Web, Threads, Discord, Twitter/X (partly), Reddit.</p>
+        <p><strong>Streaming & media:</strong> Netflix (web UI), Twitch, BBC, New York Times.</p>
+        <p><strong>Travel & commerce:</strong> Airbnb, Uber, Uber Eats, Shopify (admin), Atlassian.</p>
+        <p><strong>Productivity & tools:</strong> Notion, Figma (partly), Linear, Vercel, Stripe Dashboard, Zoom Web.</p>
+        <p><strong>Turkmenistan and the region:</strong> Ykjam, Sanly, most IT studios in Ashgabat build their front-end with React.</p>
+    </div>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>Бонус: React Native.</strong> Facebook пошли дальше: они применили тот же подход к мобильным приложениям. На React Native написаны Facebook, Instagram, Discord, Shopify mobile, Tesla, Walmart. Код — почти тот же, что React для веба. Освоите React — бонусом откроется React Native. Один язык, три платформы (веб, iOS, Android).</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>Bonus: React Native.</strong> Facebook went further: they applied the same approach to mobile apps. Facebook, Instagram, Discord, Shopify mobile, Tesla, Walmart are all built on React Native. The code is almost the same as React for the web. Master React — and React Native opens up as a bonus. One language, three platforms (web, iOS, Android).</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== REACT VS OTHERS ==================== -->
+    <h2 id="react-vs-others" data-lang="ru">8. React vs Vue vs Angular — коротко</h2>
+    <h2 id="react-vs-others-en" data-lang="en">8. React vs Vue vs Angular — briefly</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Вас наверняка спросят: «А почему именно React? Есть же Vue, Angular, Svelte...». Короткий ответ: все они решают одну задачу (компоненты + реактивное обновление UI), но по-разному. Я не буду говорить «React лучше». Я дам факты.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>You'll surely be asked: "Why React specifically? There's Vue, Angular, Svelte...". Short answer: they all solve the same task (components + reactive UI updates), just differently. I won't say "React is better". I'll give you the facts.</p>
+    </div>
+
+    <table data-lang="ru">
+        <tr><th></th><th>React</th><th>Vue</th><th>Angular</th></tr>
+        <tr><td>Кто создал</td><td>Facebook/Meta</td><td>Эван Ю (один человек изначально)</td><td>Google</td></tr>
+        <tr><td>Тип</td><td>Библиотека</td><td>Фреймворк</td><td>Большой фреймворк</td></tr>
+        <tr><td>Порог входа</td><td>Средний</td><td>Низкий</td><td>Высокий</td></tr>
+        <tr><td>Популярность (вакансии 2026)</td><td>~40%</td><td>~15%</td><td>~20%</td></tr>
+        <tr><td>Синтаксис</td><td>JSX (JS + HTML)</td><td>Template + SFC</td><td>Шаблоны + TypeScript</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th></th><th>React</th><th>Vue</th><th>Angular</th></tr>
+        <tr><td>Creator</td><td>Facebook/Meta</td><td>Evan You (one person originally)</td><td>Google</td></tr>
+        <tr><td>Type</td><td>Library</td><td>Framework</td><td>Heavy framework</td></tr>
+        <tr><td>Learning curve</td><td>Medium</td><td>Low</td><td>High</td></tr>
+        <tr><td>Popularity (2026 jobs)</td><td>~40%</td><td>~15%</td><td>~20%</td></tr>
+        <tr><td>Syntax</td><td>JSX (JS + HTML)</td><td>Template + SFC</td><td>Templates + TypeScript</td></tr>
+    </table>
+
+    <div class="important" data-lang="ru">
+        <strong>Не тратьте время на холивары.</strong> Учим React, потому что он самый востребованный на рынке труда и имеет самое большое сообщество. Выучив React, вы <em>без проблем</em> освоите Vue или Svelte за 1-2 недели — идеи у них одинаковые. Обратное тоже верно.
+    </div>
+    <div class="important" data-lang="en">
+        <strong>Don't waste time on holy wars.</strong> We learn React because it's the most in-demand on the job market and has the biggest community. Once you know React, you'll pick up Vue or Svelte in 1-2 weeks — the ideas are the same. Vice versa too.
+    </div>
+
+    <hr>
+
+    <!-- ==================== TOOLS ==================== -->
+    <h2 id="tools" data-lang="ru">9. Инструменты разработчика</h2>
+    <h2 id="tools-en" data-lang="en">9. Developer tools</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Раньше для сайта хватало одного <code>index.html</code>, открытого в браузере. Для React-разработки нужен набор инструментов. Не пугайтесь — это стандартный набор любого JS-разработчика в 2026 году.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Earlier a single <code>index.html</code> opened in a browser was enough. For React dev, you need a toolset. Don't panic — it's the standard toolkit of any JS developer in 2026.</p>
+    </div>
+
+    <table data-lang="ru">
+        <tr><th>Инструмент</th><th>Зачем</th><th>Обязательно?</th></tr>
+        <tr><td><strong>Node.js</strong></td><td>Запуск JS вне браузера + менеджер пакетов npm</td><td>Да</td></tr>
+        <tr><td><strong>VS Code</strong></td><td>Редактор кода</td><td>Да (или альтернатива — WebStorm, Cursor)</td></tr>
+        <tr><td><strong>Браузер Chrome / Firefox</strong></td><td>Запуск и отладка</td><td>Да (нужен современный, не IE)</td></tr>
+        <tr><td><strong>React DevTools</strong></td><td>Расширение браузера для отладки React</td><td>Очень желательно</td></tr>
+        <tr><td><strong>Git</strong></td><td>Версионность кода, работа на GitHub</td><td>Да (установим на занятии 2)</td></tr>
+        <tr><td><strong>Terminal</strong></td><td>Командная строка для запуска npm-команд</td><td>Встроен в ОС</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Tool</th><th>Why</th><th>Mandatory?</th></tr>
+        <tr><td><strong>Node.js</strong></td><td>Running JS outside the browser + the npm package manager</td><td>Yes</td></tr>
+        <tr><td><strong>VS Code</strong></td><td>Code editor</td><td>Yes (or an alternative — WebStorm, Cursor)</td></tr>
+        <tr><td><strong>Chrome / Firefox</strong></td><td>Running and debugging</td><td>Yes (a modern one, not IE)</td></tr>
+        <tr><td><strong>React DevTools</strong></td><td>Browser extension for React debugging</td><td>Strongly recommended</td></tr>
+        <tr><td><strong>Git</strong></td><td>Code versioning, GitHub workflow</td><td>Yes (installing on lesson 2)</td></tr>
+        <tr><td><strong>Terminal</strong></td><td>Command line for running npm commands</td><td>Built into the OS</td></tr>
+    </table>
+
+    <hr>
+
+    <!-- ==================== NODEJS ==================== -->
+    <h2 id="nodejs" data-lang="ru">10. Node.js и npm: что это и зачем</h2>
+    <h2 id="nodejs-en" data-lang="en">10. Node.js and npm: what and why</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Самое частое недоразумение новичка: «Но ведь React — это же для браузера? Зачем мне что-то ставить на компьютер?» Разбираем.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>The most common beginner confusion: "But React is for the browser, right? Why install something on my computer?" Let's unpack.</p>
+    </div>
+
+    <h3 data-lang="ru">Что такое Node.js:</h3>
+    <h3 data-lang="en">What Node.js is:</h3>
+    <div class="analogy" data-lang="ru">
+        <p><strong>Браузер</strong> — это программа, которая умеет запускать JavaScript. Но JavaScript изначально работал <em>только</em> внутри браузера. <strong>Node.js</strong> — это тот же движок JS (V8 от Google Chrome), <em>вытащенный из браузера</em>, чтобы запускать JS как обычную программу на компьютере.</p>
+        <p>Зачем это нам? Чтобы запускать инструменты разработки: сборщик Vite, компилятор, линтер. Эти инструменты написаны на JavaScript и работают локально, на вашем компьютере, ещё до того как ваш код попадёт в браузер.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p>A <strong>browser</strong> is a program that runs JavaScript. But JavaScript originally worked <em>only</em> inside the browser. <strong>Node.js</strong> is the same JS engine (V8 from Google Chrome) <em>pulled out of the browser</em> so you can run JS as a regular program on your computer.</p>
+        <p>Why do we need this? To run dev tools: the Vite bundler, the compiler, the linter. These tools are written in JavaScript and run locally on your computer, before your code even reaches the browser.</p>
+    </div>
+
+    <h3 data-lang="ru">Что такое npm:</h3>
+    <h3 data-lang="en">What npm is:</h3>
+    <div class="analogy" data-lang="ru">
+        <p>npm = <strong>Node Package Manager</strong>. Это «магазин приложений», только для кода. Кто-то написал полезную библиотеку → опубликовал в npm → любой разработчик ставит её командой <code>npm install package-name</code>.</p>
+        <p>В npm сейчас больше <strong>2 миллионов</strong> пакетов. Сам React — это npm-пакет. Vite — тоже пакет. Axios, lodash, tailwindcss — все пакеты.</p>
+        <p>npm устанавливается <strong>автоматически вместе с Node.js</strong>. Ставите Node — получаете npm. Отдельно ничего качать не нужно.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p>npm = <strong>Node Package Manager</strong>. It's an "app store", but for code. Someone wrote a useful library → published it to npm → any developer installs it with <code>npm install package-name</code>.</p>
+        <p>npm currently has over <strong>2 million</strong> packages. React itself is an npm package. Vite — also a package. Axios, lodash, tailwindcss — all packages.</p>
+        <p>npm is installed <strong>automatically with Node.js</strong>. Install Node — you get npm. No separate download.</p>
+    </div>
+
+    <h3 data-lang="ru">Как установить Node.js:</h3>
+    <h3 data-lang="en">How to install Node.js:</h3>
+    <div class="try-it" data-lang="ru">
+        <ol>
+            <li>Открываете в браузере: <strong>nodejs.org</strong></li>
+            <li>На главной увидите две большие кнопки. Выбираете <strong>LTS</strong> (Long-Term Support — стабильная версия). <em>Не берите «Current» — там сырые фичи.</em></li>
+            <li>Скачивается установщик (<code>.msi</code> на Windows, <code>.pkg</code> на Mac).</li>
+            <li>Запускаете, жмёте «Далее» везде по умолчанию. На одном из шагов будет галочка «Add to PATH» — <strong>должна быть включена</strong> (по умолчанию так).</li>
+            <li>Установка длится 1-2 минуты.</li>
+            <li>Откройте <strong>новое</strong> окно терминала (PowerShell на Windows, Terminal на Mac):
+<pre><code>node -v
+npm -v</code></pre>
+                Должны увидеть что-то вроде <code>v22.11.0</code> и <code>10.9.0</code>. Если видите — всё готово.</li>
+        </ol>
+    </div>
+    <div class="try-it" data-lang="en">
+        <ol>
+            <li>Open in browser: <strong>nodejs.org</strong></li>
+            <li>On the homepage you'll see two big buttons. Pick <strong>LTS</strong> (Long-Term Support — the stable version). <em>Don't take "Current" — it has bleeding-edge features.</em></li>
+            <li>An installer downloads (<code>.msi</code> on Windows, <code>.pkg</code> on Mac).</li>
+            <li>Run it, click "Next" with defaults. One step has an "Add to PATH" checkbox — <strong>keep it ticked</strong> (default).</li>
+            <li>Install takes 1-2 minutes.</li>
+            <li>Open a <strong>new</strong> terminal window (PowerShell on Windows, Terminal on Mac):
+<pre><code>node -v
+npm -v</code></pre>
+                You should see something like <code>v22.11.0</code> and <code>10.9.0</code>. If you do — all set.</li>
+        </ol>
+    </div>
+
+    <div class="mistake" data-lang="ru">
+        <p><strong>Типичная ошибка:</strong> после установки запустили <code>node -v</code>, видите «команда не найдена». Причина — терминал был открыт <em>до</em> установки. Решение: <strong>закройте</strong> терминал полностью и откройте заново. PATH подхватывается только в новых окнах.</p>
+    </div>
+    <div class="mistake" data-lang="en">
+        <p><strong>Typical mistake:</strong> after install you run <code>node -v</code> and see "command not found". Reason — the terminal was open <em>before</em> install. Fix: <strong>fully close</strong> the terminal and reopen. PATH is picked up only in new windows.</p>
+    </div>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>В 2026 году:</strong> актуальная LTS-версия Node.js — <strong>22.x</strong> (кодовое имя «Jod»). Если на экране что-то другое (например, 18 или 20) — ничего страшного, всё будет работать. Минимум для Vite и React 19: Node.js 20.</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>In 2026:</strong> the current LTS is Node.js <strong>22.x</strong> (codename "Jod"). If your screen shows something else (e.g. 18 or 20) — no worries, everything works. Minimum for Vite and React 19: Node.js 20.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== VSCODE ==================== -->
+    <h2 id="vscode" data-lang="ru">11. VS Code и нужные расширения</h2>
+    <h2 id="vscode-en" data-lang="en">11. VS Code and needed extensions</h2>
+
+    <div class="why" data-lang="ru">
+        <p>VS Code — бесплатный редактор кода от Microsoft. Самый популярный в мире — 75% разработчиков используют именно его. Для React это стандарт. Качаем и настраиваем под React.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>VS Code is Microsoft's free code editor. The most popular worldwide — 75% of developers use it. For React it's the standard. Let's download and tune it for React.</p>
+    </div>
+
+    <h3 data-lang="ru">Установка:</h3>
+    <h3 data-lang="en">Installation:</h3>
+    <ol data-lang="ru">
+        <li>Идём на <strong>code.visualstudio.com</strong></li>
+        <li>Большая синяя кнопка «Download» → скачивается установщик</li>
+        <li>Запускаете → «Далее» → готово</li>
+    </ol>
+    <ol data-lang="en">
+        <li>Go to <strong>code.visualstudio.com</strong></li>
+        <li>Big blue "Download" button → installer downloads</li>
+        <li>Run it → "Next" → done</li>
+    </ol>
+
+    <h3 data-lang="ru">4 обязательных расширения для React:</h3>
+    <h3 data-lang="en">4 must-have extensions for React:</h3>
+    <div class="try-it" data-lang="ru">
+        <p>Открываем VS Code → слева на панели иконка «Extensions» (четыре квадратика) или <code>Ctrl+Shift+X</code>. В поиске ищем и ставим:</p>
+        <ol>
+            <li><strong>ES7+ React/Redux/React-Native snippets</strong> (автор: dsznajder) — даёт быстрые сокращения: наберёте <code>rafce</code> + Tab и получите готовый шаблон функционального компонента.</li>
+            <li><strong>Prettier - Code formatter</strong> — автоматически форматирует код при сохранении. Больше не нужно думать про отступы.</li>
+            <li><strong>Auto Rename Tag</strong> — переименовываете открывающий тег <code>&lt;div&gt;</code> → закрывающий <code>&lt;/div&gt;</code> меняется сам.</li>
+            <li><strong>Simple React Snippets</strong> (автор: burkeholland) — ещё один набор сниппетов. <code>imrc</code> → <code>import React, {...} from 'react'</code>.</li>
+        </ol>
+    </div>
+    <div class="try-it" data-lang="en">
+        <p>Open VS Code → left panel "Extensions" icon (four squares) or <code>Ctrl+Shift+X</code>. Search and install:</p>
+        <ol>
+            <li><strong>ES7+ React/Redux/React-Native snippets</strong> (by dsznajder) — gives quick shortcuts: type <code>rafce</code> + Tab and get a ready functional component template.</li>
+            <li><strong>Prettier - Code formatter</strong> — auto-formats code on save. No more thinking about indentation.</li>
+            <li><strong>Auto Rename Tag</strong> — rename the opening <code>&lt;div&gt;</code> → the closing <code>&lt;/div&gt;</code> updates automatically.</li>
+            <li><strong>Simple React Snippets</strong> (by burkeholland) — another snippet pack. <code>imrc</code> → <code>import React, {...} from 'react'</code>.</li>
+        </ol>
+    </div>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>Prettier — настройка «форматировать при сохранении»:</strong></p>
+        <ol>
+            <li><code>Ctrl+,</code> (настройки)</li>
+            <li>В поиске: <code>format on save</code> → поставьте галочку</li>
+            <li>Ещё поиск: <code>default formatter</code> → выберите <code>Prettier - Code formatter</code></li>
+        </ol>
+        <p>Теперь при каждом сохранении (<code>Ctrl+S</code>) код форматируется автоматически. Это сэкономит вам тысячи часов за карьеру.</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>Prettier — turn on "format on save":</strong></p>
+        <ol>
+            <li><code>Ctrl+,</code> (settings)</li>
+            <li>Search: <code>format on save</code> → check the box</li>
+            <li>Search again: <code>default formatter</code> → pick <code>Prettier - Code formatter</code></li>
+        </ol>
+        <p>Now on every save (<code>Ctrl+S</code>) code is auto-formatted. This will save you thousands of hours over a career.</p>
+    </div>
+
+    <div class="fun-fact" data-lang="ru">
+        <p>Помимо VS Code, в 2026 году набирают популярность <strong>Cursor</strong> (форк VS Code с встроенным ИИ) и <strong>Zed</strong> (мегабыстрый редактор). Но изучать React в них так же удобно, как в VS Code — интерфейс идентичен. Начните с VS Code, потом посмотрите альтернативы.</p>
+    </div>
+    <div class="fun-fact" data-lang="en">
+        <p>Beyond VS Code, 2026 has <strong>Cursor</strong> (a VS Code fork with built-in AI) and <strong>Zed</strong> (a super-fast editor) gaining traction. But learning React in them is just as comfortable as in VS Code — the UI is identical. Start with VS Code, check alternatives later.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== DEVTOOLS ==================== -->
+    <h2 id="devtools" data-lang="ru">12. React DevTools в браузере</h2>
+    <h2 id="devtools-en" data-lang="en">12. React DevTools in the browser</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Обычный Chrome DevTools (F12) показывает HTML, CSS, консоль, сеть. Для React нужен дополнительный инструмент, который покажет <strong>дерево компонентов</strong>, их <strong>props</strong> и <strong>state</strong>. Это расширение называется <strong>React Developer Tools</strong>, выпускается самой Meta.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Regular Chrome DevTools (F12) shows HTML, CSS, Console, Network. For React you need an extra tool that shows the <strong>component tree</strong>, their <strong>props</strong> and <strong>state</strong>. The extension is called <strong>React Developer Tools</strong>, released by Meta itself.</p>
+    </div>
+
+    <div class="try-it" data-lang="ru">
+        <p><strong>Установка (Chrome):</strong></p>
+        <ol>
+            <li>Открыть Chrome → Chrome Web Store (в поиске Google «chrome web store»)</li>
+            <li>В строке поиска расширений ввести: <code>React Developer Tools</code></li>
+            <li>Первый результат с логотипом React (синяя атомарная молекула) → «Добавить в Chrome» → подтвердить.</li>
+            <li>После установки в DevTools (F12) появятся новые вкладки: <strong>Components</strong> и <strong>Profiler</strong>.</li>
+        </ol>
+        <p><strong>Firefox:</strong> addons.mozilla.org → искать «React Developer Tools».</p>
+    </div>
+    <div class="try-it" data-lang="en">
+        <p><strong>Install (Chrome):</strong></p>
+        <ol>
+            <li>Open Chrome → Chrome Web Store (Google "chrome web store")</li>
+            <li>In the extension search type: <code>React Developer Tools</code></li>
+            <li>First result with the React logo (blue atomic molecule) → "Add to Chrome" → confirm.</li>
+            <li>After install, DevTools (F12) will show new tabs: <strong>Components</strong> and <strong>Profiler</strong>.</li>
+        </ol>
+        <p><strong>Firefox:</strong> addons.mozilla.org → search "React Developer Tools".</p>
+    </div>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>Проверка установки:</strong> откройте любой React-сайт (например, <strong>react.dev</strong>), нажмите F12. Если в DevTools есть вкладки <em>Components</em> и <em>Profiler</em> — всё установлено верно. Если нет — перезапустите браузер.</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>Verify install:</strong> open any React site (e.g. <strong>react.dev</strong>), hit F12. If DevTools has <em>Components</em> and <em>Profiler</em> tabs — all set. If not — restart the browser.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== VITE VS CRA ==================== -->
+    <h2 id="vite-vs-cra" data-lang="ru">13. Vite vs Create React App (обзор, не создаём проект)</h2>
+    <h2 id="vite-vs-cra-en" data-lang="en">13. Vite vs Create React App (overview, not creating yet)</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Чтобы создать реальный React-проект с кучей файлов, нужен «стартер» — инструмент, который сгенерирует стартовую структуру и настроит сборку. В 2013-2022 годах стандартом был <strong>Create React App (CRA)</strong>. С 2023 года мир перешёл на <strong>Vite</strong>. На занятии 2 мы создадим проект на Vite. Сейчас — просто поймём разницу.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>To create a real React project with many files you need a "starter" — a tool that generates the initial structure and configures the build. From 2013-2022 the standard was <strong>Create React App (CRA)</strong>. Since 2023 the world moved to <strong>Vite</strong>. On lesson 2 we'll create a Vite project. For now — just understand the difference.</p>
+    </div>
+
+    <table data-lang="ru">
+        <tr><th></th><th>Create React App (CRA)</th><th>Vite</th></tr>
+        <tr><td>Год появления</td><td>2016</td><td>2020</td></tr>
+        <tr><td>Автор</td><td>Facebook</td><td>Эван Ю (создатель Vue)</td></tr>
+        <tr><td>Скорость старта сервера</td><td>30-60 сек</td><td>&lt; 1 сек</td></tr>
+        <tr><td>Hot reload (обновление при правке)</td><td>Медленный</td><td>Мгновенный</td></tr>
+        <tr><td>Статус в 2026</td><td>Deprecated (устарел)</td><td>Актуальный стандарт</td></tr>
+        <tr><td>Команда создания</td><td><code>npx create-react-app my-app</code></td><td><code>npm create vite@latest</code></td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th></th><th>Create React App (CRA)</th><th>Vite</th></tr>
+        <tr><td>Released</td><td>2016</td><td>2020</td></tr>
+        <tr><td>Author</td><td>Facebook</td><td>Evan You (Vue creator)</td></tr>
+        <tr><td>Server start speed</td><td>30-60 sec</td><td>&lt; 1 sec</td></tr>
+        <tr><td>Hot reload (on edit)</td><td>Slow</td><td>Instant</td></tr>
+        <tr><td>Status in 2026</td><td>Deprecated</td><td>Current standard</td></tr>
+        <tr><td>Create command</td><td><code>npx create-react-app my-app</code></td><td><code>npm create vite@latest</code></td></tr>
+    </table>
+
+    <div class="important" data-lang="ru">
+        <strong>В 2026 году CRA официально <em>depreкейтили</em></strong> — сама React-команда в официальной документации react.dev рекомендует Vite или Next.js. Если где-то в интернете встретите туториал с <code>create-react-app</code> — он устарел. Все новые проекты создаём на Vite.
+    </div>
+    <div class="important" data-lang="en">
+        <strong>In 2026 CRA is officially <em>deprecated</em></strong> — the React team itself on react.dev recommends Vite or Next.js. If you see a tutorial with <code>create-react-app</code> somewhere online — it's outdated. All new projects — on Vite.
+    </div>
+
+    <div class="fun-fact" data-lang="ru">
+        <p><strong>Почему Vite быстрее?</strong> CRA при старте сервера собирал всё приложение целиком. Vite же использует «нативные модули ES» — браузер сам подгружает файлы по мере нужды. Это как открыть книгу с оглавлением (Vite) vs распечатать всю книгу целиком перед чтением (CRA). Слово <em>vite</em> по-французски значит «быстро».</p>
+    </div>
+    <div class="fun-fact" data-lang="en">
+        <p><strong>Why is Vite faster?</strong> On server start CRA bundled the whole app. Vite uses "native ES modules" — the browser loads files on demand. Like opening a book by its table of contents (Vite) vs printing the whole book before reading (CRA). <em>Vite</em> means "fast" in French.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== FIRST REACT ==================== -->
+    <h2 id="first-react" data-lang="ru">14. Первый React прямо в браузере (CDN)</h2>
+    <h2 id="first-react-en" data-lang="en">14. First React right in the browser (CDN)</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Мы обещали: <strong>первый React-код на первом занятии</strong>. Время выполнить обещание. Не будем пока лезть в npm и Vite — это на следующем занятии. Воспользуемся старым добрым способом: подключим React через <code>&lt;script&gt;</code> прямо в HTML-файл. Этот способ подходит только для учебных экспериментов и демо — но как первый шаг идеален.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>We promised: <strong>first React code on the first lesson</strong>. Time to deliver. We won't dive into npm and Vite yet — that's next lesson. We'll use the good old approach: hook up React via a <code>&lt;script&gt;</code> in a plain HTML file. This approach is only good for learning and demos — but as a first step it's ideal.</p>
+    </div>
+
+    <h3 data-lang="ru">Код целиком — сохраните как <code>index.html</code>:</h3>
+    <h3 data-lang="en">Full code — save as <code>index.html</code>:</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First React&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Сюда React вставит наше приложение --&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+
+    &lt;!-- 1. Подключаем React --&gt;
+    &lt;script crossorigin src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
+    &lt;script crossorigin src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"&gt;&lt;/script&gt;
+
+    &lt;!-- 2. Подключаем Babel — переводит JSX в обычный JS прямо в браузере --&gt;
+    &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+
+    &lt;!-- 3. Наш код. type="text/babel" важно! --&gt;
+    &lt;script type="text/babel"&gt;
+        function Hello() {
+            return &lt;h1&gt;Привет, React!&lt;/h1&gt;;
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(&lt;Hello /&gt;);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <h3 data-lang="ru">Что тут происходит — построчно:</h3>
+    <h3 data-lang="en">What's happening — line by line:</h3>
+    <ul data-lang="ru">
+        <li><code>&lt;div id="root"&gt;&lt;/div&gt;</code> — пустой контейнер. Сюда React поместит наше приложение.</li>
+        <li>Первые два <code>&lt;script&gt;</code> — сама библиотека React и React DOM (отдельная библиотека для работы с DOM).</li>
+        <li>Третий <code>&lt;script&gt;</code> — Babel. Он нужен, чтобы писать JSX (<code>&lt;h1&gt;...&lt;/h1&gt;</code> внутри JavaScript). В реальных проектах Babel работает до отправки кода в браузер; здесь — прямо в браузере.</li>
+        <li><code>function Hello()</code> — это <strong>компонент</strong>. Обычная JS-функция, которая возвращает JSX (то, что должно быть на экране).</li>
+        <li><code>ReactDOM.createRoot(...)</code> — создаёт «точку входа» React в ваш <code>#root</code>.</li>
+        <li><code>root.render(&lt;Hello /&gt;)</code> — команда «покажи компонент Hello в корне».</li>
+    </ul>
+    <ul data-lang="en">
+        <li><code>&lt;div id="root"&gt;&lt;/div&gt;</code> — empty container. React will place our app here.</li>
+        <li>First two <code>&lt;script&gt;</code>s — the React library itself and React DOM (separate library for DOM).</li>
+        <li>Third <code>&lt;script&gt;</code> — Babel. Needed to write JSX (<code>&lt;h1&gt;...&lt;/h1&gt;</code> inside JavaScript). In real projects Babel runs before code reaches the browser; here — in the browser itself.</li>
+        <li><code>function Hello()</code> — this is a <strong>component</strong>. A regular JS function that returns JSX (what should be on screen).</li>
+        <li><code>ReactDOM.createRoot(...)</code> — creates a React "entry point" in your <code>#root</code>.</li>
+        <li><code>root.render(&lt;Hello /&gt;)</code> — command "render the Hello component into the root".</li>
+    </ul>
+
+    <div class="try-it" data-lang="ru">
+        <p><strong>Запускаем:</strong></p>
+        <ol>
+            <li>Создайте файл <code>index.html</code> в любой папке.</li>
+            <li>Скопируйте код выше, сохраните.</li>
+            <li>Откройте файл двойным кликом — откроется в браузере.</li>
+            <li>Увидите: <strong>«Привет, React!»</strong> на странице.</li>
+            <li>Откройте F12 → вкладка <strong>Components</strong> (React DevTools). Увидите компонент <code>Hello</code> — это доказательство, что React работает.</li>
+        </ol>
+    </div>
+    <div class="try-it" data-lang="en">
+        <p><strong>Run it:</strong></p>
+        <ol>
+            <li>Create a file <code>index.html</code> in any folder.</li>
+            <li>Copy the code above, save.</li>
+            <li>Double-click the file — it opens in the browser.</li>
+            <li>You'll see: <strong>"Привет, React!"</strong> on the page.</li>
+            <li>Press F12 → <strong>Components</strong> tab (React DevTools). You'll see the <code>Hello</code> component — proof React is running.</li>
+        </ol>
+    </div>
+
+    <div class="result-box">
+        <div style="padding:30px;text-align:center;background:#f8fafc;border-radius:8px;">
+            <h1 style="color:#3b82f6;margin:0;">Привет, React!</h1>
+        </div>
+    </div>
+
+    <div class="highlight" data-lang="ru">
+        Поздравляем! Это <strong>настоящий React</strong>. Тот же, что на Instagram и Netflix. Различие только в упаковке: реальные проекты собирают в оптимизированный бандл через Vite. Суть — та же.
+    </div>
+    <div class="highlight" data-lang="en">
+        Congratulations! This is <strong>real React</strong>. The same one as on Instagram and Netflix. The only difference is packaging: real projects bundle it optimally via Vite. The essence is the same.
+    </div>
+
+    <div class="mistake" data-lang="ru">
+        <p><strong>CDN-подход годится только для учёбы и быстрых демо.</strong> В настоящих проектах так писать нельзя:</p>
+        <ul>
+            <li>Babel в браузере — медленно (замедляет загрузку в 5-10 раз)</li>
+            <li>Нет оптимизации (размер файла большой)</li>
+            <li>Нет разделения на файлы — всё в одном HTML, каша</li>
+            <li>Подключение <code>development.js</code> — это дебажная версия, не для продакшена</li>
+        </ul>
+        <p>Для реальных проектов — только Vite (научимся на занятии 2).</p>
+    </div>
+    <div class="mistake" data-lang="en">
+        <p><strong>CDN approach is only for learning and quick demos.</strong> You can't write real projects this way:</p>
+        <ul>
+            <li>Babel in the browser — slow (5-10× slower load)</li>
+            <li>No optimization (big file size)</li>
+            <li>No file splitting — everything in one HTML, a mess</li>
+            <li><code>development.js</code> is the dev build — not for production</li>
+        </ul>
+        <p>For real projects — Vite only (learning on lesson 2).</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== MISTAKES ==================== -->
+    <h2 id="mistakes" data-lang="ru">15. 8 типичных ошибок новичка на старте</h2>
+    <h2 id="mistakes-en" data-lang="en">15. 8 typical beginner mistakes at the start</h2>
+
+    <table data-lang="ru">
+        <tr><th>Ошибка</th><th>Что делать</th></tr>
+        <tr><td>«Ставлю Node 18 — сойдёт?»</td><td>Минимум Node 20 для React 19 + Vite. Лучше 22 LTS.</td></tr>
+        <tr><td>Node установился, а <code>node -v</code> не работает</td><td>Закройте терминал и откройте <strong>заново</strong>. PATH обновляется только в новых окнах.</td></tr>
+        <tr><td>Забывают <code>type="text/babel"</code> в CDN-примере</td><td>Без этого атрибута браузер не поймёт JSX → ошибка синтаксиса.</td></tr>
+        <tr><td>Пропускают React DevTools</td><td>Без них отладка — ад. Поставьте сейчас же.</td></tr>
+        <tr><td>Учат по туториалам 2019 года</td><td>В React всё изменилось. Смотрите только <strong>react.dev</strong> (новая офдока).</td></tr>
+        <tr><td>Пытаются выучить Redux и TypeScript в первую неделю</td><td>Сначала — компоненты, props, state. Всё остальное — через 2-3 недели.</td></tr>
+        <tr><td>Ставят кучу расширений VS Code</td><td>Начните с 4 рекомендованных. Больше — потом, по мере надобности.</td></tr>
+        <tr><td>«Хочу сразу Next.js, нет времени на React»</td><td>Next.js = React + роутинг + SSR. Без React в Next.js вы просто запутаетесь.</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Mistake</th><th>Fix</th></tr>
+        <tr><td>"I'll install Node 18 — fine?"</td><td>Minimum Node 20 for React 19 + Vite. Better 22 LTS.</td></tr>
+        <tr><td>Node installed but <code>node -v</code> doesn't work</td><td>Close the terminal and <strong>reopen</strong>. PATH updates only in new windows.</td></tr>
+        <tr><td>Forgetting <code>type="text/babel"</code> in the CDN example</td><td>Without it the browser can't parse JSX → syntax error.</td></tr>
+        <tr><td>Skipping React DevTools</td><td>Without them debugging is hell. Install now.</td></tr>
+        <tr><td>Learning from 2019 tutorials</td><td>React has changed a lot. Only <strong>react.dev</strong> (new official docs).</td></tr>
+        <tr><td>Trying to learn Redux and TypeScript in week 1</td><td>First — components, props, state. The rest — in 2-3 weeks.</td></tr>
+        <tr><td>Installing a ton of VS Code extensions</td><td>Start with the 4 recommended. More — later, as needed.</td></tr>
+        <tr><td>"I want Next.js right away, no time for React"</td><td>Next.js = React + routing + SSR. Without React you'll just get confused in Next.js.</td></tr>
+    </table>
+
+    <hr>
+
+    <div class="summary" data-lang="ru">
+        <strong>Итог занятия 1:</strong>
+        <ol>
+            <li>React решает проблему ручной синхронизации DOM и данных</li>
+            <li>React — это JavaScript-библиотека для построения UI (не фреймворк)</li>
+            <li>Главная идея React — <strong>компоненты</strong> (как LEGO)</li>
+            <li>Виртуальный DOM — «черновик» перед настоящим DOM (оптимизация)</li>
+            <li>React <strong>декларативный</strong>: описываем что должно быть, не как</li>
+            <li>React-приложения — это SPA (одна страница, JS меняет контент)</li>
+            <li>Используют Facebook, Netflix, Airbnb, Uber, Discord, Vercel и др.</li>
+            <li>Инструменты: Node.js 22 LTS, VS Code + 4 расширения, React DevTools</li>
+            <li>npm — менеджер пакетов (ставится с Node, не отдельно)</li>
+            <li>В 2026 все новые проекты — на Vite (CRA устарел)</li>
+            <li>React подключается через CDN за 3 строки (учебный способ)</li>
+            <li>Первый компонент = функция, возвращающая JSX</li>
+            <li>На занятии 2 — Git и первый проект на Vite</li>
+        </ol>
+    </div>
+    <div class="summary" data-lang="en">
+        <strong>Lesson 1 outcome:</strong>
+        <ol>
+            <li>React solves manual DOM/data sync</li>
+            <li>React is a JavaScript library for building UI (not a framework)</li>
+            <li>Main idea — <strong>components</strong> (like LEGO)</li>
+            <li>Virtual DOM — a "draft" before the real DOM (optimization)</li>
+            <li>React is <strong>declarative</strong>: describe what, not how</li>
+            <li>React apps are SPAs (one page, JS swaps content)</li>
+            <li>Used by Facebook, Netflix, Airbnb, Uber, Discord, Vercel, etc.</li>
+            <li>Tools: Node.js 22 LTS, VS Code + 4 extensions, React DevTools</li>
+            <li>npm — package manager (bundled with Node, not separate)</li>
+            <li>In 2026 all new projects use Vite (CRA is deprecated)</li>
+            <li>React hooks up via CDN in 3 lines (learning approach)</li>
+            <li>First component = function returning JSX</li>
+            <li>Lesson 2 — Git and first Vite project</li>
+        </ol>
+    </div>
+
+    <div class="quiz" data-lang="ru">
+        <ol>
+            <li>Какую главную проблему решает React по сравнению с «ванильным» JS?</li>
+            <li>Что такое компонент? Приведите пример из любого знакомого сайта.</li>
+            <li>Что такое виртуальный DOM на уровне аналогии?</li>
+            <li>В чём разница между декларативным и императивным подходом?</li>
+            <li>Что такое SPA? Пример SPA, которым вы пользуетесь каждый день.</li>
+            <li>Назовите 5 крупных продуктов, написанных на React.</li>
+            <li>Зачем React-разработчику Node.js, если React работает в браузере?</li>
+            <li>Что такое npm и откуда он берётся?</li>
+            <li>Какие 4 расширения VS Code мы ставим сегодня?</li>
+            <li>Почему в 2026 выбираем Vite, а не Create React App?</li>
+            <li>Какие 3 <code>&lt;script&gt;</code>-тега нужны для подключения React через CDN?</li>
+            <li>Зачем атрибут <code>type="text/babel"</code>?</li>
+        </ol>
+    </div>
+    <div class="quiz" data-lang="en">
+        <ol>
+            <li>What's the main problem React solves vs "vanilla" JS?</li>
+            <li>What is a component? Give an example from a familiar site.</li>
+            <li>What is the virtual DOM at an analogy level?</li>
+            <li>Difference between declarative and imperative?</li>
+            <li>What is an SPA? Name an SPA you use daily.</li>
+            <li>Name 5 major React products.</li>
+            <li>Why does a React dev need Node.js if React runs in the browser?</li>
+            <li>What is npm and where does it come from?</li>
+            <li>Which 4 VS Code extensions are we installing today?</li>
+            <li>Why Vite over Create React App in 2026?</li>
+            <li>Which 3 <code>&lt;script&gt;</code> tags are needed to run React from a CDN?</li>
+            <li>Why the <code>type="text/babel"</code> attribute?</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Занятие 2 — Git и первый проект</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/lecture.css">
+    <script src="../../js/lang.js" defer></script>
+</head>
+<body>
+
+<div class="lesson-nav">
+    <a href="../../index.html" class="nav-home" data-lang="ru">&#8592; Главная</a>
+    <a href="../../index.html" class="nav-home" data-lang="en">&#8592; Home</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-title" data-lang="ru">Занятие 2: Git и первый проект</span>
+    <span class="nav-title" data-lang="en">Lesson 2: Git & First Project</span>
+    <span class="nav-sep">|</span>
+    <span class="nav-active" data-lang="ru">&#x1F468;&#x200D;&#x1F3EB; Лекция</span>
+    <span class="nav-active" data-lang="en">&#x1F468;&#x200D;&#x1F3EB; Lecture</span>
+    <a href="student.html" class="nav-link" data-lang="ru">&#x1F468;&#x200D;&#x1F393; Конспект</a>
+    <a href="student.html" class="nav-link" data-lang="en">&#x1F468;&#x200D;&#x1F393; Notes</a>
+    <a href="tasks.html" class="nav-link" data-lang="ru">&#x1F4CB; Задания</a>
+    <a href="tasks.html" class="nav-link" data-lang="en">&#x1F4CB; Tasks</a>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+</div>
+
+<div class="container">
+
+    <h1 data-lang="ru">Занятие 2: Git и первый проект</h1>
+    <h1 data-lang="en">Lesson 2: Git & First Project</h1>
+    <p class="subtitle" data-lang="ru">Git, GitHub, Vite — три инструмента, которые превращают вас из «кодера в одиночку» в члена индустрии</p>
+    <p class="subtitle" data-lang="en">Git, GitHub, Vite — three tools that turn you from a "lonely coder" into an industry member</p>
+
+    <div class="why" data-lang="ru">
+        <p>На прошлом занятии вы поняли, что такое React, и запустили его через CDN. Это здорово для одной HTML-страницы. Но настоящий React-проект — это <strong>десятки файлов</strong>, которые надо собирать в единое приложение, отслеживать изменения, делиться с командой, выкладывать на GitHub. Сегодня вы получаете три инструмента, без которых невозможно работать профессионально:</p>
+        <ul>
+            <li><strong>Git</strong> — машина времени для вашего кода</li>
+            <li><strong>GitHub</strong> — облако для Git и социальная сеть разработчиков</li>
+            <li><strong>Vite</strong> — стартер для React-проектов</li>
+        </ul>
+        <p>Эти три инструмента вы будете использовать <strong>каждый день</strong> до конца своей карьеры. Любое собеседование на позицию junior-разработчика начинается с просьбы показать GitHub-профиль. Поэтому к концу занятия у вас будет: установленный Git с вашими данными, аккаунт на GitHub, первый Vite-проект и публичный репозиторий, на который вы сможете дать ссылку.</p>
+        <p><strong>После этого занятия вы сможете:</strong></p>
+        <ul>
+            <li>Объяснить, зачем нужен Git и чем он отличается от GitHub</li>
+            <li>Установить Git на Windows / Mac и настроить имя и email</li>
+            <li>Создать аккаунт на GitHub и оформить профиль</li>
+            <li>Понимать команды <code>init</code>, <code>status</code>, <code>add</code>, <code>commit</code>, <code>log</code>, <code>push</code>, <code>pull</code>, <code>clone</code></li>
+            <li>Создать репозиторий на GitHub и связать его с локальным</li>
+            <li>Использовать <code>.gitignore</code> для исключения мусора</li>
+            <li>Создать React-проект через <code>npm create vite@latest</code></li>
+            <li>Запустить dev-сервер и увидеть hot reload</li>
+            <li>Понимать структуру стандартного Vite + React проекта</li>
+            <li>Запушить проект на GitHub и поделиться ссылкой</li>
+        </ul>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Last lesson you understood what React is and ran it via CDN. Great for one HTML page. But a real React project is <strong>dozens of files</strong> that need to be bundled into a single app, tracked, shared with a team, pushed to GitHub. Today you get three tools you can't work professionally without:</p>
+        <ul>
+            <li><strong>Git</strong> — a time machine for your code</li>
+            <li><strong>GitHub</strong> — cloud for Git plus a social network for developers</li>
+            <li><strong>Vite</strong> — a starter for React projects</li>
+        </ul>
+        <p>You'll use these three tools <strong>every day</strong> for the rest of your career. Every junior interview starts with "show me your GitHub". So by the end of this lesson you'll have: Git installed with your details, a GitHub account, your first Vite project, and a public repository you can link to.</p>
+        <p><strong>After this lesson you'll be able to:</strong></p>
+        <ul>
+            <li>Explain why Git exists and how it differs from GitHub</li>
+            <li>Install Git on Windows / Mac and set name and email</li>
+            <li>Create a GitHub account and set up a profile</li>
+            <li>Understand commands <code>init</code>, <code>status</code>, <code>add</code>, <code>commit</code>, <code>log</code>, <code>push</code>, <code>pull</code>, <code>clone</code></li>
+            <li>Create a GitHub repo and link it to a local one</li>
+            <li>Use <code>.gitignore</code> to exclude junk</li>
+            <li>Create a React project via <code>npm create vite@latest</code></li>
+            <li>Run the dev server and see hot reload</li>
+            <li>Understand the structure of a standard Vite + React project</li>
+            <li>Push the project to GitHub and share a link</li>
+        </ul>
+    </div>
+
+    <div class="toc" data-lang="ru">
+        <div class="toc-title">Содержание</div>
+        <ol>
+            <li><a href="#why-git">Боль без Git: «final_v2_FINAL.html»</a></li>
+            <li><a href="#what-is-git">Что такое Git и почему он везде</a></li>
+            <li><a href="#git-vs-github">Git ≠ GitHub: разница простыми словами</a></li>
+            <li><a href="#concepts">Основные понятия: репозиторий, commit, history, branch</a></li>
+            <li><a href="#install-git">Установка Git и базовая настройка</a></li>
+            <li><a href="#github-account">Аккаунт на GitHub: оформление профиля</a></li>
+            <li><a href="#auth">Авторизация: HTTPS + Personal Access Token</a></li>
+            <li><a href="#git-flow">Жизненный цикл: init → add → commit → push</a></li>
+            <li><a href="#gitignore">.gitignore: что не коммитим никогда</a></li>
+            <li><a href="#vite-intro">Vite: что под капотом</a></li>
+            <li><a href="#create-project">Создание проекта: <code>npm create vite@latest</code></a></li>
+            <li><a href="#project-structure">Структура Vite + React проекта</a></li>
+            <li><a href="#hot-reload">Dev-сервер и hot reload</a></li>
+            <li><a href="#push-to-github">Push на GitHub за 5 минут</a></li>
+            <li><a href="#mistakes">10 ошибок новичка с Git и GitHub</a></li>
+        </ol>
+    </div>
+    <div class="toc" data-lang="en">
+        <div class="toc-title">Table of Contents</div>
+        <ol>
+            <li><a href="#why-git">Pain without Git: "final_v2_FINAL.html"</a></li>
+            <li><a href="#what-is-git">What Git is and why it's everywhere</a></li>
+            <li><a href="#git-vs-github">Git ≠ GitHub: the difference in plain words</a></li>
+            <li><a href="#concepts">Core concepts: repository, commit, history, branch</a></li>
+            <li><a href="#install-git">Installing Git and base config</a></li>
+            <li><a href="#github-account">GitHub account: setting up the profile</a></li>
+            <li><a href="#auth">Authentication: HTTPS + Personal Access Token</a></li>
+            <li><a href="#git-flow">Life cycle: init → add → commit → push</a></li>
+            <li><a href="#gitignore">.gitignore: what we never commit</a></li>
+            <li><a href="#vite-intro">Vite: what's under the hood</a></li>
+            <li><a href="#create-project">Creating a project: <code>npm create vite@latest</code></a></li>
+            <li><a href="#project-structure">Vite + React project structure</a></li>
+            <li><a href="#hot-reload">Dev server and hot reload</a></li>
+            <li><a href="#push-to-github">Push to GitHub in 5 minutes</a></li>
+            <li><a href="#mistakes">10 beginner mistakes with Git and GitHub</a></li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <!-- ==================== WHY GIT ==================== -->
+    <h2 id="why-git" data-lang="ru">1. Боль без Git: «final_v2_FINAL.html»</h2>
+    <h2 id="why-git-en" data-lang="en">1. Pain without Git: "final_v2_FINAL.html"</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Узнаёте? У всех начинающих разработчиков (и студентов, и дизайнеров, и копирайтеров) папки выглядят одинаково:</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Recognize this? All beginners (developers, designers, copywriters) have folders that look the same:</p>
+    </div>
+
+    <div class="diagram" data-lang="ru">
+    project/
+    ├── index.html
+    ├── index_v2.html
+    ├── index_v3_NEW.html
+    ├── index_FINAL.html
+    ├── index_FINAL_FINAL.html
+    ├── index_FINAL_FINAL_v2.html
+    ├── index_FINAL_FINAL_v2_USE_THIS.html
+    └── index — копия (3).html</div>
+    <div class="diagram" data-lang="en">
+    project/
+    ├── index.html
+    ├── index_v2.html
+    ├── index_v3_NEW.html
+    ├── index_FINAL.html
+    ├── index_FINAL_FINAL.html
+    ├── index_FINAL_FINAL_v2.html
+    ├── index_FINAL_FINAL_v2_USE_THIS.html
+    └── index — copy (3).html</div>
+
+    <div class="mistake" data-lang="ru">
+        <p>Это «версионирование руками». Звучит безобидно, но в реальной работе оно приводит к катастрофам:</p>
+        <ul>
+            <li><strong>Не помните, что менялось.</strong> Через неделю смотрите на 8 файлов и не знаете, какие отличия в v3 от v2.</li>
+            <li><strong>Случайно удалили рабочую версию.</strong> «А, это же черновик!» — оказалось, нет.</li>
+            <li><strong>Команда работает поверх друг друга.</strong> Вы и коллега правите один файл — кто-то теряет правки.</li>
+            <li><strong>Нет истории.</strong> Когда заказчик говорит «верните как было неделю назад» — а как было неделю назад, никто не помнит.</li>
+            <li><strong>Нельзя откатиться.</strong> Сломали приложение в 23:00 пятницы — нет способа вернуться к рабочей версии.</li>
+        </ul>
+    </div>
+    <div class="mistake" data-lang="en">
+        <p>This is "manual versioning". Sounds harmless but in real work it causes disasters:</p>
+        <ul>
+            <li><strong>You forget what changed.</strong> Week later you stare at 8 files and don't know what's different in v3 vs v2.</li>
+            <li><strong>You delete the working version.</strong> "Eh, it was just a draft!" — turns out, no.</li>
+            <li><strong>The team works on top of each other.</strong> You and a colleague edit the same file — somebody loses changes.</li>
+            <li><strong>No history.</strong> Client says "roll back to a week ago" — and a week ago is nowhere to be found.</li>
+            <li><strong>Can't roll back.</strong> Broke the app at 23:00 Friday — no way to revert to a working version.</li>
+        </ul>
+    </div>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>Документ Google Docs.</strong> В Google Docs есть «История изменений»: можно увидеть кто и когда что поправил, и одним кликом откатиться. Все привыкли к этому в текстах. Git — это <strong>«История изменений» для кода</strong>. Только мощнее в 100 раз.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>Google Docs document.</strong> Google Docs has "Version history": you can see who edited what and when, and roll back with one click. Everyone takes this for granted in text. Git is <strong>"Version history" for code</strong>. Only 100× more powerful.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== WHAT IS GIT ==================== -->
+    <h2 id="what-is-git" data-lang="ru">2. Что такое Git и почему он везде</h2>
+    <h2 id="what-is-git-en" data-lang="en">2. What Git is and why it's everywhere</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Короткое определение: <strong>Git — это система контроля версий</strong>. Это программа, которая отслеживает изменения в файлах вашего проекта. После каждого «снимка» (commit) Git помнит: что изменилось, кто изменил, когда, и зачем (по комментарию).</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Short definition: <strong>Git is a version control system</strong>. A program that tracks changes in your project files. After every "snapshot" (commit) Git remembers: what changed, who changed it, when, and why (from the message).</p>
+    </div>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>Машина времени для кода.</strong> Каждый коммит — это <strong>точка в прошлом</strong>, в которую можно вернуться. «Откати на вчера» = одна команда. «Покажи разницу между сегодняшним и недельным кодом» = одна команда. «Найди коммит, в котором появился этот баг» = одна команда.</p>
+        <p><strong>Лента в Instagram.</strong> Каждый пост — отдельный момент. Можно скроллить назад, видеть кто что лайкнул, кто что комментировал. Git ведёт такую же ленту для вашего кода: каждый коммит — пост.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>Time machine for code.</strong> Each commit is a <strong>point in the past</strong> you can return to. "Roll back to yesterday" = one command. "Show me the diff between today's and last week's code" = one command. "Find the commit that introduced this bug" = one command.</p>
+        <p><strong>Instagram feed.</strong> Each post is a separate moment. You can scroll back, see who liked, who commented. Git keeps the same feed for your code: each commit = a post.</p>
+    </div>
+
+    <div class="fun-fact" data-lang="ru">
+        <p>Git создал Линус Торвальдс — тот самый, который придумал Linux. История: в 2005 году разработчики ядра Linux поссорились с владельцами проприетарной системы версий BitKeeper. Линус сказал: «Хорошо, я напишу свою за две недели». И написал. Назвал в честь британского сленгового слова <em>git</em>, что переводится как «дурак» — Линус про себя. Сегодня Git используется в <strong>95% всех IT-проектов мира</strong>.</p>
+    </div>
+    <div class="fun-fact" data-lang="en">
+        <p>Git was created by Linus Torvalds — the same guy who invented Linux. The story: in 2005 Linux kernel devs fell out with the owners of the proprietary BitKeeper VCS. Linus said: "Fine, I'll write my own in two weeks". And he did. Named it after the British slang word <em>git</em> meaning "idiot" — referring to himself. Today Git is used by <strong>95% of all IT projects worldwide</strong>.</p>
+    </div>
+
+    <div class="important" data-lang="ru">
+        <strong>Git — это не GUI-программа с окошками.</strong> Это <strong>командная строка</strong>: вы пишете команды вроде <code>git commit -m "fix bug"</code>. Есть графические надстройки (GitHub Desktop, GitKraken, Sourcetree, встроенный Source Control в VS Code), но если вы серьёзно учитесь — учите <strong>команды</strong>. На любом собеседовании спросят «как сделать commit через терминал», а не «куда нажать в Sourcetree».
+    </div>
+    <div class="important" data-lang="en">
+        <strong>Git is not a GUI program with windows.</strong> It's a <strong>command line</strong>: you type commands like <code>git commit -m "fix bug"</code>. There are GUI wrappers (GitHub Desktop, GitKraken, Sourcetree, VS Code's built-in Source Control), but if you're serious — learn the <strong>commands</strong>. Any interview asks "how do you commit from the terminal", not "where do you click in Sourcetree".
+    </div>
+
+    <hr>
+
+    <!-- ==================== GIT VS GITHUB ==================== -->
+    <h2 id="git-vs-github" data-lang="ru">3. Git ≠ GitHub: разница простыми словами</h2>
+    <h2 id="git-vs-github-en" data-lang="en">3. Git ≠ GitHub: the difference in plain words</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Это самая частая путаница новичков. Запомните раз и навсегда: <strong>Git и GitHub — это разные вещи</strong>.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>The most common beginner confusion. Memorize once and for all: <strong>Git and GitHub are different things</strong>.</p>
+    </div>
+
+    <table data-lang="ru">
+        <tr><th></th><th>Git</th><th>GitHub</th></tr>
+        <tr><td>Что это</td><td>Программа на вашем компьютере</td><td>Сайт в интернете (github.com)</td></tr>
+        <tr><td>Где работает</td><td>Локально, без интернета</td><td>Онлайн, нужен интернет</td></tr>
+        <tr><td>Кто владеет</td><td>Open-source (никто)</td><td>Microsoft (с 2018 года)</td></tr>
+        <tr><td>Цена</td><td>Бесплатно</td><td>Бесплатно для public-репо</td></tr>
+        <tr><td>Альтернативы</td><td>Mercurial, SVN (устарели)</td><td>GitLab, Bitbucket, Codeberg</td></tr>
+        <tr><td>Пример действия</td><td><code>git commit -m "..."</code></td><td>Открыть github.com/your-repo</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th></th><th>Git</th><th>GitHub</th></tr>
+        <tr><td>What it is</td><td>A program on your computer</td><td>A website (github.com)</td></tr>
+        <tr><td>Where it runs</td><td>Locally, no internet</td><td>Online, needs internet</td></tr>
+        <tr><td>Who owns it</td><td>Open-source (nobody)</td><td>Microsoft (since 2018)</td></tr>
+        <tr><td>Cost</td><td>Free</td><td>Free for public repos</td></tr>
+        <tr><td>Alternatives</td><td>Mercurial, SVN (outdated)</td><td>GitLab, Bitbucket, Codeberg</td></tr>
+        <tr><td>Example action</td><td><code>git commit -m "..."</code></td><td>Open github.com/your-repo</td></tr>
+    </table>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>Word и Google Drive.</strong> <em>Word</em> — программа на компьютере (как Git). <em>Google Drive</em> — облако в интернете, где вы храните Word-файлы (как GitHub). Можно пользоваться Word без Google Drive — но нельзя загрузить файл в облако без какой-то программы. То же самое с Git и GitHub: Git нужен всегда, GitHub — для шаринга.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>Word and Google Drive.</strong> <em>Word</em> is a program on your computer (like Git). <em>Google Drive</em> is the cloud where you store Word files (like GitHub). You can use Word without Drive — but can't upload a file to the cloud without a program. Same with Git and GitHub: Git is always needed, GitHub — for sharing.</p>
+    </div>
+
+    <div class="real-world" data-lang="ru">
+        <p><strong>Зачем разработчику GitHub-аккаунт:</strong></p>
+        <ul>
+            <li><strong>Резюме.</strong> На любом собеседовании первым делом смотрят github.com/ваш-юзернейм. Профиль = ваше портфолио.</li>
+            <li><strong>Совместная работа.</strong> Команда из 5 человек на одном проекте — без GitHub невозможно.</li>
+            <li><strong>Open Source.</strong> Найти хорошие проекты, поучиться, сделать первый PR (Pull Request) — путь в индустрию.</li>
+            <li><strong>Бэкап.</strong> Сломался ноутбук — код жив, у вас на GitHub.</li>
+            <li><strong>Деплой.</strong> Бесплатные хостинги (Vercel, Netlify, GitHub Pages) подключаются прямо к репозиторию.</li>
+        </ul>
+    </div>
+    <div class="real-world" data-lang="en">
+        <p><strong>Why a developer needs a GitHub account:</strong></p>
+        <ul>
+            <li><strong>Resume.</strong> Every interview starts with github.com/your-username. The profile is your portfolio.</li>
+            <li><strong>Collaboration.</strong> A team of 5 on one project — impossible without GitHub.</li>
+            <li><strong>Open Source.</strong> Find good projects, learn, make your first PR (Pull Request) — the way into the industry.</li>
+            <li><strong>Backup.</strong> Laptop dies — code is alive on GitHub.</li>
+            <li><strong>Deploy.</strong> Free hosts (Vercel, Netlify, GitHub Pages) connect directly to a repo.</li>
+        </ul>
+    </div>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>Личный пример.</strong> Я (преподаватель) попал в open-source-сообщество Supabase именно через GitHub: нашёл небольшую проблему в их JS-библиотеке, прислал PR, его смержили — и моё имя теперь в списке контрибьюторов <code>supabase/supabase-js</code>. То же самое потом сделал в Hyperledger Identus, Medusa, phpReport. <strong>GitHub-история</strong> на момент собеседования говорит работодателю в 100 раз больше, чем диплом.</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>Personal example.</strong> I (the instructor) got into the Supabase open-source community via GitHub: found a small bug in their JS library, sent a PR, it got merged — my name is now in the contributor list of <code>supabase/supabase-js</code>. Then did the same in Hyperledger Identus, Medusa, phpReport. <strong>GitHub history</strong> at interview time tells an employer 100× more than a diploma.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== CONCEPTS ==================== -->
+    <h2 id="concepts" data-lang="ru">4. Основные понятия: репозиторий, commit, history, branch</h2>
+    <h2 id="concepts-en" data-lang="en">4. Core concepts: repository, commit, history, branch</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Прежде чем писать команды — освоим словарь. 80% всех вопросов по Git на собеседовании — это знание этих 5 слов.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Before writing commands — let's learn the vocabulary. 80% of Git interview questions come down to knowing these 5 words.</p>
+    </div>
+
+    <table data-lang="ru">
+        <tr><th>Термин</th><th>Что это</th></tr>
+        <tr><td><strong>Repository</strong> (репозиторий, «репо»)</td><td>Папка проекта под Git-контролем. У неё есть скрытая подпапка <code>.git/</code>, в которой хранится вся история.</td></tr>
+        <tr><td><strong>Commit</strong> (коммит)</td><td>«Снимок» состояния проекта в определённый момент. Имеет автора, дату, сообщение.</td></tr>
+        <tr><td><strong>History</strong> (история)</td><td>Цепочка коммитов от первого до последнего. Каждый коммит ссылается на предыдущий.</td></tr>
+        <tr><td><strong>Branch</strong> (ветка)</td><td>Параллельная линия истории. Главная ветка — <code>main</code> (раньше называлась <code>master</code>).</td></tr>
+        <tr><td><strong>Remote</strong> (удалённый)</td><td>Копия репозитория на другом компьютере (обычно — на GitHub). По умолчанию называется <code>origin</code>.</td></tr>
+        <tr><td><strong>Push</strong> / <strong>Pull</strong></td><td>Push — отправить локальные коммиты на remote. Pull — забрать чужие коммиты с remote.</td></tr>
+        <tr><td><strong>Clone</strong></td><td>Скачать чужой репозиторий с GitHub на свой компьютер.</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Term</th><th>Meaning</th></tr>
+        <tr><td><strong>Repository</strong> ("repo")</td><td>A project folder under Git control. Has a hidden <code>.git/</code> subfolder storing the full history.</td></tr>
+        <tr><td><strong>Commit</strong></td><td>A "snapshot" of the project state at a certain moment. Has author, date, message.</td></tr>
+        <tr><td><strong>History</strong></td><td>The chain of commits from the first to the latest. Each commit links to the previous one.</td></tr>
+        <tr><td><strong>Branch</strong></td><td>A parallel line of history. Main branch — <code>main</code> (used to be <code>master</code>).</td></tr>
+        <tr><td><strong>Remote</strong></td><td>A copy of the repo on another computer (usually GitHub). Default name <code>origin</code>.</td></tr>
+        <tr><td><strong>Push</strong> / <strong>Pull</strong></td><td>Push — send local commits to remote. Pull — fetch others' commits from remote.</td></tr>
+        <tr><td><strong>Clone</strong></td><td>Download someone else's repo from GitHub onto your computer.</td></tr>
+    </table>
+
+    <div class="diagram" data-lang="ru">
+    История коммитов (один в другой):
+
+    [c1] ── [c2] ── [c3] ── [c4] ── [c5]   ← main (HEAD)
+                       │
+                       └── [c4'] ── [c5']  ← feature-branch
+
+    c1: Initial commit
+    c2: Add header
+    c3: Add navigation
+    c4: Add footer (на main)
+    c4': Try new design (на feature-branch)</div>
+    <div class="diagram" data-lang="en">
+    Commit history (each into the next):
+
+    [c1] ── [c2] ── [c3] ── [c4] ── [c5]   ← main (HEAD)
+                       │
+                       └── [c4'] ── [c5']  ← feature-branch
+
+    c1: Initial commit
+    c2: Add header
+    c3: Add navigation
+    c4: Add footer (on main)
+    c4': Try new design (on feature-branch)</div>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>Книга.</strong> Репозиторий = книга. Коммит = страница (с датой и подписью автора). История = последовательность страниц от 1-й до последней. Ветка = параллельный том («альтернативная концовка»). Remote = копия книги в библиотеке. Push = отправить новые страницы в библиотеку. Pull = забрать новые страницы из библиотеки.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>A book.</strong> Repository = the book. Commit = a page (with a date and author's signature). History = the sequence of pages from 1 to last. Branch = a parallel volume ("alternative ending"). Remote = a copy of the book in the library. Push = send new pages to the library. Pull = grab new pages from the library.</p>
+    </div>
+
+    <div class="highlight" data-lang="ru">
+        <strong>В нашем курсе</strong> мы пока не работаем с ветками и pull request'ами — это тема более продвинутых уроков. Сегодня — только: создал репо → коммитим → пушим. Этого достаточно для всего следующего месяца.
+    </div>
+    <div class="highlight" data-lang="en">
+        <strong>In our course</strong> we don't work with branches and pull requests yet — that's a topic for more advanced lessons. Today only: created a repo → commit → push. Enough for the next month.
+    </div>
+
+    <hr>
+
+    <!-- ==================== INSTALL GIT ==================== -->
+    <h2 id="install-git" data-lang="ru">5. Установка Git и базовая настройка</h2>
+    <h2 id="install-git-en" data-lang="en">5. Installing Git and base config</h2>
+
+    <h3 data-lang="ru">Windows:</h3>
+    <h3 data-lang="en">Windows:</h3>
+    <div class="try-it" data-lang="ru">
+        <ol>
+            <li>Открыть в браузере: <strong>git-scm.com</strong></li>
+            <li>Большая кнопка «Download for Windows» → скачается <code>.exe</code>-инсталлятор (актуальная версия в 2026 — Git 2.46+)</li>
+            <li>Запустить инсталлятор. Жмите «Next» с дефолтами на <strong>всех</strong> экранах. Дефолты Git подобраны хорошо.</li>
+            <li>Один важный момент: на шаге «Choosing the default editor» можно выбрать <strong>Visual Studio Code</strong> (если уже установлен) — это удобнее, чем стандартный Vim.</li>
+            <li>Установка длится 1-2 минуты. Никаких галочек снимать не нужно.</li>
+            <li>После установки в Пуске появится <strong>«Git Bash»</strong> — это терминал, в котором мы будем запускать Git-команды. Также Git становится доступен в обычном PowerShell и CMD.</li>
+        </ol>
+    </div>
+    <div class="try-it" data-lang="en">
+        <ol>
+            <li>Open in browser: <strong>git-scm.com</strong></li>
+            <li>Big button "Download for Windows" → an <code>.exe</code> installer downloads (current version in 2026 — Git 2.46+)</li>
+            <li>Run the installer. Click "Next" with defaults on <strong>every</strong> screen. Git's defaults are well-chosen.</li>
+            <li>One important note: on the "Choosing the default editor" step you can pick <strong>Visual Studio Code</strong> (if installed) — more convenient than the default Vim.</li>
+            <li>Install takes 1-2 minutes. No checkboxes to uncheck.</li>
+            <li>After install, "Git Bash" appears in the Start menu — that's the terminal where we'll run Git commands. Git is also available in regular PowerShell and CMD.</li>
+        </ol>
+    </div>
+
+    <h3 data-lang="ru">macOS:</h3>
+    <h3 data-lang="en">macOS:</h3>
+    <div class="try-it" data-lang="ru">
+        <p>На современных Mac Git уже установлен. Проверьте: откройте Terminal → <code>git --version</code>. Если показывает версию — всё готово. Если предложит установить «Command Line Tools» — согласитесь.</p>
+        <p>Альтернатива через Homebrew: <code>brew install git</code> (даёт самую свежую версию).</p>
+    </div>
+    <div class="try-it" data-lang="en">
+        <p>On modern Macs Git is preinstalled. Check: open Terminal → <code>git --version</code>. If it shows a version — done. If it offers to install "Command Line Tools" — agree.</p>
+        <p>Alternative via Homebrew: <code>brew install git</code> (gives the latest version).</p>
+    </div>
+
+    <h3 data-lang="ru">Базовая настройка (одна на всю жизнь):</h3>
+    <h3 data-lang="en">Base config (one-time, forever):</h3>
+    <div class="try-it" data-lang="ru">
+        <p>Git должен знать, кто вы — чтобы подписывать ваши коммиты. Откройте терминал (Git Bash на Windows / Terminal на Mac) и выполните <strong>две команды</strong>:</p>
+<pre><code>git config --global user.name "Ваше Имя"
+git config --global user.email "your_email@example.com"</code></pre>
+        <p><strong>Важно:</strong> email должен совпадать с тем, что вы укажете при регистрации на GitHub. Иначе ваши коммиты не будут связаны с вашим профилем (в счётчике активности они не отобразятся).</p>
+        <p>Проверка:</p>
+<pre><code>git config --global user.name      # должно показать ваше имя
+git config --global user.email     # должно показать ваш email</code></pre>
+        <p>Эту настройку делаете <strong>один раз</strong> — она применится ко всем будущим репозиториям на этом компьютере.</p>
+    </div>
+    <div class="try-it" data-lang="en">
+        <p>Git needs to know who you are — to sign your commits. Open the terminal (Git Bash on Windows / Terminal on Mac) and run <strong>two commands</strong>:</p>
+<pre><code>git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"</code></pre>
+        <p><strong>Important:</strong> the email must match the one you'll use to register on GitHub. Otherwise your commits won't link to your profile (won't show up in the activity counter).</p>
+        <p>Verify:</p>
+<pre><code>git config --global user.name      # should show your name
+git config --global user.email     # should show your email</code></pre>
+        <p>You set this <strong>once</strong> — it applies to all future repositories on this computer.</p>
+    </div>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>Установить main как ветку по умолчанию</strong> (новые проекты будут начинать с <code>main</code> вместо устаревшего <code>master</code>):</p>
+<pre><code>git config --global init.defaultBranch main</code></pre>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>Set main as the default branch</strong> (new projects start with <code>main</code> instead of the legacy <code>master</code>):</p>
+<pre><code>git config --global init.defaultBranch main</code></pre>
+    </div>
+
+    <hr>
+
+    <!-- ==================== GITHUB ACCOUNT ==================== -->
+    <h2 id="github-account" data-lang="ru">6. Аккаунт на GitHub: оформление профиля</h2>
+    <h2 id="github-account-en" data-lang="en">6. GitHub account: setting up the profile</h2>
+
+    <div class="why" data-lang="ru">
+        <p>GitHub-аккаунт — это <strong>лицо разработчика в интернете</strong>. На него смотрит каждый рекрутёр. Уделите 15 минут на нормальное оформление — окупится сторицей.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>A GitHub account is the <strong>developer's face online</strong>. Every recruiter looks at it. Spend 15 minutes setting it up properly — it pays back tenfold.</p>
+    </div>
+
+    <h3 data-lang="ru">Регистрация:</h3>
+    <h3 data-lang="en">Registration:</h3>
+    <div class="try-it" data-lang="ru">
+        <ol>
+            <li><strong>github.com</strong> → «Sign up» в правом верхнем углу</li>
+            <li>Email → <strong>тот же</strong>, что в <code>git config user.email</code> (это критично!)</li>
+            <li>Пароль (минимум 15 символов или 8 с цифрой)</li>
+            <li>Username → <strong>выберите осмысленно</strong>: это будет ваш URL (<code>github.com/username</code>) и часть портфолио. Хорошо: <code>seydicharyev</code>, <code>aman-dev</code>. Плохо: <code>xxxgamer228</code>, <code>cool-boy-99</code>.</li>
+            <li>Подтвердите email (письмо из GitHub)</li>
+            <li>Скип «Plan» → выберите Free</li>
+        </ol>
+    </div>
+    <div class="try-it" data-lang="en">
+        <ol>
+            <li><strong>github.com</strong> → "Sign up" top right</li>
+            <li>Email → <strong>the same</strong> you put in <code>git config user.email</code> (critical!)</li>
+            <li>Password (15+ chars or 8 with a digit)</li>
+            <li>Username → <strong>pick mindfully</strong>: this will be your URL (<code>github.com/username</code>) and part of your portfolio. Good: <code>seydicharyev</code>, <code>aman-dev</code>. Bad: <code>xxxgamer228</code>, <code>cool-boy-99</code>.</li>
+            <li>Verify email (letter from GitHub)</li>
+            <li>Skip "Plan" → choose Free</li>
+        </ol>
+    </div>
+
+    <h3 data-lang="ru">Оформление профиля (15 минут на всю карьеру):</h3>
+    <h3 data-lang="en">Profile setup (15 minutes for the whole career):</h3>
+    <div class="try-it" data-lang="ru">
+        <ol>
+            <li>Settings (правый верхний угол → Settings) → Profile</li>
+            <li><strong>Name</strong>: ваше реальное имя (как в паспорте, латиницей)</li>
+            <li><strong>Bio</strong>: 1-2 предложения о себе. Пример: «Front-end developer learning React. Based in Ashgabat 🇹🇲».</li>
+            <li><strong>Location</strong>: Ashgabat / Mary / ваш город</li>
+            <li><strong>Avatar</strong>: загрузите фото. Без фото профиль выглядит «полу-готовым» и не вызывает доверия.</li>
+            <li>Сохраните → откройте свой профиль (<code>github.com/username</code>) → проверьте, что всё аккуратно.</li>
+        </ol>
+        <p><strong>Бонус: Profile README.</strong> Создайте репозиторий с именем, <em>равным вашему username</em>, добавьте файл <code>README.md</code>. Его содержимое будет показано на главной странице вашего профиля как визитка. Подробности — в задании 2.4 (бонус).</p>
+    </div>
+    <div class="try-it" data-lang="en">
+        <ol>
+            <li>Settings (top right → Settings) → Profile</li>
+            <li><strong>Name</strong>: your real name (as in passport, in Latin script)</li>
+            <li><strong>Bio</strong>: 1-2 sentences about yourself. Example: "Front-end developer learning React. Based in Ashgabat 🇹🇲".</li>
+            <li><strong>Location</strong>: Ashgabat / Mary / your city</li>
+            <li><strong>Avatar</strong>: upload a photo. Without one, the profile looks "half-done" and doesn't inspire trust.</li>
+            <li>Save → open your profile (<code>github.com/username</code>) → verify it looks neat.</li>
+        </ol>
+        <p><strong>Bonus: Profile README.</strong> Create a repo with the name <em>equal to your username</em>, add a <code>README.md</code> file. Its content shows on the front of your profile as a business card. Details in bonus task 2.4.</p>
+    </div>
+
+    <div class="mistake" data-lang="ru">
+        <p><strong>Не повторяйте этих ошибок при регистрации:</strong></p>
+        <ul>
+            <li><code>username</code> с цифрами / нижним подчёркиванием / «niknames детских»: рекрутёры просто пропустят</li>
+            <li>Email на регистрации <em>другой</em>, чем в Git → коммиты не «склеятся» с профилем</li>
+            <li>Пустой профиль без bio и аватара → выглядит как заброшенный</li>
+            <li>Регистрация двух аккаунтов «личный» и «рабочий» → ваш счётчик активности раздваивается, выглядит слабее</li>
+        </ul>
+    </div>
+    <div class="mistake" data-lang="en">
+        <p><strong>Don't make these registration mistakes:</strong></p>
+        <ul>
+            <li><code>username</code> with digits / underscores / "kid-style nicknames": recruiters just skip</li>
+            <li>Registration email <em>different</em> from Git's → commits won't link to the profile</li>
+            <li>Empty profile without bio and avatar → looks abandoned</li>
+            <li>Two accounts "personal" and "work" → your activity counter splits, looks weaker</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ==================== AUTH ==================== -->
+    <h2 id="auth" data-lang="ru">7. Авторизация: HTTPS + Personal Access Token</h2>
+    <h2 id="auth-en" data-lang="en">7. Authentication: HTTPS + Personal Access Token</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Когда вы делаете <code>git push</code>, GitHub должен убедиться, что вы — это вы (а не кто-то, кто украл ссылку на репо). Есть два способа авторизации: <strong>HTTPS + Personal Access Token (PAT)</strong> и <strong>SSH-ключи</strong>. На этом курсе мы используем HTTPS+PAT — он проще и быстрее настраивается. SSH — позже, когда станет нужно (обычно через 2-3 месяца практики).</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>When you <code>git push</code>, GitHub must confirm you're you (not someone who stole the repo URL). Two ways to authenticate: <strong>HTTPS + Personal Access Token (PAT)</strong> and <strong>SSH keys</strong>. This course uses HTTPS+PAT — simpler and faster to set up. SSH — later, when needed (usually after 2-3 months of practice).</p>
+    </div>
+
+    <table data-lang="ru">
+        <tr><th></th><th>HTTPS + PAT</th><th>SSH-ключи</th></tr>
+        <tr><td>Сложность настройки</td><td>Низкая (10 минут)</td><td>Средняя (20-30 минут)</td></tr>
+        <tr><td>URL репозитория</td><td><code>https://github.com/u/r.git</code></td><td><code>git@github.com:u/r.git</code></td></tr>
+        <tr><td>Когда удобно</td><td>На своём компьютере, для начала</td><td>На сервере, при работе с многими репо</td></tr>
+        <tr><td>Безопасность</td><td>Хорошая (токен можно отозвать)</td><td>Очень хорошая</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th></th><th>HTTPS + PAT</th><th>SSH keys</th></tr>
+        <tr><td>Setup difficulty</td><td>Low (10 minutes)</td><td>Medium (20-30 minutes)</td></tr>
+        <tr><td>Repo URL</td><td><code>https://github.com/u/r.git</code></td><td><code>git@github.com:u/r.git</code></td></tr>
+        <tr><td>When convenient</td><td>On your own computer, to start</td><td>On a server, with many repos</td></tr>
+        <tr><td>Security</td><td>Good (token can be revoked)</td><td>Very good</td></tr>
+    </table>
+
+    <h3 data-lang="ru">Создание Personal Access Token (PAT):</h3>
+    <h3 data-lang="en">Creating a Personal Access Token (PAT):</h3>
+    <div class="try-it" data-lang="ru">
+        <ol>
+            <li>На GitHub: правый верхний угол → ваш аватар → Settings</li>
+            <li>В левом меню — пролистать вниз до <strong>Developer settings</strong> (последний пункт)</li>
+            <li>Personal access tokens → <strong>Tokens (classic)</strong> → Generate new token → Generate new token (classic)</li>
+            <li><strong>Note</strong>: «My laptop — React course» (любое описание для себя)</li>
+            <li><strong>Expiration</strong>: 90 дней (через 90 дней нужно будет создать новый — норма безопасности)</li>
+            <li><strong>Select scopes</strong>: поставьте галочку <code>repo</code> (это даст доступ к private и public репозиториям).</li>
+            <li>Нажать «Generate token»</li>
+            <li><strong>Скопировать токен СРАЗУ</strong> — больше вы его не увидите. Сохранить в надёжное место (менеджер паролей, заметки на компьютере). Никому не показывать!</li>
+        </ol>
+        <p><strong>Когда GitHub попросит пароль</strong> при первом push — введите <strong>не пароль от аккаунта</strong>, а только что созданный <strong>токен</strong>. Git закэширует его, и больше спрашивать не будет.</p>
+    </div>
+    <div class="try-it" data-lang="en">
+        <ol>
+            <li>On GitHub: top right → avatar → Settings</li>
+            <li>Left menu — scroll down to <strong>Developer settings</strong> (last item)</li>
+            <li>Personal access tokens → <strong>Tokens (classic)</strong> → Generate new token → Generate new token (classic)</li>
+            <li><strong>Note</strong>: "My laptop — React course" (any description for yourself)</li>
+            <li><strong>Expiration</strong>: 90 days (after 90 days you'll create a new one — security norm)</li>
+            <li><strong>Select scopes</strong>: check <code>repo</code> (gives access to private and public repos).</li>
+            <li>Click "Generate token"</li>
+            <li><strong>Copy the token IMMEDIATELY</strong> — you won't see it again. Save somewhere safe (password manager, local notes). Never share!</li>
+        </ol>
+        <p><strong>When GitHub asks for a password</strong> on first push — enter <strong>not your account password</strong> but the freshly created <strong>token</strong>. Git caches it and won't ask again.</p>
+    </div>
+
+    <div class="mistake" data-lang="ru">
+        <p><strong>Самая частая ошибка новичка</strong> — попытаться войти с обычным паролем GitHub. С 2021 года это <strong>отключено</strong>: в окне ввода пароля при <code>git push</code> нужно вставлять токен (PAT), а не пароль от аккаунта.</p>
+    </div>
+    <div class="mistake" data-lang="en">
+        <p><strong>Most common beginner mistake</strong> — trying to log in with the regular GitHub password. Since 2021 this is <strong>disabled</strong>: in the password prompt during <code>git push</code> paste the token (PAT), not the account password.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== GIT FLOW ==================== -->
+    <h2 id="git-flow" data-lang="ru">8. Жизненный цикл: init → add → commit → push</h2>
+    <h2 id="git-flow-en" data-lang="en">8. Life cycle: init → add → commit → push</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Это <strong>главная схема</strong> работы с Git. Запомните её — и 90% повседневных задач решите.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>This is the <strong>main schema</strong> of working with Git. Memorize it — and 90% of daily tasks are covered.</p>
+    </div>
+
+    <div class="diagram" data-lang="ru">
+    Файлы          Staging        Local repo         Remote (GitHub)
+    (working)      area           (.git/)
+       │              │              │                    │
+       │  git add     │              │                    │
+       ├─────────────►│              │                    │
+       │              │  git commit  │                    │
+       │              ├─────────────►│                    │
+       │              │              │     git push       │
+       │              │              ├───────────────────►│
+       │              │              │                    │
+       │              │              │     git pull       │
+       │              │              │◄───────────────────┤</div>
+    <div class="diagram" data-lang="en">
+    Files          Staging        Local repo         Remote (GitHub)
+    (working)      area           (.git/)
+       │              │              │                    │
+       │  git add     │              │                    │
+       ├─────────────►│              │                    │
+       │              │  git commit  │                    │
+       │              ├─────────────►│                    │
+       │              │              │     git push       │
+       │              │              ├───────────────────►│
+       │              │              │                    │
+       │              │              │     git pull       │
+       │              │              │◄───────────────────┤</div>
+
+    <h3 data-lang="ru">Команды по этапам:</h3>
+    <h3 data-lang="en">Commands by stage:</h3>
+
+    <table data-lang="ru">
+        <tr><th>Команда</th><th>Что делает</th></tr>
+        <tr><td><code>git init</code></td><td>Превратить обычную папку в Git-репозиторий (создать <code>.git/</code>)</td></tr>
+        <tr><td><code>git status</code></td><td>Показать: какие файлы изменились, что в staging, что не отслеживается</td></tr>
+        <tr><td><code>git add file.html</code></td><td>Добавить конкретный файл в staging (готовим к коммиту)</td></tr>
+        <tr><td><code>git add .</code></td><td>Добавить <strong>всё изменённое</strong> в staging</td></tr>
+        <tr><td><code>git commit -m "сообщение"</code></td><td>Создать коммит из того, что в staging</td></tr>
+        <tr><td><code>git log</code></td><td>Показать историю коммитов</td></tr>
+        <tr><td><code>git log --oneline</code></td><td>Та же история, но коротко (по одной строке на коммит)</td></tr>
+        <tr><td><code>git remote add origin URL</code></td><td>Привязать локальный репо к remote (GitHub)</td></tr>
+        <tr><td><code>git push -u origin main</code></td><td>Отправить коммиты на GitHub (первый раз — с <code>-u</code>)</td></tr>
+        <tr><td><code>git push</code></td><td>Отправить коммиты на GitHub (после первого раза)</td></tr>
+        <tr><td><code>git pull</code></td><td>Забрать чужие коммиты с GitHub</td></tr>
+        <tr><td><code>git clone URL</code></td><td>Скачать чужой репозиторий с GitHub</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Command</th><th>What it does</th></tr>
+        <tr><td><code>git init</code></td><td>Turn a regular folder into a Git repo (creates <code>.git/</code>)</td></tr>
+        <tr><td><code>git status</code></td><td>Show: which files changed, what's staged, what's untracked</td></tr>
+        <tr><td><code>git add file.html</code></td><td>Add a specific file to staging (prep for commit)</td></tr>
+        <tr><td><code>git add .</code></td><td>Add <strong>all modified files</strong> to staging</td></tr>
+        <tr><td><code>git commit -m "message"</code></td><td>Create a commit from what's in staging</td></tr>
+        <tr><td><code>git log</code></td><td>Show commit history</td></tr>
+        <tr><td><code>git log --oneline</code></td><td>Same history, short (one line per commit)</td></tr>
+        <tr><td><code>git remote add origin URL</code></td><td>Link the local repo to a remote (GitHub)</td></tr>
+        <tr><td><code>git push -u origin main</code></td><td>Send commits to GitHub (first time — with <code>-u</code>)</td></tr>
+        <tr><td><code>git push</code></td><td>Send commits to GitHub (after the first time)</td></tr>
+        <tr><td><code>git pull</code></td><td>Fetch others' commits from GitHub</td></tr>
+        <tr><td><code>git clone URL</code></td><td>Download someone's repo from GitHub</td></tr>
+    </table>
+
+    <h3 data-lang="ru">Полный цикл — пример сессии:</h3>
+    <h3 data-lang="en">Full cycle — example session:</h3>
+<pre><code># 1. В новой папке проекта:
+git init                                      # создали репозиторий
+git status                                    # untracked: index.html
+
+# 2. Добавляем файлы и делаем первый коммит:
+git add .                                     # всё в staging
+git status                                    # теперь файлы зелёные
+git commit -m "Initial commit"                # коммит создан
+git log                                       # видим коммит
+
+# 3. Связываем с GitHub (репо уже создан на github.com):
+git remote add origin https://github.com/USERNAME/PROJECT.git
+git branch -M main                            # ветка называется main
+git push -u origin main                       # отправить + связать ветки
+
+# 4. На следующий день — поправили код:
+git status                                    # видно изменения
+git add .
+git commit -m "Update navigation"
+git push                                      # уже без -u origin main</code></pre>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>Хорошие сообщения коммитов</strong> — отдельный навык. Правила, которым следуют профессионалы:</p>
+        <ul>
+            <li>Пишите на английском (стандарт индустрии)</li>
+            <li>Глагол в начале (<code>Add ...</code>, <code>Fix ...</code>, <code>Update ...</code>, <code>Remove ...</code>)</li>
+            <li>Без точки в конце</li>
+            <li>До 50 символов первая строка</li>
+            <li>Описывайте <em>что</em> и <em>зачем</em>, а не <em>как</em></li>
+        </ul>
+        <p>Хорошо: <code>Add user login form</code>, <code>Fix counter bug on mobile</code>, <code>Update README with deploy instructions</code>.<br>Плохо: <code>fix</code>, <code>changes</code>, <code>asdf</code>, <code>commit 1</code>, <code>лалала</code>.</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>Good commit messages</strong> are a separate skill. Rules pros follow:</p>
+        <ul>
+            <li>Write in English (industry standard)</li>
+            <li>Verb first (<code>Add ...</code>, <code>Fix ...</code>, <code>Update ...</code>, <code>Remove ...</code>)</li>
+            <li>No period at the end</li>
+            <li>50 chars max for the first line</li>
+            <li>Describe <em>what</em> and <em>why</em>, not <em>how</em></li>
+        </ul>
+        <p>Good: <code>Add user login form</code>, <code>Fix counter bug on mobile</code>, <code>Update README with deploy instructions</code>.<br>Bad: <code>fix</code>, <code>changes</code>, <code>asdf</code>, <code>commit 1</code>, <code>lalala</code>.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== GITIGNORE ==================== -->
+    <h2 id="gitignore" data-lang="ru">9. .gitignore: что не коммитим никогда</h2>
+    <h2 id="gitignore-en" data-lang="en">9. .gitignore: what we never commit</h2>
+
+    <div class="why" data-lang="ru">
+        <p>В проекте есть файлы, которые <strong>не должны попадать в Git</strong>. Если их закоммитить — репозиторий раздуется до неприличных размеров, появятся проблемы с безопасностью, конфликты между разработчиками. Решение — файл <code>.gitignore</code> в корне проекта. В нём списком — что игнорировать.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>A project has files that <strong>shouldn't enter Git</strong>. Commit them and the repo bloats to absurd sizes, security issues appear, conflicts between developers. Solution — a <code>.gitignore</code> file in the project root. It lists what to ignore.</p>
+    </div>
+
+    <h3 data-lang="ru">Что обязательно игнорируем в React-проекте:</h3>
+    <h3 data-lang="en">What must be ignored in a React project:</h3>
+    <table data-lang="ru">
+        <tr><th>Что</th><th>Почему не коммитим</th></tr>
+        <tr><td><code>node_modules/</code></td><td>500+ Мб библиотек. Восстанавливается командой <code>npm install</code>.</td></tr>
+        <tr><td><code>dist/</code> или <code>build/</code></td><td>Сборка проекта. Генерируется автоматически.</td></tr>
+        <tr><td><code>.env</code></td><td>Переменные с секретами (API-ключи, пароли). <strong>НИКОГДА.</strong></td></tr>
+        <tr><td><code>.DS_Store</code></td><td>Системный файл macOS. Не нужен.</td></tr>
+        <tr><td><code>Thumbs.db</code></td><td>Системный файл Windows. Не нужен.</td></tr>
+        <tr><td><code>*.log</code></td><td>Лог-файлы. Полезны локально, не в репо.</td></tr>
+        <tr><td><code>.vscode/</code>, <code>.idea/</code></td><td>Настройки редактора (личные).</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>What</th><th>Why we don't commit</th></tr>
+        <tr><td><code>node_modules/</code></td><td>500+ MB of libraries. Restored by <code>npm install</code>.</td></tr>
+        <tr><td><code>dist/</code> or <code>build/</code></td><td>Project build. Generated automatically.</td></tr>
+        <tr><td><code>.env</code></td><td>Variables with secrets (API keys, passwords). <strong>NEVER.</strong></td></tr>
+        <tr><td><code>.DS_Store</code></td><td>macOS system file. Not needed.</td></tr>
+        <tr><td><code>Thumbs.db</code></td><td>Windows system file. Not needed.</td></tr>
+        <tr><td><code>*.log</code></td><td>Log files. Useful locally, not in the repo.</td></tr>
+        <tr><td><code>.vscode/</code>, <code>.idea/</code></td><td>Editor settings (personal).</td></tr>
+    </table>
+
+    <h3 data-lang="ru">Стандартный <code>.gitignore</code> для React-проекта на Vite:</h3>
+    <h3 data-lang="en">Standard <code>.gitignore</code> for a Vite + React project:</h3>
+<pre><code># Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment variables (NEVER commit secrets!)
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.suo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vite cache
+.vite/</code></pre>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>Хорошая новость:</strong> когда вы создадите Vite-проект (шаг 11 ниже), Vite <strong>автоматически</strong> создаст правильный <code>.gitignore</code>. Вам не придётся писать его руками. Но содержимое полезно знать — иногда нужно добавить что-то своё.</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>Good news:</strong> when you create a Vite project (step 11 below), Vite <strong>automatically</strong> creates a proper <code>.gitignore</code>. You don't write it by hand. But it's useful to know what's inside — sometimes you need to add your own entries.</p>
+    </div>
+
+    <div class="mistake" data-lang="ru">
+        <p><strong>Закоммитили <code>node_modules</code> или <code>.env</code> по ошибке?</strong> Стандартное удаление через <code>git rm</code> не помогает — файлы остаются в истории, и любой может их выкачать. Если закоммитили <strong>секреты</strong> в <code>.env</code> — токены/пароли надо <strong>немедленно отозвать и сгенерировать новые</strong>. Это правило безопасности.</p>
+    </div>
+    <div class="mistake" data-lang="en">
+        <p><strong>Committed <code>node_modules</code> or <code>.env</code> by accident?</strong> A simple <code>git rm</code> doesn't help — files remain in history, and anyone can pull them. If you committed <strong>secrets</strong> in <code>.env</code> — tokens/passwords must be <strong>immediately revoked and regenerated</strong>. Security rule.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== VITE INTRO ==================== -->
+    <h2 id="vite-intro" data-lang="ru">10. Vite: что под капотом</h2>
+    <h2 id="vite-intro-en" data-lang="en">10. Vite: what's under the hood</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Мы уже сравнивали Vite и CRA на занятии 1. Сейчас углубимся: что именно делает Vite, когда вы запускаете <code>npm run dev</code>.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>We compared Vite and CRA on lesson 1. Now let's dive deeper: what exactly does Vite do when you run <code>npm run dev</code>.</p>
+    </div>
+
+    <div class="diagram" data-lang="ru">
+    Что делает Vite:
+
+    1. Запускает локальный dev-сервер (по умолчанию http://localhost:5173)
+
+    2. Перехватывает запросы браузера к JS-файлам:
+       - Компилирует JSX → обычный JS (через esbuild — на порядок быстрее Babel)
+       - Преобразует import'ы для браузера
+       - Возвращает готовый JS файл
+
+    3. Hot Module Replacement (HMR):
+       - Меняешь App.jsx → Vite перекомпилирует только этот файл
+       - Браузер обновляет компонент БЕЗ перезагрузки страницы
+       - Сохраняется state (например, открытое модальное окно)
+
+    4. По команде "npm run build":
+       - Собирает оптимизированный бандл в папку dist/
+       - Минифицирует, шейкает дерево (убирает мёртвый код)
+       - Готов к деплою на любой статический хостинг</div>
+    <div class="diagram" data-lang="en">
+    What Vite does:
+
+    1. Starts a local dev server (default http://localhost:5173)
+
+    2. Intercepts browser requests for JS files:
+       - Compiles JSX → plain JS (via esbuild — orders of magnitude faster than Babel)
+       - Transforms imports for the browser
+       - Returns the ready JS file
+
+    3. Hot Module Replacement (HMR):
+       - Edit App.jsx → Vite recompiles only that file
+       - Browser updates the component WITHOUT a page reload
+       - State is preserved (e.g. an open modal)
+
+    4. On "npm run build":
+       - Builds an optimized bundle into dist/
+       - Minifies, tree-shakes (drops dead code)
+       - Ready to deploy on any static host</div>
+
+    <div class="analogy" data-lang="ru">
+        <p><strong>Шеф-повар в ресторане.</strong> Вы заказываете блюдо (запрашиваете JS-файл из браузера). Шеф (Vite) готовит его <em>прямо в момент заказа</em> и приносит свежим. Когда вы меняете рецепт (правите код) — шеф автоматически переделывает только это блюдо, не перезаписывая весь ресторан.</p>
+    </div>
+    <div class="analogy" data-lang="en">
+        <p><strong>Restaurant chef.</strong> You order a dish (request a JS file from the browser). The chef (Vite) cooks it <em>at the moment of ordering</em> and serves it fresh. When you change the recipe (edit code) — the chef automatically remakes only that dish, not the whole restaurant.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== CREATE PROJECT ==================== -->
+    <h2 id="create-project" data-lang="ru">11. Создание проекта: <code>npm create vite@latest</code></h2>
+    <h2 id="create-project-en" data-lang="en">11. Creating a project: <code>npm create vite@latest</code></h2>
+
+    <div class="why" data-lang="ru">
+        <p>Одна команда — и у вас полноценный React-проект со всеми настройками. Это магия npm.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>One command — and you have a full React project with all settings. The magic of npm.</p>
+    </div>
+
+    <div class="try-it" data-lang="ru">
+        <p><strong>Шаги (в терминале):</strong></p>
+        <ol>
+            <li>Перейти в папку, где будут жить ваши проекты:
+<pre><code>cd Desktop/projects        # или любая другая</code></pre>
+                Если папки нет — создайте: <code>mkdir projects && cd projects</code>.
+            </li>
+            <li>Запустить мастер Vite:
+<pre><code>npm create vite@latest</code></pre>
+                Vite сам предложит ответить на 3 вопроса.
+            </li>
+            <li><strong>Project name</strong>: <code>my-first-react</code> (или любое — будет именем папки и репо). Без пробелов, маленькими буквами, через дефисы.</li>
+            <li><strong>Select a framework</strong>: стрелками выбрать <strong>React</strong>, нажать Enter.</li>
+            <li><strong>Select a variant</strong>: <strong>JavaScript</strong> (TypeScript изучим позже). Без SWC — обычный JavaScript.</li>
+            <li>Vite создаст папку с проектом. Дальше:
+<pre><code>cd my-first-react         # зайти в папку
+npm install               # установить зависимости (1-2 минуты)
+npm run dev               # запустить dev-сервер</code></pre>
+            </li>
+            <li>В терминале появится сообщение:
+<pre><code>VITE v5.x.x  ready in 432 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose</code></pre>
+                Открыть <code>http://localhost:5173</code> в браузере → увидеть стартовую страницу Vite + React.
+            </li>
+            <li>Остановить сервер: <code>Ctrl+C</code> в терминале.</li>
+        </ol>
+    </div>
+    <div class="try-it" data-lang="en">
+        <p><strong>Steps (in the terminal):</strong></p>
+        <ol>
+            <li>Navigate to where your projects live:
+<pre><code>cd Desktop/projects        # or any other</code></pre>
+                If the folder doesn't exist — create: <code>mkdir projects && cd projects</code>.
+            </li>
+            <li>Run the Vite wizard:
+<pre><code>npm create vite@latest</code></pre>
+                Vite asks 3 questions.
+            </li>
+            <li><strong>Project name</strong>: <code>my-first-react</code> (or any — becomes the folder and repo name). No spaces, lowercase, dashes.</li>
+            <li><strong>Select a framework</strong>: arrow to <strong>React</strong>, hit Enter.</li>
+            <li><strong>Select a variant</strong>: <strong>JavaScript</strong> (TypeScript later). Without SWC — plain JavaScript.</li>
+            <li>Vite creates a project folder. Next:
+<pre><code>cd my-first-react         # enter the folder
+npm install               # install dependencies (1-2 min)
+npm run dev               # start dev server</code></pre>
+            </li>
+            <li>The terminal shows:
+<pre><code>VITE v5.x.x  ready in 432 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose</code></pre>
+                Open <code>http://localhost:5173</code> in the browser → see the Vite + React starter page.
+            </li>
+            <li>Stop the server: <code>Ctrl+C</code> in the terminal.</li>
+        </ol>
+    </div>
+
+    <div class="mistake" data-lang="ru">
+        <p><strong>Если <code>npm create vite@latest</code> не работает</strong> — самые частые причины:</p>
+        <ul>
+            <li>Старая версия Node (нужна 20+). Проверка: <code>node -v</code>.</li>
+            <li>Не закрыли старый терминал после установки Node — откройте новый.</li>
+            <li>Антивирус блокирует <code>npm</code> (редко, но бывает на Windows). Временно отключить, попробовать заново.</li>
+            <li>Запускаете в системной папке (например, <code>C:\Windows</code>) — нет прав. Перейдите в <code>Desktop</code> или <code>Documents</code>.</li>
+        </ul>
+    </div>
+    <div class="mistake" data-lang="en">
+        <p><strong>If <code>npm create vite@latest</code> doesn't work</strong> — most common reasons:</p>
+        <ul>
+            <li>Old Node version (need 20+). Check: <code>node -v</code>.</li>
+            <li>Didn't close the old terminal after installing Node — open a new one.</li>
+            <li>Antivirus blocking <code>npm</code> (rare on Windows). Temporarily disable, try again.</li>
+            <li>Running in a system folder (e.g. <code>C:\Windows</code>) — no permissions. Go to <code>Desktop</code> or <code>Documents</code>.</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- ==================== PROJECT STRUCTURE ==================== -->
+    <h2 id="project-structure" data-lang="ru">12. Структура Vite + React проекта</h2>
+    <h2 id="project-structure-en" data-lang="en">12. Vite + React project structure</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Vite создал ~10 файлов в новой папке. Разберём каждый — чтобы потом ничего не казалось магией.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Vite created ~10 files in the new folder. Let's go through each — so nothing feels like magic later.</p>
+    </div>
+
+    <div class="diagram" data-lang="ru">
+    my-first-react/
+    ├── node_modules/         ← все библиотеки (не трогать, не коммитить)
+    ├── public/               ← статические файлы (favicon, картинки)
+    │   └── vite.svg
+    ├── src/                  ← ВАШ КОД ЖИВЁТ ТУТ
+    │   ├── assets/           ← картинки, иконки для компонентов
+    │   │   └── react.svg
+    │   ├── App.jsx           ← главный компонент
+    │   ├── App.css           ← стили для App
+    │   ├── index.css         ← глобальные стили
+    │   └── main.jsx          ← точка входа (рендерит App в #root)
+    ├── .gitignore            ← Vite сделал автоматически
+    ├── index.html            ← единственный HTML, корень всего
+    ├── package.json          ← список зависимостей и скрипты
+    ├── package-lock.json     ← точные версии зависимостей (не править руками)
+    ├── README.md             ← описание проекта
+    └── vite.config.js        ← настройки Vite (обычно не трогаем)</div>
+    <div class="diagram" data-lang="en">
+    my-first-react/
+    ├── node_modules/         ← all libraries (don't touch, don't commit)
+    ├── public/               ← static files (favicon, images)
+    │   └── vite.svg
+    ├── src/                  ← YOUR CODE LIVES HERE
+    │   ├── assets/           ← images, icons for components
+    │   │   └── react.svg
+    │   ├── App.jsx           ← main component
+    │   ├── App.css           ← styles for App
+    │   ├── index.css         ← global styles
+    │   └── main.jsx          ← entry point (renders App into #root)
+    ├── .gitignore            ← Vite generated automatically
+    ├── index.html            ← the only HTML, the root of everything
+    ├── package.json          ← dependency list and scripts
+    ├── package-lock.json     ← exact dependency versions (don't edit by hand)
+    ├── README.md             ← project description
+    └── vite.config.js        ← Vite settings (usually don't touch)</div>
+
+    <h3 data-lang="ru">Ключевые файлы — что внутри:</h3>
+    <h3 data-lang="en">Key files — what's inside:</h3>
+
+    <h4 data-lang="ru"><code>index.html</code> (корень проекта):</h4>
+    <h4 data-lang="en"><code>index.html</code> (project root):</h4>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;link rel="icon" type="image/svg+xml" href="/vite.svg" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Vite + React&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+    &lt;script type="module" src="/src/main.jsx"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    <p data-lang="ru"><strong>Заметьте:</strong> один <code>&lt;div id="root"&gt;</code> — точно как в CDN-варианте на занятии 1. Концепция та же, просто упаковка другая.</p>
+    <p data-lang="en"><strong>Notice:</strong> single <code>&lt;div id="root"&gt;</code> — exactly like in the CDN approach on lesson 1. Same concept, different packaging.</p>
+
+    <h4 data-lang="ru"><code>src/main.jsx</code> (точка входа):</h4>
+    <h4 data-lang="en"><code>src/main.jsx</code> (entry point):</h4>
+<pre><code>import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  &lt;StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/StrictMode&gt;,
+)</code></pre>
+    <p data-lang="ru"><strong>Снова:</strong> та же логика, что в CDN-примере. <code>createRoot(...).render(&lt;App /&gt;)</code>. Только теперь <code>App</code> подключается через <code>import</code> — это и есть «настоящий React-проект».</p>
+    <p data-lang="en"><strong>Again:</strong> same logic as in the CDN example. <code>createRoot(...).render(&lt;App /&gt;)</code>. Only now <code>App</code> is imported — that's what makes it "a real React project".</p>
+
+    <h4 data-lang="ru"><code>src/App.jsx</code> (главный компонент — место вашей работы):</h4>
+    <h4 data-lang="en"><code>src/App.jsx</code> (main component — where you'll work):</h4>
+<pre><code>import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    &lt;&gt;
+      {/* ...логотипы Vite + React, заголовок, счётчик... */}
+    &lt;/&gt;
+  )
+}
+
+export default App</code></pre>
+    <p data-lang="ru"><strong>Это уже знакомо:</strong> функциональный компонент. Внутри — счётчик через <code>useState</code> (то самое, что мы видели в сравнении на занятии 1). Можете удалить весь стартовый контент и писать своё.</p>
+    <p data-lang="en"><strong>This is familiar:</strong> a functional component. Inside — a counter via <code>useState</code> (the very one we saw in the comparison on lesson 1). You can delete all starter content and write your own.</p>
+
+    <h4 data-lang="ru"><code>package.json</code> (паспорт проекта):</h4>
+    <h4 data-lang="en"><code>package.json</code> (project passport):</h4>
+<pre><code>{
+  "name": "my-first-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.x",
+    "eslint": "^9.x",
+    "vite": "^5.x"
+  }
+}</code></pre>
+    <p data-lang="ru"><strong>Главное тут — секция <code>scripts</code>.</strong> Это и есть команды, которые вы запускаете:</p>
+    <ul data-lang="ru">
+        <li><code>npm run dev</code> — запустить dev-сервер</li>
+        <li><code>npm run build</code> — собрать оптимизированную версию для продакшена в <code>dist/</code></li>
+        <li><code>npm run preview</code> — посмотреть, как будет работать собранная версия локально</li>
+        <li><code>npm run lint</code> — проверить код на ошибки стиля</li>
+    </ul>
+    <ul data-lang="en">
+        <li><code>npm run dev</code> — start the dev server</li>
+        <li><code>npm run build</code> — build the optimized production version into <code>dist/</code></li>
+        <li><code>npm run preview</code> — preview the built version locally</li>
+        <li><code>npm run lint</code> — check the code for style errors</li>
+    </ul>
+
+    <hr>
+
+    <!-- ==================== HOT RELOAD ==================== -->
+    <h2 id="hot-reload" data-lang="ru">13. Dev-сервер и hot reload</h2>
+    <h2 id="hot-reload-en" data-lang="en">13. Dev server and hot reload</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Самая впечатляющая фишка Vite — <strong>мгновенное обновление</strong> при изменении кода. Покажу на пальцах.</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>Vite's most impressive feature — <strong>instant updates</strong> on code changes. Let me show you.</p>
+    </div>
+
+    <div class="try-it" data-lang="ru">
+        <ol>
+            <li>В работающем проекте (<code>npm run dev</code> запущен) откройте <code>src/App.jsx</code></li>
+            <li>Найдите строчку <code>&lt;h1&gt;Vite + React&lt;/h1&gt;</code></li>
+            <li>Поменяйте на <code>&lt;h1&gt;Привет, мир!&lt;/h1&gt;</code></li>
+            <li>Сохраните файл (<code>Ctrl+S</code>)</li>
+            <li>Посмотрите в браузер: <strong>заголовок изменился без перезагрузки страницы</strong>. Если в URL или в консоли что-то было — оно осталось.</li>
+            <li>Кликните несколько раз на счётчик «count is 0», доведите до 5</li>
+            <li>Поменяйте текст кнопки в коде, сохраните</li>
+            <li>В браузере текст обновился, <strong>но счётчик остался на 5</strong> — это и есть Hot Module Replacement (HMR). Состояние компонента сохранилось.</li>
+        </ol>
+    </div>
+    <div class="try-it" data-lang="en">
+        <ol>
+            <li>In the running project (<code>npm run dev</code> active) open <code>src/App.jsx</code></li>
+            <li>Find the line <code>&lt;h1&gt;Vite + React&lt;/h1&gt;</code></li>
+            <li>Change it to <code>&lt;h1&gt;Hello, world!&lt;/h1&gt;</code></li>
+            <li>Save the file (<code>Ctrl+S</code>)</li>
+            <li>Look at the browser: <strong>the heading updated without a page reload</strong>. If anything was in the URL or console — it stayed.</li>
+            <li>Click the "count is 0" button several times, get to 5</li>
+            <li>Change the button text in code, save</li>
+            <li>In the browser the text updated <strong>but the counter is still at 5</strong> — that's Hot Module Replacement (HMR). Component state preserved.</li>
+        </ol>
+    </div>
+
+    <div class="highlight" data-lang="ru">
+        Это и есть «современная разработка»: вы видите результат изменений за <strong>миллисекунды</strong>. После Vite возвращаться к классическому «сохранил → F5 → жди загрузки» — невозможно.
+    </div>
+    <div class="highlight" data-lang="en">
+        This is "modern development": you see results in <strong>milliseconds</strong>. After Vite, returning to the classic "save → F5 → wait for load" is unthinkable.
+    </div>
+
+    <hr>
+
+    <!-- ==================== PUSH TO GITHUB ==================== -->
+    <h2 id="push-to-github" data-lang="ru">14. Push на GitHub за 5 минут</h2>
+    <h2 id="push-to-github-en" data-lang="en">14. Push to GitHub in 5 minutes</h2>
+
+    <div class="why" data-lang="ru">
+        <p>Проект работает локально. Теперь — выложим на GitHub. Это последний шаг, который превращает «папку на компьютере» в «публичный портфолио-проект».</p>
+    </div>
+    <div class="why" data-lang="en">
+        <p>The project works locally. Now — push it to GitHub. The last step that turns a "folder on your computer" into a "public portfolio project".</p>
+    </div>
+
+    <div class="try-it" data-lang="ru">
+        <p><strong>Шаги:</strong></p>
+        <ol>
+            <li>В корне проекта (там, где <code>package.json</code>) откройте терминал. Vite уже создал репозиторий через <code>git init</code> автоматически — но если нет, выполните:
+<pre><code>git init
+git branch -M main</code></pre>
+            </li>
+            <li>Первый коммит:
+<pre><code>git add .
+git commit -m "Initial commit: Vite + React starter"</code></pre>
+            </li>
+            <li>На <strong>github.com</strong>: правый верхний угол → <code>+</code> → New repository
+                <ul>
+                    <li><strong>Repository name</strong>: <code>my-first-react</code> (то же, что и локальная папка)</li>
+                    <li><strong>Description</strong>: «My first React project (Vite + React 19)»</li>
+                    <li><strong>Visibility</strong>: <strong>Public</strong></li>
+                    <li><strong>НЕ ставьте галочки</strong> «Add README» / «Add .gitignore» — они уже есть в проекте</li>
+                    <li>«Create repository»</li>
+                </ul>
+            </li>
+            <li>На странице созданного репо найдите <strong>HTTPS URL</strong> (например, <code>https://github.com/USERNAME/my-first-react.git</code>) и скопируйте.</li>
+            <li>В терминале:
+<pre><code>git remote add origin https://github.com/USERNAME/my-first-react.git
+git push -u origin main</code></pre>
+            </li>
+            <li>Git попросит <code>Username</code> (ваш GitHub-юзернейм) и <code>Password</code> — вставьте <strong>Personal Access Token</strong>, который создавали в шаге 7. <em>Не пароль от аккаунта.</em></li>
+            <li>Git закэширует токен. В браузере обновите страницу репо на GitHub — увидите все файлы проекта.</li>
+        </ol>
+    </div>
+    <div class="try-it" data-lang="en">
+        <p><strong>Steps:</strong></p>
+        <ol>
+            <li>In the project root (where <code>package.json</code> is) open the terminal. Vite already ran <code>git init</code> automatically — but if not, run:
+<pre><code>git init
+git branch -M main</code></pre>
+            </li>
+            <li>First commit:
+<pre><code>git add .
+git commit -m "Initial commit: Vite + React starter"</code></pre>
+            </li>
+            <li>On <strong>github.com</strong>: top right → <code>+</code> → New repository
+                <ul>
+                    <li><strong>Repository name</strong>: <code>my-first-react</code> (same as the local folder)</li>
+                    <li><strong>Description</strong>: "My first React project (Vite + React 19)"</li>
+                    <li><strong>Visibility</strong>: <strong>Public</strong></li>
+                    <li><strong>DON'T tick</strong> "Add README" / "Add .gitignore" — they already exist in the project</li>
+                    <li>"Create repository"</li>
+                </ul>
+            </li>
+            <li>On the new repo page find the <strong>HTTPS URL</strong> (e.g. <code>https://github.com/USERNAME/my-first-react.git</code>) and copy it.</li>
+            <li>In the terminal:
+<pre><code>git remote add origin https://github.com/USERNAME/my-first-react.git
+git push -u origin main</code></pre>
+            </li>
+            <li>Git asks for <code>Username</code> (your GitHub username) and <code>Password</code> — paste the <strong>Personal Access Token</strong> from step 7. <em>Not the account password.</em></li>
+            <li>Git caches the token. Reload the repo page on GitHub — you'll see all project files.</li>
+        </ol>
+    </div>
+
+    <div class="pro-tip" data-lang="ru">
+        <p><strong>В будущих изменениях</strong> цикл сокращается до 3 команд:</p>
+<pre><code>git add .
+git commit -m "Add header component"
+git push</code></pre>
+        <p>За месяц практики эти 3 команды у вас войдут в мышечную память.</p>
+    </div>
+    <div class="pro-tip" data-lang="en">
+        <p><strong>For future changes</strong> the cycle shrinks to 3 commands:</p>
+<pre><code>git add .
+git commit -m "Add header component"
+git push</code></pre>
+        <p>After a month of practice these 3 commands become muscle memory.</p>
+    </div>
+
+    <hr>
+
+    <!-- ==================== MISTAKES ==================== -->
+    <h2 id="mistakes" data-lang="ru">15. 10 ошибок новичка с Git и GitHub</h2>
+    <h2 id="mistakes-en" data-lang="en">15. 10 beginner mistakes with Git and GitHub</h2>
+
+    <table data-lang="ru">
+        <tr><th>Ошибка</th><th>Что делать</th></tr>
+        <tr><td>Email в Git ≠ email на GitHub</td><td>Поправить <code>git config --global user.email</code></td></tr>
+        <tr><td>Пытаются войти паролем GitHub при push</td><td>Использовать Personal Access Token (PAT)</td></tr>
+        <tr><td>Не настроили <code>user.name</code> и <code>user.email</code></td><td>Сделать ОДИН раз перед первым коммитом</td></tr>
+        <tr><td>Закоммитили <code>node_modules</code></td><td>Добавить в <code>.gitignore</code>, удалить из истории</td></tr>
+        <tr><td>Закоммитили <code>.env</code> с секретами</td><td>СРАЗУ отозвать секреты, удалить из истории</td></tr>
+        <tr><td>Сообщения коммитов «fix», «changes», «asdf»</td><td>Глагол + что: <code>Add login form</code></td></tr>
+        <tr><td>Создают репо на GitHub <em>с</em> README, потом не могут запушить локальный</td><td>Создавать без README, либо <code>git pull --rebase</code></td></tr>
+        <tr><td>Username вроде <code>xxx_pro_228</code></td><td>Завести аккуратный username — это часть резюме</td></tr>
+        <tr><td>Забыли <code>git pull</code> перед работой → конфликт</td><td>Привычка: всегда <code>git pull</code> перед началом дня</td></tr>
+        <tr><td>Боятся git → не используют → не учатся</td><td>Бояться нечего: даже если сломали, можно начать с <code>git init</code> заново. Файлы не теряются.</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Mistake</th><th>Fix</th></tr>
+        <tr><td>Git email ≠ GitHub email</td><td>Fix <code>git config --global user.email</code></td></tr>
+        <tr><td>Trying to log in with GitHub password on push</td><td>Use a Personal Access Token (PAT)</td></tr>
+        <tr><td>Didn't set <code>user.name</code> and <code>user.email</code></td><td>Do it ONCE before the first commit</td></tr>
+        <tr><td>Committed <code>node_modules</code></td><td>Add to <code>.gitignore</code>, remove from history</td></tr>
+        <tr><td>Committed <code>.env</code> with secrets</td><td>Revoke secrets IMMEDIATELY, remove from history</td></tr>
+        <tr><td>Commit messages "fix", "changes", "asdf"</td><td>Verb + what: <code>Add login form</code></td></tr>
+        <tr><td>Create repo on GitHub <em>with</em> README, then can't push local</td><td>Create without README, or <code>git pull --rebase</code></td></tr>
+        <tr><td>Username like <code>xxx_pro_228</code></td><td>Create a clean username — it's part of the resume</td></tr>
+        <tr><td>Forgot <code>git pull</code> before work → conflict</td><td>Habit: always <code>git pull</code> at start of day</td></tr>
+        <tr><td>Afraid of git → don't use → don't learn</td><td>Nothing to fear: even if broken, can <code>git init</code> from scratch. Files don't disappear.</td></tr>
+    </table>
+
+    <hr>
+
+    <div class="summary" data-lang="ru">
+        <strong>Итог занятия 2:</strong>
+        <ol>
+            <li>Git — программа для контроля версий кода (машина времени)</li>
+            <li>GitHub — облачный сайт для хранения и шаринга Git-репозиториев</li>
+            <li>Установлен Git, настроены имя и email через <code>git config --global</code></li>
+            <li>Зарегистрирован аккаунт на GitHub с осмысленным username</li>
+            <li>Профиль оформлен (имя, bio, локация, аватар)</li>
+            <li>Создан Personal Access Token для авторизации (HTTPS+PAT)</li>
+            <li>Освоены команды <code>init / status / add / commit / log / push</code></li>
+            <li>Знаем, что не коммитить (<code>node_modules</code>, <code>.env</code>, <code>dist/</code>)</li>
+            <li>Создан первый Vite + React проект через <code>npm create vite@latest</code></li>
+            <li>Запущен dev-сервер на <code>localhost:5173</code></li>
+            <li>Понятна структура: <code>src/</code>, <code>public/</code>, <code>index.html</code>, <code>package.json</code></li>
+            <li>Hot reload работает: правка кода → мгновенный результат в браузере</li>
+            <li>Проект запушен на GitHub, доступен по публичной ссылке</li>
+            <li>На занятии 3 — углубление в JavaScript ES6+ (стрелочные функции, деструктуризация и т.д.)</li>
+        </ol>
+    </div>
+    <div class="summary" data-lang="en">
+        <strong>Lesson 2 outcome:</strong>
+        <ol>
+            <li>Git — a program for code version control (time machine)</li>
+            <li>GitHub — a cloud site to store and share Git repos</li>
+            <li>Git installed, name and email set via <code>git config --global</code></li>
+            <li>GitHub account registered with a sensible username</li>
+            <li>Profile filled in (name, bio, location, avatar)</li>
+            <li>Personal Access Token created for auth (HTTPS+PAT)</li>
+            <li>Commands learned: <code>init / status / add / commit / log / push</code></li>
+            <li>We know what NOT to commit (<code>node_modules</code>, <code>.env</code>, <code>dist/</code>)</li>
+            <li>First Vite + React project created via <code>npm create vite@latest</code></li>
+            <li>Dev server running on <code>localhost:5173</code></li>
+            <li>Structure understood: <code>src/</code>, <code>public/</code>, <code>index.html</code>, <code>package.json</code></li>
+            <li>Hot reload works: edit code → instant browser update</li>
+            <li>Project pushed to GitHub, available at a public URL</li>
+            <li>Lesson 3 — diving into JavaScript ES6+ (arrow functions, destructuring etc.)</li>
+        </ol>
+    </div>
+
+    <div class="quiz" data-lang="ru">
+        <ol>
+            <li>В чём разница между Git и GitHub?</li>
+            <li>Что такое коммит? Что такое история?</li>
+            <li>Какие 2 команды нужны, чтобы Git «знал» вас? Запишите их.</li>
+            <li>Почему email в Git и на GitHub должен совпадать?</li>
+            <li>Что такое Personal Access Token и зачем он?</li>
+            <li>Опишите цикл «изменил файл → отправил на GitHub» в командах.</li>
+            <li>Что такое <code>.gitignore</code>? Назовите 5 вещей, которые в него попадают в React-проекте.</li>
+            <li>Что произойдёт, если случайно закоммитить <code>.env</code> с API-ключом?</li>
+            <li>Какая команда создаёт новый Vite-проект?</li>
+            <li>Какие 3 вопроса задаёт Vite при создании проекта?</li>
+            <li>Что такое hot reload? Чем он отличается от обычной перезагрузки?</li>
+            <li>В какой папке (<code>src/</code> или <code>public/</code>) лежит ваш код, который компилирует Vite?</li>
+        </ol>
+    </div>
+    <div class="quiz" data-lang="en">
+        <ol>
+            <li>Difference between Git and GitHub?</li>
+            <li>What is a commit? What is history?</li>
+            <li>Which 2 commands does Git need to "know" you? Write them down.</li>
+            <li>Why must Git email and GitHub email match?</li>
+            <li>What is a Personal Access Token and why?</li>
+            <li>Describe the cycle "edited file → pushed to GitHub" in commands.</li>
+            <li>What is <code>.gitignore</code>? Name 5 entries for a React project.</li>
+            <li>What happens if you accidentally commit <code>.env</code> with an API key?</li>
+            <li>Which command creates a new Vite project?</li>
+            <li>Which 3 questions does Vite ask when creating a project?</li>
+            <li>What is hot reload? How does it differ from a regular reload?</li>
+            <li>In which folder (<code>src/</code> or <code>public/</code>) does your code live that Vite compiles?</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>

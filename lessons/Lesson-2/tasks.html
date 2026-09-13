@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Занятие 2 — Практические задания</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/tasks.css">
+    <script src="../../js/lang.js" defer></script>
+</head>
+<body>
+
+<div class="lesson-nav">
+    <a href="../../index.html" class="nav-home" data-lang="ru">&#8592; Главная</a>
+    <a href="../../index.html" class="nav-home" data-lang="en">&#8592; Home</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-title" data-lang="ru">Занятие 2: Git и первый проект</span>
+    <span class="nav-title" data-lang="en">Lesson 2: Git & First Project</span>
+    <span class="nav-sep">|</span>
+    <a href="lecture.html" class="nav-link" data-lang="ru">&#x1F468;&#x200D;&#x1F3EB; Лекция</a>
+    <a href="lecture.html" class="nav-link" data-lang="en">&#x1F468;&#x200D;&#x1F3EB; Lecture</a>
+    <a href="student.html" class="nav-link" data-lang="ru">&#x1F468;&#x200D;&#x1F393; Конспект</a>
+    <a href="student.html" class="nav-link" data-lang="en">&#x1F468;&#x200D;&#x1F393; Notes</a>
+    <span class="nav-active" data-lang="ru">&#x1F4CB; Задания</span>
+    <span class="nav-active" data-lang="en">&#x1F4CB; Tasks</span>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+</div>
+
+<div class="container">
+
+    <h1 data-lang="ru">&#x1F4DD; ПРАКТИЧЕСКИЕ ЗАДАНИЯ</h1>
+    <h1 data-lang="en">&#x1F4DD; PRACTICAL TASKS</h1>
+    <p class="subtitle" data-lang="ru">Занятие 2: Git и первый проект</p>
+    <p class="subtitle" data-lang="en">Lesson 2: Git & First Project</p>
+
+    <hr>
+
+    <!-- ==================== УРОК 2.1 ==================== -->
+    <h2 data-lang="ru">&#x1F3AF; УРОК 2.1: GIT + GITHUB-АККАУНТ</h2>
+    <h2 data-lang="en">&#x1F3AF; LESSON 2.1: GIT + GITHUB ACCOUNT</h2>
+
+    <div class="task">
+        <div class="task-header">
+            <span class="task-title" data-lang="ru">Задание 2.1: Установить Git, завести GitHub, получить PAT</span>
+            <span class="task-title" data-lang="en">Task 2.1: Install Git, register on GitHub, get a PAT</span>
+            <div class="task-meta">
+                <span class="badge badge-easy" data-lang="ru">Лёгкое</span>
+                <span class="badge badge-easy" data-lang="en">Easy</span>
+                <span class="badge badge-time" data-lang="ru">45 минут</span>
+                <span class="badge badge-time" data-lang="en">45 min</span>
+            </div>
+        </div>
+
+        <div class="task-goal" data-lang="ru">Полностью настроить окружение для работы с Git и GitHub — один раз и надолго</div>
+        <div class="task-goal" data-lang="en">Fully set up the environment for working with Git and GitHub — once and for a long time</div>
+
+        <h3 data-lang="ru">Условие:</h3>
+        <h3 data-lang="en">Instructions:</h3>
+
+        <ol data-lang="ru">
+            <li><strong>Установить Git:</strong>
+                <ul>
+                    <li>Windows: <code>git-scm.com</code> → Download for Windows → запустить инсталлятор → «Next» с дефолтами. На шаге «default editor» — выбрать VS Code (если установлен).</li>
+                    <li>Mac: открыть Terminal → <code>git --version</code>. Если Git не установлен — появится предложение поставить Command Line Tools, согласиться.</li>
+                </ul>
+            </li>
+            <li><strong>Проверить установку:</strong>
+                <ul>
+                    <li>Открыть <strong>новый</strong> терминал (Git Bash на Windows / Terminal на Mac)</li>
+                    <li><code>git --version</code> — должно показать <code>git version 2.46.x</code> или выше</li>
+                    <li>Записать версию в конспект (раздел чеклиста)</li>
+                </ul>
+            </li>
+            <li><strong>Настроить Git</strong> (три команды один раз на компьютере):
+<pre><code>git config --global user.name "Ваше Имя"
+git config --global user.email "вашemail@example.com"
+git config --global init.defaultBranch main</code></pre>
+                <em>Email запомните — тот же вы будете использовать при регистрации на GitHub.</em>
+            </li>
+            <li><strong>Проверить настройку:</strong>
+<pre><code>git config --global user.name
+git config --global user.email
+git config --global init.defaultBranch</code></pre>
+                Должны вывести три строки с вашими данными.
+            </li>
+            <li><strong>Зарегистрироваться на GitHub</strong> (если аккаунта ещё нет):
+                <ul>
+                    <li><code>github.com</code> → Sign up</li>
+                    <li>Email <strong>тот же</strong>, что в <code>git config user.email</code></li>
+                    <li>Username — <strong>аккуратный</strong>, без цифр-крутостей. Хорошо: <code>imeniaman</code>, <code>maya-dev</code>. Плохо: <code>GAMER_228_XD</code>.</li>
+                    <li>Подтвердить email из письма GitHub</li>
+                    <li>Plan → Free</li>
+                </ul>
+            </li>
+            <li><strong>Оформить профиль:</strong>
+                <ul>
+                    <li>Settings → Profile</li>
+                    <li>Name: ваше реальное имя латиницей</li>
+                    <li>Bio: 1-2 предложения, например «Front-end developer learning React. Based in Ashgabat 🇹🇲»</li>
+                    <li>Location: ваш город</li>
+                    <li>Загрузить аватарку (фото)</li>
+                    <li>Сохранить</li>
+                </ul>
+            </li>
+            <li><strong>Создать Personal Access Token (PAT):</strong>
+                <ul>
+                    <li>Settings → пролистать слева вниз до <strong>Developer settings</strong></li>
+                    <li>Personal access tokens → <strong>Tokens (classic)</strong></li>
+                    <li>Generate new token → Generate new token (classic)</li>
+                    <li>Note: <code>React course — my laptop</code></li>
+                    <li>Expiration: <strong>90 days</strong></li>
+                    <li>Scopes: поставить галочку <code>repo</code> (только эту)</li>
+                    <li>Generate token</li>
+                    <li><strong>СРАЗУ скопировать</strong> токен и сохранить в менеджер паролей / защищённые заметки. Больше GitHub не покажет!</li>
+                </ul>
+            </li>
+            <li><strong>Записать в конспект</strong> (раздел «Мои данные GitHub»):
+                <ul>
+                    <li>Username</li>
+                    <li>Email</li>
+                    <li>Ссылку на профиль: <code>github.com/USERNAME</code></li>
+                    <li>Bio, Location</li>
+                    <li>Дату создания токена и дату истечения (90 дней)</li>
+                </ul>
+                <em>Сам токен в конспект НЕ записывать — только в зашифрованное место.</em>
+            </li>
+        </ol>
+        <ol data-lang="en">
+            <li><strong>Install Git:</strong>
+                <ul>
+                    <li>Windows: <code>git-scm.com</code> → Download for Windows → run installer → "Next" defaults. On "default editor" step — pick VS Code (if installed).</li>
+                    <li>Mac: open Terminal → <code>git --version</code>. If not installed — a prompt to install Command Line Tools will appear, agree.</li>
+                </ul>
+            </li>
+            <li><strong>Verify install:</strong>
+                <ul>
+                    <li>Open a <strong>new</strong> terminal (Git Bash on Windows / Terminal on Mac)</li>
+                    <li><code>git --version</code> — should print <code>git version 2.46.x</code> or higher</li>
+                    <li>Record version in notes (checklist section)</li>
+                </ul>
+            </li>
+            <li><strong>Configure Git</strong> (three commands once per computer):
+<pre><code>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global init.defaultBranch main</code></pre>
+                <em>Remember the email — you'll use the same to register on GitHub.</em>
+            </li>
+            <li><strong>Verify config:</strong>
+<pre><code>git config --global user.name
+git config --global user.email
+git config --global init.defaultBranch</code></pre>
+                Should print three lines with your data.
+            </li>
+            <li><strong>Register on GitHub</strong> (if you don't have an account):
+                <ul>
+                    <li><code>github.com</code> → Sign up</li>
+                    <li>Email — <strong>the same</strong> as in <code>git config user.email</code></li>
+                    <li>Username — <strong>clean</strong>, no "cool" numbers. Good: <code>imeniaman</code>, <code>maya-dev</code>. Bad: <code>GAMER_228_XD</code>.</li>
+                    <li>Verify email from GitHub's letter</li>
+                    <li>Plan → Free</li>
+                </ul>
+            </li>
+            <li><strong>Set up profile:</strong>
+                <ul>
+                    <li>Settings → Profile</li>
+                    <li>Name: your real name in Latin</li>
+                    <li>Bio: 1-2 sentences, e.g. "Front-end developer learning React. Based in Ashgabat 🇹🇲"</li>
+                    <li>Location: your city</li>
+                    <li>Upload an avatar (photo)</li>
+                    <li>Save</li>
+                </ul>
+            </li>
+            <li><strong>Create a Personal Access Token (PAT):</strong>
+                <ul>
+                    <li>Settings → scroll left sidebar to <strong>Developer settings</strong></li>
+                    <li>Personal access tokens → <strong>Tokens (classic)</strong></li>
+                    <li>Generate new token → Generate new token (classic)</li>
+                    <li>Note: <code>React course — my laptop</code></li>
+                    <li>Expiration: <strong>90 days</strong></li>
+                    <li>Scopes: check <code>repo</code> only</li>
+                    <li>Generate token</li>
+                    <li><strong>IMMEDIATELY copy</strong> the token and save in a password manager / secure notes. GitHub won't show it again!</li>
+                </ul>
+            </li>
+            <li><strong>Record in notes</strong> (section "My GitHub details"):
+                <ul>
+                    <li>Username</li>
+                    <li>Email</li>
+                    <li>Profile URL: <code>github.com/USERNAME</code></li>
+                    <li>Bio, Location</li>
+                    <li>Token creation date and expiration date (90 days)</li>
+                </ul>
+                <em>Don't record the token itself in notes — only in an encrypted place.</em>
+            </li>
+        </ol>
+
+        <div class="hint" data-lang="ru">
+            <strong>Если <code>git --version</code> не работает после установки (Windows):</strong>
+            <ol>
+                <li>Закрыть <strong>все</strong> окна PowerShell / CMD / VS Code</li>
+                <li>Открыть новый Git Bash: Пуск → «Git Bash»</li>
+                <li>Если не помогло — перезагрузить компьютер и попробовать снова</li>
+                <li>Если и это не помогло — переустановить Git, ничего не меняя в инсталляторе</li>
+            </ol>
+            <strong>Хранение токена — где сохранить:</strong>
+            <ul>
+                <li>Менеджер паролей (Bitwarden, 1Password, KeePass) — <strong>лучший вариант</strong></li>
+                <li>Заметки на компьютере в защищённом файле (запоминаете пароль)</li>
+                <li>Текстовый файл в папке, НЕ внутри Git-репозитория (и не коммитим!)</li>
+                <li>НЕ отправлять токен в Telegram, Email, Slack — даже себе</li>
+            </ul>
+        </div>
+        <div class="hint" data-lang="en">
+            <strong>If <code>git --version</code> doesn't work after install (Windows):</strong>
+            <ol>
+                <li>Close <strong>all</strong> PowerShell / CMD / VS Code windows</li>
+                <li>Open a new Git Bash: Start → "Git Bash"</li>
+                <li>Not working — reboot the computer and try again</li>
+                <li>Still not — reinstall Git keeping installer defaults</li>
+            </ol>
+            <strong>Where to store the token:</strong>
+            <ul>
+                <li>Password manager (Bitwarden, 1Password, KeePass) — <strong>best option</strong></li>
+                <li>Notes on the computer in a protected file (you remember the password)</li>
+                <li>A text file in a folder NOT inside any Git repo (and not committed!)</li>
+                <li>Do NOT send the token via Telegram, Email, Slack — not even to yourself</li>
+            </ul>
+        </div>
+
+        <div class="criteria">
+            <ul data-lang="ru">
+                <li>Git установлен, <code>git --version</code> показывает 2.40+</li>
+                <li><code>user.name</code> и <code>user.email</code> настроены и совпадают с GitHub-email</li>
+                <li><code>init.defaultBranch = main</code> настроен</li>
+                <li>Аккаунт на GitHub создан, email подтверждён</li>
+                <li>Username — аккуратный, без «детских» никнеймов</li>
+                <li>Профиль оформлен: Name, Bio, Location, Avatar</li>
+                <li>PAT создан со scope <code>repo</code>, срок 90 дней</li>
+                <li>Токен сохранён в безопасное место (не в конспект)</li>
+                <li>Данные профиля записаны в конспект</li>
+            </ul>
+            <ul data-lang="en">
+                <li>Git installed, <code>git --version</code> shows 2.40+</li>
+                <li><code>user.name</code> and <code>user.email</code> configured, match GitHub email</li>
+                <li><code>init.defaultBranch = main</code> set</li>
+                <li>GitHub account created, email verified</li>
+                <li>Username — clean, no "kiddie" nicknames</li>
+                <li>Profile filled: Name, Bio, Location, Avatar</li>
+                <li>PAT created with scope <code>repo</code>, expiration 90 days</li>
+                <li>Token saved in a safe place (not in notes)</li>
+                <li>Profile data recorded in notes</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ==================== УРОК 2.2 ==================== -->
+    <h2 data-lang="ru">&#x1F3AF; УРОК 2.2: ПЕРВЫЙ РЕПОЗИТОРИЙ — ОТ НУЛЯ ДО GITHUB</h2>
+    <h2 data-lang="en">&#x1F3AF; LESSON 2.2: FIRST REPO — FROM ZERO TO GITHUB</h2>
+
+    <div class="task">
+        <div class="task-header">
+            <span class="task-title" data-lang="ru">Задание 2.2: Создать репо, сделать 3 коммита, запушить на GitHub</span>
+            <span class="task-title" data-lang="en">Task 2.2: Create a repo, make 3 commits, push to GitHub</span>
+            <div class="task-meta">
+                <span class="badge badge-medium" data-lang="ru">Среднее</span>
+                <span class="badge badge-medium" data-lang="en">Medium</span>
+                <span class="badge badge-time" data-lang="ru">45 минут</span>
+                <span class="badge badge-time" data-lang="en">45 min</span>
+            </div>
+        </div>
+
+        <div class="task-goal" data-lang="ru">Пройти полный жизненный цикл Git от <code>init</code> до <code>push</code> на простом учебном проекте</div>
+        <div class="task-goal" data-lang="en">Go through the full Git life cycle from <code>init</code> to <code>push</code> on a simple practice project</div>
+
+        <h3 data-lang="ru">Условие:</h3>
+        <h3 data-lang="en">Instructions:</h3>
+
+        <ol data-lang="ru">
+            <li><strong>Создать папку</strong> <code>git-playground</code> на Desktop. Открыть её в VS Code.</li>
+            <li><strong>Создать файл</strong> <code>index.html</code> с минимальным содержимым:
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Git Playground&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, Git!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+            <li><strong>Открыть терминал в VS Code</strong> (Terminal → New Terminal или <code>Ctrl+` </code>). Убедитесь, что вы в папке <code>git-playground</code>.</li>
+            <li><strong>Инициализировать Git</strong> и проверить:
+<pre><code>git init
+git status</code></pre>
+                Должны увидеть: <code>On branch main</code> и <code>Untracked files: index.html</code>.
+            </li>
+            <li><strong>Первый коммит:</strong>
+<pre><code>git add index.html
+git status                         # файл теперь зелёный
+git commit -m "Initial commit: add index.html with hello"
+git log                            # видим первый коммит</code></pre>
+            </li>
+            <li><strong>Создать <code>.gitignore</code></strong> с одной строкой:
+<pre><code>.DS_Store</code></pre>
+                (На Windows этот файл не нужен, но полезно иметь привычку.)
+            </li>
+            <li><strong>Создать <code>README.md</code></strong>:
+<pre><code># Git Playground
+
+A practice repository for Git commands.
+Part of React Essentials course — lesson 2.</code></pre>
+            </li>
+            <li><strong>Второй коммит (уже две строки):</strong>
+<pre><code>git status                         # видно 2 новых файла
+git add .                          # добавить всё
+git commit -m "Add README and gitignore"
+git log --oneline                  # две строки в истории</code></pre>
+            </li>
+            <li><strong>Изменить <code>index.html</code></strong>: замените <code>&lt;h1&gt;Hello, Git!&lt;/h1&gt;</code> на свой вариант, например <code>&lt;h1&gt;Aman учит Git 🚀&lt;/h1&gt;</code>. Добавьте <code>&lt;p&gt;</code> с описанием.</li>
+            <li><strong>Третий коммит:</strong>
+<pre><code>git status                         # видно "modified: index.html"
+git diff                           # посмотреть, что изменилось
+git add index.html
+git commit -m "Update heading with personal touch"
+git log --oneline                  # 3 коммита</code></pre>
+            </li>
+            <li><strong>Создать репо на GitHub:</strong>
+                <ul>
+                    <li>github.com → <code>+</code> → New repository</li>
+                    <li>Name: <code>git-playground</code></li>
+                    <li>Description: «Practice repo for Git commands (React course lesson 2)»</li>
+                    <li>Visibility: <strong>Public</strong></li>
+                    <li><strong>Убрать</strong> галочки «Add a README» и «Add .gitignore» (они уже есть локально!)</li>
+                    <li>Create repository</li>
+                </ul>
+            </li>
+            <li><strong>Привязать и запушить</strong> (GitHub показывает команды после создания репо — используйте их или напишите руками):
+<pre><code>git remote add origin https://github.com/USERNAME/git-playground.git
+git push -u origin main</code></pre>
+                <ul>
+                    <li>Git попросит Username — введите ваш GitHub-логин</li>
+                    <li>Git попросит Password — вставьте <strong>Personal Access Token</strong> из задания 2.1</li>
+                </ul>
+            </li>
+            <li><strong>Проверка на GitHub:</strong>
+                <ul>
+                    <li>Обновить страницу репозитория в браузере</li>
+                    <li>Должны увидеть 3 файла: <code>README.md</code>, <code>index.html</code>, <code>.gitignore</code></li>
+                    <li>Кликнуть «3 commits» вверху — увидеть историю трёх коммитов</li>
+                    <li>README.md отображается на главной странице репо</li>
+                </ul>
+            </li>
+            <li><strong>Четвёртый коммит + push</strong> (отработать рутинный цикл):
+                <ul>
+                    <li>Добавить в <code>README.md</code> строку с датой: <code>Started on 2026-04-XX</code></li>
+                    <li>В терминале:
+<pre><code>git add .
+git commit -m "Add start date to README"
+git push</code></pre>
+                    </li>
+                    <li>Токен уже закэширован — второй раз спрашивать не будет</li>
+                    <li>Обновить страницу репо → увидеть 4-й коммит в истории</li>
+                </ul>
+            </li>
+            <li><strong>Записать URL репо</strong> в конспект (раздел «Мои данные GitHub»).</li>
+        </ol>
+        <ol data-lang="en">
+            <li><strong>Create folder</strong> <code>git-playground</code> on Desktop. Open it in VS Code.</li>
+            <li><strong>Create file</strong> <code>index.html</code> with minimal content:
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Git Playground&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, Git!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </li>
+            <li><strong>Open terminal in VS Code</strong> (Terminal → New Terminal or <code>Ctrl+` </code>). Make sure you're in the <code>git-playground</code> folder.</li>
+            <li><strong>Initialize Git</strong> and check:
+<pre><code>git init
+git status</code></pre>
+                Should see: <code>On branch main</code> and <code>Untracked files: index.html</code>.
+            </li>
+            <li><strong>First commit:</strong>
+<pre><code>git add index.html
+git status                         # file is now green
+git commit -m "Initial commit: add index.html with hello"
+git log                            # see the first commit</code></pre>
+            </li>
+            <li><strong>Create <code>.gitignore</code></strong> with one line:
+<pre><code>.DS_Store</code></pre>
+                (On Windows not strictly needed, but good habit.)
+            </li>
+            <li><strong>Create <code>README.md</code></strong>:
+<pre><code># Git Playground
+
+A practice repository for Git commands.
+Part of React Essentials course — lesson 2.</code></pre>
+            </li>
+            <li><strong>Second commit (now two lines):</strong>
+<pre><code>git status                         # shows 2 new files
+git add .                          # add everything
+git commit -m "Add README and gitignore"
+git log --oneline                  # two lines in history</code></pre>
+            </li>
+            <li><strong>Edit <code>index.html</code></strong>: replace <code>&lt;h1&gt;Hello, Git!&lt;/h1&gt;</code> with your own, e.g. <code>&lt;h1&gt;Aman learning Git 🚀&lt;/h1&gt;</code>. Add a <code>&lt;p&gt;</code> with a description.</li>
+            <li><strong>Third commit:</strong>
+<pre><code>git status                         # shows "modified: index.html"
+git diff                           # see what changed
+git add index.html
+git commit -m "Update heading with personal touch"
+git log --oneline                  # 3 commits</code></pre>
+            </li>
+            <li><strong>Create repo on GitHub:</strong>
+                <ul>
+                    <li>github.com → <code>+</code> → New repository</li>
+                    <li>Name: <code>git-playground</code></li>
+                    <li>Description: "Practice repo for Git commands (React course lesson 2)"</li>
+                    <li>Visibility: <strong>Public</strong></li>
+                    <li><strong>Uncheck</strong> "Add a README" and "Add .gitignore" (already exist locally!)</li>
+                    <li>Create repository</li>
+                </ul>
+            </li>
+            <li><strong>Link and push</strong> (GitHub shows the commands after creating the repo — use them or type by hand):
+<pre><code>git remote add origin https://github.com/USERNAME/git-playground.git
+git push -u origin main</code></pre>
+                <ul>
+                    <li>Git asks Username — enter your GitHub login</li>
+                    <li>Git asks Password — paste the <strong>Personal Access Token</strong> from task 2.1</li>
+                </ul>
+            </li>
+            <li><strong>Verify on GitHub:</strong>
+                <ul>
+                    <li>Refresh the repo page in the browser</li>
+                    <li>Should see 3 files: <code>README.md</code>, <code>index.html</code>, <code>.gitignore</code></li>
+                    <li>Click "3 commits" at the top — see the 3-commit history</li>
+                    <li>README.md displays on the repo main page</li>
+                </ul>
+            </li>
+            <li><strong>Fourth commit + push</strong> (practice the routine cycle):
+                <ul>
+                    <li>Add a date line to <code>README.md</code>: <code>Started on 2026-04-XX</code></li>
+                    <li>In terminal:
+<pre><code>git add .
+git commit -m "Add start date to README"
+git push</code></pre>
+                    </li>
+                    <li>Token is already cached — won't ask again</li>
+                    <li>Refresh the repo page → see the 4th commit in history</li>
+                </ul>
+            </li>
+            <li><strong>Record the repo URL</strong> in notes (section "My GitHub details").</li>
+        </ol>
+
+        <div class="hint" data-lang="ru">
+            <strong>Если push выдаёт ошибку «authentication failed»:</strong>
+            <ul>
+                <li>Вы вводите пароль от GitHub-аккаунта → замените на PAT</li>
+                <li>Токен истёк (проверить дату Expiration в GitHub settings) → создать новый</li>
+                <li>В Windows может быть старый токен в Credential Manager → Панель управления → Credential Manager → найти git:https://github.com → Remove → запустить push снова</li>
+                <li>На Mac аналогично: Keychain Access → найти github.com → Delete</li>
+            </ul>
+            <strong>Если push выдаёт «non-fast-forward» или «rejected»:</strong>
+            <ul>
+                <li>Значит на GitHub уже есть коммиты (если создали репо с README)</li>
+                <li>Решение: <code>git pull origin main --rebase</code>, потом <code>git push</code></li>
+                <li>В следующий раз — создавайте репо <strong>без</strong> README</li>
+            </ul>
+            <strong>Если забыли вывести файл из staging:</strong>
+<pre><code>git reset HEAD file.html     # убрать из staging, но сохранить изменения</code></pre>
+            <strong>Если нужно отменить последний коммит (не запушенный):</strong>
+<pre><code>git reset --soft HEAD~1      # коммит убран, изменения остались в staging</code></pre>
+        </div>
+        <div class="hint" data-lang="en">
+            <strong>If push shows "authentication failed":</strong>
+            <ul>
+                <li>You're typing the GitHub account password → replace with PAT</li>
+                <li>Token expired (check Expiration date in GitHub settings) → create a new one</li>
+                <li>On Windows an old token may be in Credential Manager → Control Panel → Credential Manager → find git:https://github.com → Remove → rerun push</li>
+                <li>On Mac similarly: Keychain Access → find github.com → Delete</li>
+            </ul>
+            <strong>If push shows "non-fast-forward" or "rejected":</strong>
+            <ul>
+                <li>There are already commits on GitHub (if you created the repo with README)</li>
+                <li>Fix: <code>git pull origin main --rebase</code>, then <code>git push</code></li>
+                <li>Next time — create the repo <strong>without</strong> README</li>
+            </ul>
+            <strong>If you need to remove a file from staging:</strong>
+<pre><code>git reset HEAD file.html     # unstage but keep changes</code></pre>
+            <strong>If you need to undo the last (unpushed) commit:</strong>
+<pre><code>git reset --soft HEAD~1      # commit removed, changes stay in staging</code></pre>
+        </div>
+
+        <div class="criteria">
+            <ul data-lang="ru">
+                <li>Папка <code>git-playground</code> создана и открыта в VS Code</li>
+                <li><code>git init</code> выполнен (<code>.git/</code> существует)</li>
+                <li>4+ коммита в локальной истории (<code>git log --oneline</code>)</li>
+                <li>Каждое сообщение коммита — глагол в начале, на английском, без точки</li>
+                <li>Публичный репо <code>git-playground</code> создан на GitHub</li>
+                <li>Репо создан <strong>без</strong> README и .gitignore (они локальные)</li>
+                <li><code>git push</code> прошёл успешно (авторизация через PAT)</li>
+                <li>Все файлы видны в браузере на GitHub</li>
+                <li>История 4+ коммитов видна на GitHub</li>
+                <li>4-й коммит («Add start date to README») отправлен без запроса пароля (токен закэширован)</li>
+                <li>URL репо записан в конспект</li>
+            </ul>
+            <ul data-lang="en">
+                <li>Folder <code>git-playground</code> created and opened in VS Code</li>
+                <li><code>git init</code> done (<code>.git/</code> exists)</li>
+                <li>4+ commits in local history (<code>git log --oneline</code>)</li>
+                <li>Every commit message — verb first, English, no period</li>
+                <li>Public repo <code>git-playground</code> created on GitHub</li>
+                <li>Repo created <strong>without</strong> README and .gitignore (they're local)</li>
+                <li><code>git push</code> succeeded (auth via PAT)</li>
+                <li>All files visible in browser on GitHub</li>
+                <li>History of 4+ commits visible on GitHub</li>
+                <li>4th commit ("Add start date to README") pushed without password prompt (token cached)</li>
+                <li>Repo URL recorded in notes</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ==================== УРОК 2.3 ==================== -->
+    <h2 data-lang="ru">&#x1F3AF; УРОК 2.3: ПЕРВЫЙ REACT-ПРОЕКТ НА VITE</h2>
+    <h2 data-lang="en">&#x1F3AF; LESSON 2.3: FIRST REACT PROJECT WITH VITE</h2>
+
+    <div class="task">
+        <div class="task-header">
+            <span class="task-title" data-lang="ru">Задание 2.3: Vite + React + push на GitHub</span>
+            <span class="task-title" data-lang="en">Task 2.3: Vite + React + push to GitHub</span>
+            <div class="task-meta">
+                <span class="badge badge-medium" data-lang="ru">Среднее</span>
+                <span class="badge badge-medium" data-lang="en">Medium</span>
+                <span class="badge badge-time" data-lang="ru">45 минут</span>
+                <span class="badge badge-time" data-lang="en">45 min</span>
+            </div>
+        </div>
+
+        <div class="task-goal" data-lang="ru">Создать первый настоящий React-проект, познакомиться со структурой и запушить на GitHub</div>
+        <div class="task-goal" data-lang="en">Create the first real React project, learn its structure and push to GitHub</div>
+
+        <h3 data-lang="ru">Условие:</h3>
+        <h3 data-lang="en">Instructions:</h3>
+
+        <ol data-lang="ru">
+            <li><strong>Перейти в папку, где будут жить проекты</strong> (терминал):
+<pre><code>cd ~/Desktop
+mkdir -p projects
+cd projects</code></pre>
+                (На Windows в PowerShell: <code>cd "$env:USERPROFILE\Desktop"</code> → <code>mkdir projects</code> → <code>cd projects</code>.)
+            </li>
+            <li><strong>Запустить мастер Vite:</strong>
+<pre><code>npm create vite@latest</code></pre>
+                Vite спросит:
+                <ul>
+                    <li>Project name: <code>my-first-react</code></li>
+                    <li>Select a framework: <strong>React</strong> (стрелки + Enter)</li>
+                    <li>Select a variant: <strong>JavaScript</strong></li>
+                </ul>
+            </li>
+            <li><strong>Установить зависимости и запустить:</strong>
+<pre><code>cd my-first-react
+npm install                        # 1-2 минуты
+npm run dev                        # запуск dev-сервера</code></pre>
+            </li>
+            <li><strong>Открыть в браузере</strong> <code>http://localhost:5173</code>. Должна быть стартовая страница Vite + React с логотипом и счётчиком.</li>
+            <li><strong>Открыть проект в VS Code</strong> (оставьте сервер работающим):
+                <ul>
+                    <li>File → Open Folder → выбрать <code>my-first-react</code></li>
+                    <li>Или в другом терминале: <code>code my-first-react</code></li>
+                </ul>
+            </li>
+            <li><strong>Исследовать структуру:</strong> раскройте по очереди <code>public/</code>, <code>src/</code>, посмотрите:
+                <ul>
+                    <li><code>index.html</code> — единственный HTML</li>
+                    <li><code>src/main.jsx</code> — точка входа</li>
+                    <li><code>src/App.jsx</code> — главный компонент</li>
+                    <li><code>package.json</code> — список зависимостей и scripts</li>
+                </ul>
+            </li>
+            <li><strong>Проверить hot reload</strong>:
+                <ul>
+                    <li>Открыть <code>src/App.jsx</code></li>
+                    <li>Найти текст <code>&lt;h1&gt;Vite + React&lt;/h1&gt;</code> (ищите через <code>Ctrl+F</code>)</li>
+                    <li>Заменить на: <code>&lt;h1&gt;[ВАШЕ ИМЯ] + React 🚀&lt;/h1&gt;</code></li>
+                    <li>Сохранить (<code>Ctrl+S</code>)</li>
+                    <li>Посмотреть в браузер на localhost:5173 — заголовок обновился без перезагрузки</li>
+                </ul>
+            </li>
+            <li><strong>Эксперимент со state</strong>:
+                <ul>
+                    <li>Несколько раз нажать на кнопку «count is 0» — довести до 10</li>
+                    <li>В <code>App.jsx</code> поменять текст кнопки (например, <code>count is X</code> → <code>clicks: X</code>)</li>
+                    <li>Сохранить</li>
+                    <li>Убедиться, что счётчик остался на 10 (HMR сохраняет state)</li>
+                </ul>
+            </li>
+            <li><strong>Удалить дефолтный контент</strong> и написать своё:
+                <ul>
+                    <li>Удалить из <code>App.jsx</code> логотипы Vite/React и счётчик</li>
+                    <li>Оставить только: <code>&lt;h1&gt;Название вашего приложения&lt;/h1&gt;</code>, <code>&lt;p&gt;</code> с описанием, <code>&lt;footer&gt;</code> с именем</li>
+                    <li>Сохранить → проверить в браузере</li>
+                </ul>
+            </li>
+            <li><strong>Остановить сервер</strong>: в терминале нажать <code>Ctrl+C</code>, потом <code>Y</code> если спросит.</li>
+            <li><strong>Коммит локально:</strong>
+<pre><code># Vite уже сделал git init автоматически
+# (проверьте: в проекте есть папка .git/)
+git status                         # видно кучу изменений
+git log --oneline                  # уже есть коммит от Vite "Initial commit from Create Vite"
+
+# ваш первый коммит поверх:
+git add .
+git commit -m "Replace starter template with custom app"</code></pre>
+            </li>
+            <li><strong>Создать repo на GitHub:</strong>
+                <ul>
+                    <li>github.com → <code>+</code> → New repository</li>
+                    <li>Name: <code>my-first-react</code></li>
+                    <li>Description: «My first React project (Vite + React 19)»</li>
+                    <li>Public</li>
+                    <li>Без README, без .gitignore, без License</li>
+                    <li>Create</li>
+                </ul>
+            </li>
+            <li><strong>Запушить:</strong>
+<pre><code>git remote add origin https://github.com/USERNAME/my-first-react.git
+git branch -M main                 # на случай, если ветка "master"
+git push -u origin main</code></pre>
+                Вводите username + PAT.
+            </li>
+            <li><strong>Проверка:</strong>
+                <ul>
+                    <li>Обновить репо в браузере — видны все файлы проекта</li>
+                    <li>Открыть <code>src/App.jsx</code> на GitHub → видно ваш код (с вашим именем в заголовке)</li>
+                    <li>README.md показывается на главной</li>
+                    <li><strong>Важно</strong>: убедиться, что в репо <strong>нет папки <code>node_modules</code></strong> (иначе <code>.gitignore</code> не сработал)</li>
+                </ul>
+            </li>
+            <li><strong>Записать URL в конспект.</strong></li>
+        </ol>
+        <ol data-lang="en">
+            <li><strong>Go to the projects folder</strong> (terminal):
+<pre><code>cd ~/Desktop
+mkdir -p projects
+cd projects</code></pre>
+                (On Windows PowerShell: <code>cd "$env:USERPROFILE\Desktop"</code> → <code>mkdir projects</code> → <code>cd projects</code>.)
+            </li>
+            <li><strong>Run the Vite wizard:</strong>
+<pre><code>npm create vite@latest</code></pre>
+                Vite will ask:
+                <ul>
+                    <li>Project name: <code>my-first-react</code></li>
+                    <li>Select a framework: <strong>React</strong> (arrows + Enter)</li>
+                    <li>Select a variant: <strong>JavaScript</strong></li>
+                </ul>
+            </li>
+            <li><strong>Install deps and run:</strong>
+<pre><code>cd my-first-react
+npm install                        # 1-2 min
+npm run dev                        # start dev server</code></pre>
+            </li>
+            <li><strong>Open in browser</strong> <code>http://localhost:5173</code>. The Vite + React starter page with logo and counter should show.</li>
+            <li><strong>Open the project in VS Code</strong> (leave the server running):
+                <ul>
+                    <li>File → Open Folder → pick <code>my-first-react</code></li>
+                    <li>Or in another terminal: <code>code my-first-react</code></li>
+                </ul>
+            </li>
+            <li><strong>Explore structure:</strong> expand <code>public/</code>, <code>src/</code>, look at:
+                <ul>
+                    <li><code>index.html</code> — the only HTML</li>
+                    <li><code>src/main.jsx</code> — entry point</li>
+                    <li><code>src/App.jsx</code> — main component</li>
+                    <li><code>package.json</code> — dependencies and scripts</li>
+                </ul>
+            </li>
+            <li><strong>Test hot reload</strong>:
+                <ul>
+                    <li>Open <code>src/App.jsx</code></li>
+                    <li>Find <code>&lt;h1&gt;Vite + React&lt;/h1&gt;</code> (use <code>Ctrl+F</code>)</li>
+                    <li>Replace with: <code>&lt;h1&gt;[YOUR NAME] + React 🚀&lt;/h1&gt;</code></li>
+                    <li>Save (<code>Ctrl+S</code>)</li>
+                    <li>Look at the browser on localhost:5173 — heading updated without reload</li>
+                </ul>
+            </li>
+            <li><strong>Experiment with state</strong>:
+                <ul>
+                    <li>Click "count is 0" several times — get to 10</li>
+                    <li>In <code>App.jsx</code> change the button text (e.g. <code>count is X</code> → <code>clicks: X</code>)</li>
+                    <li>Save</li>
+                    <li>Verify the counter is still 10 (HMR preserves state)</li>
+                </ul>
+            </li>
+            <li><strong>Replace default content</strong> with your own:
+                <ul>
+                    <li>Remove Vite/React logos and counter from <code>App.jsx</code></li>
+                    <li>Keep only: <code>&lt;h1&gt;Your app name&lt;/h1&gt;</code>, <code>&lt;p&gt;</code> with description, <code>&lt;footer&gt;</code> with your name</li>
+                    <li>Save → check in the browser</li>
+                </ul>
+            </li>
+            <li><strong>Stop the server</strong>: in the terminal press <code>Ctrl+C</code>, then <code>Y</code> if asked.</li>
+            <li><strong>Commit locally:</strong>
+<pre><code># Vite already ran git init automatically
+# (check: the project has a .git/ folder)
+git status                         # many changes
+git log --oneline                  # there's already a Vite commit "Initial commit from Create Vite"
+
+# your first commit on top:
+git add .
+git commit -m "Replace starter template with custom app"</code></pre>
+            </li>
+            <li><strong>Create repo on GitHub:</strong>
+                <ul>
+                    <li>github.com → <code>+</code> → New repository</li>
+                    <li>Name: <code>my-first-react</code></li>
+                    <li>Description: "My first React project (Vite + React 19)"</li>
+                    <li>Public</li>
+                    <li>No README, no .gitignore, no License</li>
+                    <li>Create</li>
+                </ul>
+            </li>
+            <li><strong>Push:</strong>
+<pre><code>git remote add origin https://github.com/USERNAME/my-first-react.git
+git branch -M main                 # in case the branch is "master"
+git push -u origin main</code></pre>
+                Enter username + PAT.
+            </li>
+            <li><strong>Verify:</strong>
+                <ul>
+                    <li>Refresh repo in browser — all project files visible</li>
+                    <li>Open <code>src/App.jsx</code> on GitHub → your code is there (with your name in the heading)</li>
+                    <li>README.md shows on the main page</li>
+                    <li><strong>Important</strong>: make sure there's <strong>no <code>node_modules</code> folder</strong> in the repo (otherwise <code>.gitignore</code> didn't work)</li>
+                </ul>
+            </li>
+            <li><strong>Record URL in notes.</strong></li>
+        </ol>
+
+        <div class="hint" data-lang="ru">
+            <strong>Если <code>npm create vite@latest</code> падает:</strong>
+            <ul>
+                <li>Старый Node — обновите до 20+: <code>node -v</code></li>
+                <li>Старый терминал — закройте и откройте новый</li>
+                <li>Антивирус блокирует — временно отключите, попробуйте снова</li>
+                <li>Нет прав на папку — перейдите в Desktop или Documents</li>
+            </ul>
+            <strong>Если <code>npm install</code> висит или падает:</strong>
+            <ul>
+                <li>Проблема с интернетом — проверьте</li>
+                <li>Корпоративный прокси — обратитесь к системному админу</li>
+                <li>Попробуйте альтернативный registry: <code>npm install --registry=https://registry.npmjs.org/</code></li>
+            </ul>
+            <strong>Если порт 5173 занят</strong> (Vite сам предложит 5174) — это нормально, просто откройте ссылку, которую предложит Vite.<br><br>
+            <strong>Если hot reload не работает:</strong>
+            <ul>
+                <li>Убедитесь, что сервер запущен (в терминале должно висеть «VITE ready»)</li>
+                <li>Проверьте, что открыта правильная вкладка браузера (localhost:5173)</li>
+                <li>Попробуйте сохранить файл ещё раз — иногда нужен «трюк»</li>
+            </ul>
+            <strong>Если <code>node_modules</code> попал на GitHub</strong> (в репо 500+ файлов):
+            <ul>
+                <li>В локальном проекте убедитесь, что <code>.gitignore</code> содержит <code>node_modules/</code></li>
+                <li>Убрать из истории: <code>git rm -r --cached node_modules</code></li>
+                <li><code>git commit -m "Remove node_modules from tracking"</code> → <code>git push</code></li>
+            </ul>
+        </div>
+        <div class="hint" data-lang="en">
+            <strong>If <code>npm create vite@latest</code> fails:</strong>
+            <ul>
+                <li>Old Node — upgrade to 20+: <code>node -v</code></li>
+                <li>Old terminal — close and open a new one</li>
+                <li>Antivirus blocking — disable temporarily, try again</li>
+                <li>No folder permissions — go to Desktop or Documents</li>
+            </ul>
+            <strong>If <code>npm install</code> hangs or fails:</strong>
+            <ul>
+                <li>Internet issue — check</li>
+                <li>Corporate proxy — talk to your admin</li>
+                <li>Try alternative registry: <code>npm install --registry=https://registry.npmjs.org/</code></li>
+            </ul>
+            <strong>If port 5173 is busy</strong> (Vite will offer 5174) — that's fine, just open the URL Vite suggests.<br><br>
+            <strong>If hot reload doesn't work:</strong>
+            <ul>
+                <li>Make sure the server is running (terminal shows "VITE ready")</li>
+                <li>Check that the right browser tab is open (localhost:5173)</li>
+                <li>Try saving the file again — sometimes a "trick" is needed</li>
+            </ul>
+            <strong>If <code>node_modules</code> ended up on GitHub</strong> (repo has 500+ files):
+            <ul>
+                <li>In local project make sure <code>.gitignore</code> contains <code>node_modules/</code></li>
+                <li>Remove from history: <code>git rm -r --cached node_modules</code></li>
+                <li><code>git commit -m "Remove node_modules from tracking"</code> → <code>git push</code></li>
+            </ul>
+        </div>
+
+        <div class="criteria">
+            <ul data-lang="ru">
+                <li>Проект создан через <code>npm create vite@latest</code> (React + JS)</li>
+                <li><code>npm install</code> прошёл без ошибок</li>
+                <li><code>npm run dev</code> запускает сервер, страница открывается на localhost:5173</li>
+                <li>Hot reload работает (проверено на изменении заголовка)</li>
+                <li>HMR сохраняет state (счётчик не сбросился при правке кода)</li>
+                <li>Дефолтный контент заменён на свой (имя, описание, footer)</li>
+                <li>Локально сделан минимум один свой коммит поверх Vite initial</li>
+                <li>Создан public-репо на GitHub без README и .gitignore</li>
+                <li>Проект запушен: все файлы видны в браузере</li>
+                <li>В репо на GitHub <strong>НЕТ</strong> папки <code>node_modules</code></li>
+                <li>URL репо записан в конспект</li>
+            </ul>
+            <ul data-lang="en">
+                <li>Project created via <code>npm create vite@latest</code> (React + JS)</li>
+                <li><code>npm install</code> completed without errors</li>
+                <li><code>npm run dev</code> starts the server, page opens at localhost:5173</li>
+                <li>Hot reload works (verified by editing the heading)</li>
+                <li>HMR preserves state (counter not reset after code edit)</li>
+                <li>Default content replaced with your own (name, description, footer)</li>
+                <li>At least one your commit made locally on top of Vite initial</li>
+                <li>Public repo created on GitHub without README and .gitignore</li>
+                <li>Project pushed: all files visible in browser</li>
+                <li>The GitHub repo has <strong>NO</strong> <code>node_modules</code> folder</li>
+                <li>Repo URL recorded in notes</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ==================== БОНУС ==================== -->
+    <h2 data-lang="ru">&#x2B50; БОНУСНОЕ ЗАДАНИЕ</h2>
+    <h2 data-lang="en">&#x2B50; BONUS TASK</h2>
+
+    <div class="task">
+        <div class="task-header">
+            <span class="task-title" data-lang="ru">Задание 2.4: Profile README — визитка разработчика</span>
+            <span class="task-title" data-lang="en">Task 2.4: Profile README — developer business card</span>
+            <div class="task-meta">
+                <span class="badge badge-hard" data-lang="ru">Сложное</span>
+                <span class="badge badge-hard" data-lang="en">Hard</span>
+                <span class="badge badge-time" data-lang="ru">30-45 минут</span>
+                <span class="badge badge-time" data-lang="en">30-45 min</span>
+            </div>
+        </div>
+
+        <div class="task-goal" data-lang="ru">Оформить главную страницу своего GitHub-профиля — то, что рекрутёры видят первым</div>
+        <div class="task-goal" data-lang="en">Set up the main page of your GitHub profile — what recruiters see first</div>
+
+        <h3 data-lang="ru">Условие:</h3>
+        <h3 data-lang="en">Instructions:</h3>
+
+        <p data-lang="ru">На GitHub есть скрытая фишка: если создать <strong>репозиторий с именем, равным вашему username</strong>, и положить туда <code>README.md</code> — его содержимое автоматически показывается на главной странице профиля. Это как «О себе» в соцсетях. Грамотно оформленный Profile README <strong>значительно повышает шанс</strong> получить офер.</p>
+        <p data-lang="en">GitHub has a hidden feature: create a <strong>repository named exactly as your username</strong> and put a <code>README.md</code> in it — the content automatically shows on your profile main page. Like "About" in social networks. A well-made Profile README <strong>significantly boosts</strong> the offer chance.</p>
+
+        <ol data-lang="ru">
+            <li><strong>Создать репозиторий</strong> с именем, <strong>равным вашему username</strong> (это критично!):
+                <ul>
+                    <li>github.com → <code>+</code> → New repository</li>
+                    <li>Repository name: ровно ваш username (если username <code>aman-dev</code>, то имя репо тоже <code>aman-dev</code>)</li>
+                    <li>Public</li>
+                    <li>GitHub покажет подсказку: «You found a secret! username is a special repository that you can use to add a README.md to your GitHub profile»</li>
+                    <li><strong>Поставить галочку</strong> «Add a README file» (в этот раз — можно с README, всё равно только один файл)</li>
+                    <li>Create</li>
+                </ul>
+            </li>
+            <li><strong>Склонировать репо локально:</strong>
+<pre><code>cd ~/Desktop/projects
+git clone https://github.com/USERNAME/USERNAME.git
+cd USERNAME</code></pre>
+            </li>
+            <li><strong>Отредактировать <code>README.md</code></strong> (откройте в VS Code):
+<pre><code># Hi, I'm [Your Name] 👋
+
+### Front-end developer in the making • Based in Ashgabat 🇹🇲
+
+I'm learning React and modern web development as part of the
+**React Essentials course** by Seydi Charyev.
+
+---
+
+## 🛠 Tech I'm learning
+- HTML / CSS / JavaScript
+- React + Vite
+- Git / GitHub
+- Tailwind CSS (soon)
+
+## 📚 Currently working on
+- [my-first-react](https://github.com/USERNAME/my-first-react) — my first Vite + React app
+- [git-playground](https://github.com/USERNAME/git-playground) — practice repo for Git
+
+## 📫 Reach me
+- Telegram: [@username](https://t.me/username)
+- Email: your@email.com
+
+---
+
+&lt;sub&gt;⭐ This profile is a living document — it grows as I do.&lt;/sub&gt;</code></pre>
+                Адаптируйте под себя: своё имя, свой город, реальные ссылки на ваши репозитории.
+            </li>
+            <li><strong>Закоммитить и запушить</strong>:
+<pre><code>git add README.md
+git commit -m "Update profile README with bio and projects"
+git push</code></pre>
+            </li>
+            <li><strong>Проверить</strong>: открыть <code>github.com/USERNAME</code> (ваш профиль). Выше списка репозиториев должна появиться секция с вашим README. Если не появилась — перезагрузить страницу.</li>
+            <li><strong>Бонус уровня 2 — добавить GitHub Stats:</strong>
+                <p>В конец <code>README.md</code> добавьте:</p>
+<pre><code>## 📊 GitHub Stats
+
+![Your Stats](https://github-readme-stats.vercel.app/api?username=USERNAME&amp;show_icons=true&amp;theme=default)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=USERNAME&amp;layout=compact)</code></pre>
+                <p>Замените <code>USERNAME</code> на свой. Сохранить → коммит → push. На профиле появятся красивые статы.</p>
+            </li>
+            <li><strong>Сделать скриншот</strong> вашего профиля github.com/USERNAME и сохранить — это первая «официальная» картинка вас как разработчика.</li>
+        </ol>
+        <ol data-lang="en">
+            <li><strong>Create a repository</strong> with the name <strong>equal to your username</strong> (critical!):
+                <ul>
+                    <li>github.com → <code>+</code> → New repository</li>
+                    <li>Repository name: exactly your username (if username is <code>aman-dev</code>, repo name is also <code>aman-dev</code>)</li>
+                    <li>Public</li>
+                    <li>GitHub shows a hint: "You found a secret! username is a special repository that you can use to add a README.md to your GitHub profile"</li>
+                    <li><strong>Tick</strong> "Add a README file" (this time — fine with README, only one file anyway)</li>
+                    <li>Create</li>
+                </ul>
+            </li>
+            <li><strong>Clone the repo locally:</strong>
+<pre><code>cd ~/Desktop/projects
+git clone https://github.com/USERNAME/USERNAME.git
+cd USERNAME</code></pre>
+            </li>
+            <li><strong>Edit <code>README.md</code></strong> (open in VS Code):
+<pre><code># Hi, I'm [Your Name] 👋
+
+### Front-end developer in the making • Based in Ashgabat 🇹🇲
+
+I'm learning React and modern web development as part of the
+**React Essentials course** by Seydi Charyev.
+
+---
+
+## 🛠 Tech I'm learning
+- HTML / CSS / JavaScript
+- React + Vite
+- Git / GitHub
+- Tailwind CSS (soon)
+
+## 📚 Currently working on
+- [my-first-react](https://github.com/USERNAME/my-first-react) — my first Vite + React app
+- [git-playground](https://github.com/USERNAME/git-playground) — practice repo for Git
+
+## 📫 Reach me
+- Telegram: [@username](https://t.me/username)
+- Email: your@email.com
+
+---
+
+&lt;sub&gt;⭐ This profile is a living document — it grows as I do.&lt;/sub&gt;</code></pre>
+                Adapt for yourself: your name, city, real links to your repos.
+            </li>
+            <li><strong>Commit and push</strong>:
+<pre><code>git add README.md
+git commit -m "Update profile README with bio and projects"
+git push</code></pre>
+            </li>
+            <li><strong>Verify</strong>: open <code>github.com/USERNAME</code> (your profile). Above the repo list a section with your README should appear. If not — refresh the page.</li>
+            <li><strong>Level-2 bonus — add GitHub Stats:</strong>
+                <p>At the end of <code>README.md</code> add:</p>
+<pre><code>## 📊 GitHub Stats
+
+![Your Stats](https://github-readme-stats.vercel.app/api?username=USERNAME&amp;show_icons=true&amp;theme=default)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=USERNAME&amp;layout=compact)</code></pre>
+                <p>Replace <code>USERNAME</code> with your own. Save → commit → push. The profile will show nice stats.</p>
+            </li>
+            <li><strong>Screenshot</strong> your github.com/USERNAME profile and save — the first "official" picture of you as a developer.</li>
+        </ol>
+
+        <div class="hint" data-lang="ru">
+            <strong>Полезные Markdown-фишки для README:</strong>
+<pre><code># Большой заголовок
+## Средний заголовок
+### Маленький
+
+**жирный**, *курсив*, `код`
+
+- Список
+- Пункт
+
+[Текст ссылки](https://url.com)
+
+&gt; Цитата (для вау-эффекта)
+
+Картинка:
+![alt-текст](https://url/image.png)
+
+Эмодзи: 🚀 🎯 💻 🇹🇲 — копируйте из emojipedia.org</code></pre>
+            <strong>Вдохновение для Profile README:</strong>
+            <ul>
+                <li><code>github.com/abhisheknaiidu/awesome-github-profile-readme</code> — 200+ примеров</li>
+                <li><code>github.com/matiassingers/awesome-readme</code> — коллекция отличных README</li>
+                <li>Посмотрите, как оформлены профили разработчиков, на которых вы подписаны</li>
+            </ul>
+        </div>
+        <div class="hint" data-lang="en">
+            <strong>Useful Markdown tricks for README:</strong>
+<pre><code># Big heading
+## Medium heading
+### Small
+
+**bold**, *italic*, `code`
+
+- List
+- Item
+
+[Link text](https://url.com)
+
+&gt; Quote (for wow effect)
+
+Image:
+![alt text](https://url/image.png)
+
+Emoji: 🚀 🎯 💻 🇹🇲 — copy from emojipedia.org</code></pre>
+            <strong>Inspiration for Profile README:</strong>
+            <ul>
+                <li><code>github.com/abhisheknaiidu/awesome-github-profile-readme</code> — 200+ examples</li>
+                <li><code>github.com/matiassingers/awesome-readme</code> — great README collection</li>
+                <li>Look at profiles of developers you follow</li>
+            </ul>
+        </div>
+
+        <div class="criteria">
+            <ul data-lang="ru">
+                <li>Создан специальный репо с именем <code>USERNAME/USERNAME</code></li>
+                <li>README.md заполнен: имя, bio, список технологий, ссылки на проекты, контакты</li>
+                <li>Минимум 2 ссылки на ваши репозитории (<code>my-first-react</code>, <code>git-playground</code>)</li>
+                <li>Изменения закоммичены и запушены</li>
+                <li>На <code>github.com/USERNAME</code> появилась секция с README выше списка репо</li>
+                <li>Добавлены GitHub Stats (или другое оформление на ваш вкус)</li>
+                <li>Скриншот профиля сохранён</li>
+                <li>Хотя бы одно эмодзи или картинка для визуального украшения</li>
+            </ul>
+            <ul data-lang="en">
+                <li>Special repo created with name <code>USERNAME/USERNAME</code></li>
+                <li>README.md filled: name, bio, tech list, project links, contacts</li>
+                <li>At least 2 links to your repos (<code>my-first-react</code>, <code>git-playground</code>)</li>
+                <li>Changes committed and pushed</li>
+                <li>On <code>github.com/USERNAME</code> a README section appears above the repo list</li>
+                <li>GitHub Stats added (or other custom styling)</li>
+                <li>Profile screenshot saved</li>
+                <li>At least one emoji or image for visual flair</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

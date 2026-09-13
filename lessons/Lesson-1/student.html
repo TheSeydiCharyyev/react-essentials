@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Занятие 1 — Конспект ученика</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/student.css">
+    <script src="../../js/lang.js" defer></script>
+</head>
+<body>
+
+<div class="lesson-nav">
+    <a href="../../index.html" class="nav-home" data-lang="ru">&#8592; Главная</a>
+    <a href="../../index.html" class="nav-home" data-lang="en">&#8592; Home</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-title" data-lang="ru">Занятие 1: Введение и настройка</span>
+    <span class="nav-title" data-lang="en">Lesson 1: Introduction & Setup</span>
+    <span class="nav-sep">|</span>
+    <a href="lecture.html" class="nav-link" data-lang="ru">&#x1F468;&#x200D;&#x1F3EB; Лекция</a>
+    <a href="lecture.html" class="nav-link" data-lang="en">&#x1F468;&#x200D;&#x1F3EB; Lecture</a>
+    <span class="nav-active" data-lang="ru">&#x1F468;&#x200D;&#x1F393; Конспект</span>
+    <span class="nav-active" data-lang="en">&#x1F468;&#x200D;&#x1F393; Notes</span>
+    <a href="tasks.html" class="nav-link" data-lang="ru">&#x1F4CB; Задания</a>
+    <a href="tasks.html" class="nav-link" data-lang="en">&#x1F4CB; Tasks</a>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+</div>
+
+<div class="container">
+
+    <h1 data-lang="ru">&#x1F4D3; КОНСПЕКТ УЧЕНИКА</h1>
+    <h1 data-lang="en">&#x1F4D3; STUDENT NOTES</h1>
+    <p class="subtitle" data-lang="ru">Занятие 1: Введение и настройка</p>
+    <p class="subtitle" data-lang="en">Lesson 1: Introduction & Setup</p>
+    <p class="date-line" data-lang="ru">Дата: _______________</p>
+    <p class="date-line" data-lang="en">Date: _______________</p>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; ГЛАВНЫЙ ПРИНЦИП</h2>
+    <h2 data-lang="en">&#x1F4DA; MAIN PRINCIPLE</h2>
+
+    <div class="definition" data-lang="ru">
+        <strong>React — это JavaScript-библиотека для построения UI из компонентов.</strong> Вы описываете «что должно быть на экране», а React сам обновляет DOM. Это называется <strong>декларативный подход</strong>. Главная идея — <strong>компоненты</strong> (переиспользуемые кусочки интерфейса, как LEGO).
+    </div>
+    <div class="definition" data-lang="en">
+        <strong>React is a JavaScript library for building UIs from components.</strong> You describe "what should be on screen", and React updates the DOM itself. This is the <strong>declarative approach</strong>. The main idea is <strong>components</strong> (reusable UI pieces, like LEGO).
+    </div>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; ВАНИЛЬНЫЙ JS vs REACT</h2>
+    <h2 data-lang="en">&#x1F4DA; VANILLA JS vs REACT</h2>
+
+    <table data-lang="ru">
+        <tr><th>Ванильный JS</th><th>React</th></tr>
+        <tr><td>Ищем элемент через <code>getElementById</code></td><td>Элемент описан в компоненте</td></tr>
+        <tr><td>Ручная запись <code>el.textContent = x</code></td><td>Экран обновляется сам через <code>setState</code></td></tr>
+        <tr><td>Легко забыть синхронизировать — баг</td><td>React сам следит за консистентностью</td></tr>
+        <tr><td>Императивный («как» делать)</td><td>Декларативный («что» должно быть)</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Vanilla JS</th><th>React</th></tr>
+        <tr><td>Find the element via <code>getElementById</code></td><td>Element lives in the component</td></tr>
+        <tr><td>Manual <code>el.textContent = x</code></td><td>Screen updates itself via <code>setState</code></td></tr>
+        <tr><td>Easy to forget to sync — bug</td><td>React keeps things consistent</td></tr>
+        <tr><td>Imperative ("how" to do)</td><td>Declarative ("what" should be)</td></tr>
+    </table>
+
+    <div class="key-point" data-lang="ru">
+        <strong>Аналогия:</strong> ванильный JS — вы сами бегаете на кухню за новым меню. React — официант приносит обновление сам.
+    </div>
+    <div class="key-point" data-lang="en">
+        <strong>Analogy:</strong> vanilla JS — you run to the kitchen for a new menu yourself. React — the waiter brings updates to you.
+    </div>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; КОМПОНЕНТЫ — СЕРДЦЕ REACT</h2>
+    <h2 data-lang="en">&#x1F4DA; COMPONENTS — THE HEART OF REACT</h2>
+
+    <div class="definition" data-lang="ru">
+        <strong>Компонент</strong> — самостоятельный кусок UI, который можно переиспользовать. Кнопка, карточка, меню, вся страница — всё компоненты. В коде — <strong>обычная JS-функция, которая возвращает JSX</strong>.
+    </div>
+    <div class="definition" data-lang="en">
+        <strong>Component</strong> — a self-contained piece of UI you can reuse. Button, card, menu, the whole page — all components. In code — <strong>a regular JS function that returns JSX</strong>.
+    </div>
+
+<pre><code>function Hello() {
+    return &lt;h1&gt;Привет, React!&lt;/h1&gt;;
+}</code></pre>
+
+    <div class="key-point" data-lang="ru">
+        Что даёт компонентный подход: <strong>переиспользование</strong>, <strong>изоляция</strong>, <strong>читаемость</strong>, <strong>работа в команде</strong>, <strong>тестируемость</strong>.
+    </div>
+    <div class="key-point" data-lang="en">
+        What components give you: <strong>reuse</strong>, <strong>isolation</strong>, <strong>readability</strong>, <strong>teamwork</strong>, <strong>testability</strong>.
+    </div>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; ВИРТУАЛЬНЫЙ DOM</h2>
+    <h2 data-lang="en">&#x1F4DA; VIRTUAL DOM</h2>
+
+    <div class="definition" data-lang="ru">
+        <strong>Виртуальный DOM</strong> — «черновик» настоящего DOM в памяти JavaScript. React делает все расчёты в черновике (это быстро и дёшево), сравнивает старый и новый варианты (<em>diffing</em>), и обновляет в настоящем DOM <strong>только то, что реально изменилось</strong>.
+    </div>
+    <div class="definition" data-lang="en">
+        <strong>Virtual DOM</strong> — a "draft" of the real DOM in JavaScript memory. React runs all calculations in the draft (fast and cheap), compares old and new versions (<em>diffing</em>), and updates in the real DOM <strong>only what actually changed</strong>.
+    </div>
+
+<pre><code>Клик → данные меняются → виртуальный DOM пересчитывается
+     → сравнение со старым → обновление ТОЛЬКО изменённого</code></pre>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; SPA vs MPA</h2>
+    <h2 data-lang="en">&#x1F4DA; SPA vs MPA</h2>
+
+    <table data-lang="ru">
+        <tr><th>MPA (старый подход)</th><th>SPA (React)</th></tr>
+        <tr><td>Много HTML-файлов</td><td>Один <code>index.html</code></td></tr>
+        <tr><td>Клик → перезагрузка всей страницы</td><td>Клик → меняется только контент</td></tr>
+        <tr><td>Пример: WordPress-блог</td><td>Пример: Instagram, Gmail</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>MPA (old)</th><th>SPA (React)</th></tr>
+        <tr><td>Many HTML files</td><td>One <code>index.html</code></td></tr>
+        <tr><td>Click → full page reload</td><td>Click → only content swaps</td></tr>
+        <tr><td>Example: a WordPress blog</td><td>Example: Instagram, Gmail</td></tr>
+    </table>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; КТО ИСПОЛЬЗУЕТ REACT</h2>
+    <h2 data-lang="en">&#x1F4DA; WHO USES REACT</h2>
+
+    <ul data-lang="ru">
+        <li><strong>Соцсети:</strong> Facebook, Instagram, WhatsApp Web, Threads, Discord, Reddit</li>
+        <li><strong>Стриминг:</strong> Netflix, Twitch, New York Times</li>
+        <li><strong>Commerce:</strong> Airbnb, Uber, Shopify (админка)</li>
+        <li><strong>Инструменты:</strong> Notion, Linear, Vercel, Stripe Dashboard</li>
+        <li><strong>Регион:</strong> Ykjam, Sanly, большинство IT-студий в Ашхабаде</li>
+        <li><strong>Мобильные:</strong> React Native — Facebook, Instagram, Discord, Tesla, Walmart</li>
+    </ul>
+    <ul data-lang="en">
+        <li><strong>Social:</strong> Facebook, Instagram, WhatsApp Web, Threads, Discord, Reddit</li>
+        <li><strong>Streaming:</strong> Netflix, Twitch, New York Times</li>
+        <li><strong>Commerce:</strong> Airbnb, Uber, Shopify (admin)</li>
+        <li><strong>Tools:</strong> Notion, Linear, Vercel, Stripe Dashboard</li>
+        <li><strong>Region:</strong> Ykjam, Sanly, most Ashgabat IT studios</li>
+        <li><strong>Mobile:</strong> React Native — Facebook, Instagram, Discord, Tesla, Walmart</li>
+    </ul>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; ИНСТРУМЕНТЫ РАЗРАБОТЧИКА</h2>
+    <h2 data-lang="en">&#x1F4DA; DEVELOPER TOOLS</h2>
+
+    <table data-lang="ru">
+        <tr><th>Инструмент</th><th>Назначение</th></tr>
+        <tr><td><strong>Node.js 22 LTS</strong></td><td>Запуск JS-инструментов локально</td></tr>
+        <tr><td><strong>npm</strong></td><td>Менеджер пакетов (ставится с Node)</td></tr>
+        <tr><td><strong>VS Code</strong></td><td>Редактор кода</td></tr>
+        <tr><td><strong>Chrome / Firefox</strong></td><td>Запуск и отладка</td></tr>
+        <tr><td><strong>React DevTools</strong></td><td>Расширение для отладки React</td></tr>
+        <tr><td><strong>Vite</strong></td><td>Сборщик проектов (на занятии 2)</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Tool</th><th>Purpose</th></tr>
+        <tr><td><strong>Node.js 22 LTS</strong></td><td>Run JS tools locally</td></tr>
+        <tr><td><strong>npm</strong></td><td>Package manager (bundled with Node)</td></tr>
+        <tr><td><strong>VS Code</strong></td><td>Code editor</td></tr>
+        <tr><td><strong>Chrome / Firefox</strong></td><td>Run and debug</td></tr>
+        <tr><td><strong>React DevTools</strong></td><td>Browser extension for React debugging</td></tr>
+        <tr><td><strong>Vite</strong></td><td>Project bundler (lesson 2)</td></tr>
+    </table>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; КОМАНДЫ ДЛЯ ПРОВЕРКИ</h2>
+    <h2 data-lang="en">&#x1F4DA; VERIFICATION COMMANDS</h2>
+
+<pre><code># После установки Node.js открыть НОВЫЙ терминал:
+node -v        # должно быть v20.x.x или выше (лучше 22.x)
+npm -v         # 10.x.x или выше
+
+# Если "command not found" — закрыть терминал
+# и открыть ЗАНОВО (PATH подхватывается только в новых окнах).</code></pre>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; 4 РАСШИРЕНИЯ VS CODE ДЛЯ REACT</h2>
+    <h2 data-lang="en">&#x1F4DA; 4 VS CODE EXTENSIONS FOR REACT</h2>
+
+    <ol data-lang="ru">
+        <li><strong>ES7+ React/Redux/React-Native snippets</strong> (dsznajder) — сниппеты (<code>rafce</code> → функциональный компонент)</li>
+        <li><strong>Prettier - Code formatter</strong> — автоформатирование кода</li>
+        <li><strong>Auto Rename Tag</strong> — переименование парных тегов</li>
+        <li><strong>Simple React Snippets</strong> (burkeholland) — ещё сниппеты (<code>imrc</code> и т.п.)</li>
+    </ol>
+    <ol data-lang="en">
+        <li><strong>ES7+ React/Redux/React-Native snippets</strong> (dsznajder) — snippets (<code>rafce</code> → functional component)</li>
+        <li><strong>Prettier - Code formatter</strong> — auto-format code</li>
+        <li><strong>Auto Rename Tag</strong> — rename paired tags</li>
+        <li><strong>Simple React Snippets</strong> (burkeholland) — more snippets (<code>imrc</code> etc.)</li>
+    </ol>
+
+    <div class="key-point" data-lang="ru">
+        Включить <strong>Format On Save</strong>: <code>Ctrl+,</code> → поиск <code>format on save</code> → галочка. Default formatter: <code>Prettier</code>. Теперь <code>Ctrl+S</code> — автоматическое форматирование.
+    </div>
+    <div class="key-point" data-lang="en">
+        Enable <strong>Format On Save</strong>: <code>Ctrl+,</code> → search <code>format on save</code> → check. Default formatter: <code>Prettier</code>. Now <code>Ctrl+S</code> — auto-format.
+    </div>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; ПЕРВЫЙ REACT ЧЕРЕЗ CDN</h2>
+    <h2 data-lang="en">&#x1F4DA; FIRST REACT VIA CDN</h2>
+
+    <div class="key-point" data-lang="ru">
+        Быстрый способ запустить React без npm и Vite — для первого опыта. В реальных проектах используем Vite (занятие 2).
+    </div>
+    <div class="key-point" data-lang="en">
+        Fast way to run React without npm and Vite — for a first experience. In real projects use Vite (lesson 2).
+    </div>
+
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First React&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+
+    &lt;script crossorigin src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
+    &lt;script crossorigin src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/babel"&gt;
+        function Hello() {
+            return &lt;h1&gt;Привет, React!&lt;/h1&gt;;
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(&lt;Hello /&gt;);
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+    <div class="key-point" data-lang="ru">
+        <strong>Не забудьте</strong> <code>type="text/babel"</code> в последнем <code>&lt;script&gt;</code>. Без него браузер не поймёт JSX → ошибка.
+    </div>
+    <div class="key-point" data-lang="en">
+        <strong>Don't forget</strong> <code>type="text/babel"</code> on the last <code>&lt;script&gt;</code>. Without it the browser can't parse JSX → error.
+    </div>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; VITE vs CRA (2026)</h2>
+    <h2 data-lang="en">&#x1F4DA; VITE vs CRA (2026)</h2>
+
+    <table data-lang="ru">
+        <tr><th></th><th>CRA</th><th>Vite</th></tr>
+        <tr><td>Старт сервера</td><td>30-60 сек</td><td>&lt; 1 сек</td></tr>
+        <tr><td>Hot reload</td><td>Медленный</td><td>Мгновенный</td></tr>
+        <tr><td>Статус</td><td><strong>Deprecated</strong></td><td>Стандарт</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th></th><th>CRA</th><th>Vite</th></tr>
+        <tr><td>Server start</td><td>30-60 sec</td><td>&lt; 1 sec</td></tr>
+        <tr><td>Hot reload</td><td>Slow</td><td>Instant</td></tr>
+        <tr><td>Status</td><td><strong>Deprecated</strong></td><td>Standard</td></tr>
+    </table>
+
+    <div class="key-point" data-lang="ru">
+        В 2026 году react.dev рекомендует <strong>Vite</strong> (или Next.js для больших проектов). CRA официально устарел.
+    </div>
+    <div class="key-point" data-lang="en">
+        In 2026 react.dev recommends <strong>Vite</strong> (or Next.js for larger projects). CRA is officially deprecated.
+    </div>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; МОИ ИНСТРУМЕНТЫ (ЧЕКЛИСТ)</h2>
+    <h2 data-lang="en">&#x1F4DA; MY TOOLS (CHECKLIST)</h2>
+
+    <div class="write-box" data-lang="ru">
+        <strong>Отметьте после установки:</strong><br><br>
+        ☐ Node.js установлен, <code>node -v</code> показывает версию _______<br>
+        ☐ npm работает, <code>npm -v</code> показывает версию _______<br>
+        ☐ VS Code установлен и открывается<br>
+        ☐ Расширение <strong>ES7+ React/Redux/React-Native snippets</strong><br>
+        ☐ Расширение <strong>Prettier - Code formatter</strong><br>
+        ☐ Расширение <strong>Auto Rename Tag</strong><br>
+        ☐ Расширение <strong>Simple React Snippets</strong><br>
+        ☐ Настройка <em>Format on Save</em> включена<br>
+        ☐ Prettier выбран как Default Formatter<br>
+        ☐ React DevTools установлены в Chrome / Firefox<br>
+        ☐ На react.dev вкладка <em>Components</em> появляется в F12
+    </div>
+    <div class="write-box" data-lang="en">
+        <strong>Check after installation:</strong><br><br>
+        ☐ Node.js installed, <code>node -v</code> shows version _______<br>
+        ☐ npm works, <code>npm -v</code> shows version _______<br>
+        ☐ VS Code installed and opens<br>
+        ☐ Extension <strong>ES7+ React/Redux/React-Native snippets</strong><br>
+        ☐ Extension <strong>Prettier - Code formatter</strong><br>
+        ☐ Extension <strong>Auto Rename Tag</strong><br>
+        ☐ Extension <strong>Simple React Snippets</strong><br>
+        ☐ <em>Format on Save</em> turned on<br>
+        ☐ Prettier selected as Default Formatter<br>
+        ☐ React DevTools installed in Chrome / Firefox<br>
+        ☐ On react.dev a <em>Components</em> tab appears in F12
+    </div>
+
+    <hr>
+
+    <h2 data-lang="ru">&#x1F4DA; ТИПИЧНЫЕ ОШИБКИ НА СТАРТЕ</h2>
+    <h2 data-lang="en">&#x1F4DA; TYPICAL BEGINNER MISTAKES</h2>
+
+    <table data-lang="ru">
+        <tr><th>Ошибка</th><th>Решение</th></tr>
+        <tr><td>Node установлен, но <code>node -v</code> «не найден»</td><td>Закрыть терминал, открыть заново</td></tr>
+        <tr><td>Старая версия Node (&lt; 20)</td><td>Переставить LTS с nodejs.org</td></tr>
+        <tr><td>Забыли <code>type="text/babel"</code></td><td>Добавить в последний <code>&lt;script&gt;</code></td></tr>
+        <tr><td>Туториалы 2019 года</td><td>Смотреть только react.dev</td></tr>
+        <tr><td>Сразу Redux + TypeScript</td><td>Сначала компоненты и state</td></tr>
+        <tr><td>Ставят 20 расширений VS Code</td><td>4 рекомендованных — и хватит</td></tr>
+        <tr><td>create-react-app</td><td>Vite (CRA устарел)</td></tr>
+        <tr><td>Сразу Next.js без React</td><td>Next.js — это React сверху, учить сначала React</td></tr>
+    </table>
+    <table data-lang="en">
+        <tr><th>Mistake</th><th>Fix</th></tr>
+        <tr><td>Node installed but <code>node -v</code> "not found"</td><td>Close terminal, reopen</td></tr>
+        <tr><td>Old Node version (&lt; 20)</td><td>Reinstall LTS from nodejs.org</td></tr>
+        <tr><td>Forgot <code>type="text/babel"</code></td><td>Add on the last <code>&lt;script&gt;</code></td></tr>
+        <tr><td>Tutorials from 2019</td><td>Use react.dev only</td></tr>
+        <tr><td>Redux + TypeScript right away</td><td>Components and state first</td></tr>
+        <tr><td>20 VS Code extensions</td><td>The 4 recommended — enough</td></tr>
+        <tr><td>create-react-app</td><td>Vite (CRA is deprecated)</td></tr>
+        <tr><td>Next.js without React</td><td>Next.js is React on top — learn React first</td></tr>
+    </table>
+
+    <hr>
+
+    <div class="remember" data-lang="ru">
+        <ul>
+            <li>React — библиотека для построения UI из компонентов</li>
+            <li>Решает проблему ручной синхронизации DOM и данных</li>
+            <li>Главная идея: <strong>компоненты</strong> = функции, возвращающие JSX</li>
+            <li>Компонент — как кубик LEGO: написал один раз, используешь везде</li>
+            <li>Виртуальный DOM — «черновик», настоящий DOM — «чистовик»</li>
+            <li>React декларативный: пишем <em>что</em>, не <em>как</em></li>
+            <li>React-приложения = SPA (одна страница, JS меняет контент)</li>
+            <li>Используют: Facebook, Netflix, Airbnb, Uber, Discord, Vercel</li>
+            <li>Node.js нужен для запуска инструментов локально (не для браузера)</li>
+            <li>npm — менеджер пакетов, ставится вместе с Node</li>
+            <li>Минимум Node 20, лучше 22 LTS</li>
+            <li>Редактор: VS Code + 4 расширения + Format on Save</li>
+            <li>React DevTools — обязательное расширение браузера</li>
+            <li>В 2026 все проекты — на Vite (CRA deprecated)</li>
+            <li>CDN-способ — только для учёбы и демо, не для продакшена</li>
+            <li>Ошибка «node not found» после установки → открыть новый терминал</li>
+            <li>На занятии 2 — Git, GitHub и первый Vite-проект</li>
+        </ul>
+    </div>
+    <div class="remember" data-lang="en">
+        <ul>
+            <li>React — a library for building UIs from components</li>
+            <li>Solves manual DOM/data sync</li>
+            <li>Main idea: <strong>components</strong> = functions returning JSX</li>
+            <li>A component is like a LEGO brick: write once, use everywhere</li>
+            <li>Virtual DOM — "draft", real DOM — "final"</li>
+            <li>React is declarative: describe <em>what</em>, not <em>how</em></li>
+            <li>React apps = SPA (one page, JS swaps content)</li>
+            <li>Used by Facebook, Netflix, Airbnb, Uber, Discord, Vercel</li>
+            <li>Node.js runs tools locally (not for the browser)</li>
+            <li>npm — package manager, bundled with Node</li>
+            <li>Minimum Node 20, better 22 LTS</li>
+            <li>Editor: VS Code + 4 extensions + Format on Save</li>
+            <li>React DevTools — mandatory browser extension</li>
+            <li>In 2026 all projects — on Vite (CRA deprecated)</li>
+            <li>CDN — learning and demos only, not production</li>
+            <li>"node not found" after install → open a new terminal</li>
+            <li>Lesson 2 — Git, GitHub and the first Vite project</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="homework" data-lang="ru">
+        <ol>
+            <li><strong>Установить Node.js LTS</strong> с nodejs.org. Проверить <code>node -v</code> и <code>npm -v</code> в новом терминале. Записать версии в конспект.</li>
+            <li><strong>Установить VS Code</strong> с code.visualstudio.com.</li>
+            <li><strong>Поставить 4 расширения:</strong> ES7+ React snippets, Prettier, Auto Rename Tag, Simple React Snippets.</li>
+            <li><strong>Включить Format on Save</strong> и выбрать Prettier как Default Formatter.</li>
+            <li><strong>Установить React DevTools</strong> в Chrome или Firefox. Проверить на react.dev — должны появиться вкладки <em>Components</em> и <em>Profiler</em>.</li>
+            <li><strong>Создать первый файл</strong> <code>my-first-react.html</code> по шаблону из лекции (CDN + Hello). Запустить двойным кликом, убедиться что на странице «Привет, React!».</li>
+            <li><strong>Эксперимент:</strong> в этом же файле создать ещё один компонент <code>&lt;Goodbye /&gt;</code>, который возвращает <code>&lt;h2&gt;Пока!&lt;/h2&gt;</code>. Отрендерить оба — <code>&lt;Hello /&gt;</code> и <code>&lt;Goodbye /&gt;</code> — внутри <code>&lt;div&gt;</code>.</li>
+            <li><strong>Исследование:</strong> открыть в Chrome любой из сайтов (instagram.com / airbnb.com / discord.com), нажать F12 → Components. Посмотреть дерево компонентов. Записать 3 названия компонентов, которые увидели.</li>
+            <li><strong>Ответить на quiz из лекции</strong> (секция «Содержание» → Quiz) — минимум на 10 из 12 вопросов. Проверить по лекции.</li>
+            <li><strong>Чеклист готовности</strong> в этом конспекте (выше) — все галочки должны быть поставлены до занятия 2.</li>
+        </ol>
+    </div>
+    <div class="homework" data-lang="en">
+        <ol>
+            <li><strong>Install Node.js LTS</strong> from nodejs.org. Verify <code>node -v</code> and <code>npm -v</code> in a new terminal. Record versions in the notes.</li>
+            <li><strong>Install VS Code</strong> from code.visualstudio.com.</li>
+            <li><strong>Install 4 extensions:</strong> ES7+ React snippets, Prettier, Auto Rename Tag, Simple React Snippets.</li>
+            <li><strong>Enable Format on Save</strong> and pick Prettier as Default Formatter.</li>
+            <li><strong>Install React DevTools</strong> in Chrome or Firefox. Verify on react.dev — <em>Components</em> and <em>Profiler</em> tabs should appear.</li>
+            <li><strong>Create your first file</strong> <code>my-first-react.html</code> using the CDN template from the lecture (CDN + Hello). Double-click to run, see "Привет, React!" on the page.</li>
+            <li><strong>Experiment:</strong> in the same file, make another component <code>&lt;Goodbye /&gt;</code> that returns <code>&lt;h2&gt;Пока!&lt;/h2&gt;</code>. Render both <code>&lt;Hello /&gt;</code> and <code>&lt;Goodbye /&gt;</code> inside a <code>&lt;div&gt;</code>.</li>
+            <li><strong>Explore:</strong> open any of the sites in Chrome (instagram.com / airbnb.com / discord.com), press F12 → Components. Look at the component tree. Record 3 component names you saw.</li>
+            <li><strong>Answer the lecture quiz</strong> (TOC → Quiz) — at least 10 out of 12 questions. Verify against the lecture.</li>
+            <li><strong>Readiness checklist</strong> in these notes (above) — all boxes ticked before lesson 2.</li>
+        </ol>
+    </div>
+
+</div>
+
+</body>
+</html>

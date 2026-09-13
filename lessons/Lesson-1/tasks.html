@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Занятие 1 — Практические задания</title>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/tasks.css">
+    <script src="../../js/lang.js" defer></script>
+</head>
+<body>
+
+<div class="lesson-nav">
+    <a href="../../index.html" class="nav-home" data-lang="ru">&#8592; Главная</a>
+    <a href="../../index.html" class="nav-home" data-lang="en">&#8592; Home</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-title" data-lang="ru">Занятие 1: Введение и настройка</span>
+    <span class="nav-title" data-lang="en">Lesson 1: Introduction & Setup</span>
+    <span class="nav-sep">|</span>
+    <a href="lecture.html" class="nav-link" data-lang="ru">&#x1F468;&#x200D;&#x1F3EB; Лекция</a>
+    <a href="lecture.html" class="nav-link" data-lang="en">&#x1F468;&#x200D;&#x1F3EB; Lecture</a>
+    <a href="student.html" class="nav-link" data-lang="ru">&#x1F468;&#x200D;&#x1F393; Конспект</a>
+    <a href="student.html" class="nav-link" data-lang="en">&#x1F468;&#x200D;&#x1F393; Notes</a>
+    <span class="nav-active" data-lang="ru">&#x1F4CB; Задания</span>
+    <span class="nav-active" data-lang="en">&#x1F4CB; Tasks</span>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+</div>
+
+<div class="container">
+
+    <h1 data-lang="ru">&#x1F4DD; ПРАКТИЧЕСКИЕ ЗАДАНИЯ</h1>
+    <h1 data-lang="en">&#x1F4DD; PRACTICAL TASKS</h1>
+    <p class="subtitle" data-lang="ru">Занятие 1: Введение и настройка</p>
+    <p class="subtitle" data-lang="en">Lesson 1: Introduction & Setup</p>
+
+    <hr>
+
+    <!-- ==================== УРОК 1.1 ==================== -->
+    <h2 data-lang="ru">&#x1F3AF; УРОК 1.1: ИССЛЕДОВАНИЕ МИРА REACT</h2>
+    <h2 data-lang="en">&#x1F3AF; LESSON 1.1: EXPLORING THE REACT WORLD</h2>
+
+    <div class="task">
+        <div class="task-header">
+            <span class="task-title" data-lang="ru">Задание 1.1: Найди React в дикой природе</span>
+            <span class="task-title" data-lang="en">Task 1.1: Spot React in the wild</span>
+            <div class="task-meta">
+                <span class="badge badge-easy" data-lang="ru">Лёгкое</span>
+                <span class="badge badge-easy" data-lang="en">Easy</span>
+                <span class="badge badge-time" data-lang="ru">45 минут</span>
+                <span class="badge badge-time" data-lang="en">45 min</span>
+            </div>
+        </div>
+
+        <div class="task-goal" data-lang="ru">Увидеть, что React — не абстракция из учебника, а живая технология на реальных сайтах</div>
+        <div class="task-goal" data-lang="en">See that React isn't textbook abstraction but a live technology on real sites</div>
+
+        <h3 data-lang="ru">Условие:</h3>
+        <h3 data-lang="en">Instructions:</h3>
+
+        <ol data-lang="ru">
+            <li><strong>Установите React DevTools</strong> в Chrome или Firefox (если ещё не):
+                <ul>
+                    <li>Chrome: <code>chrome.google.com/webstore</code> → поиск <code>React Developer Tools</code> → «Добавить в Chrome»</li>
+                    <li>Firefox: <code>addons.mozilla.org</code> → поиск <code>React Developer Tools</code> → «Добавить»</li>
+                </ul>
+            </li>
+            <li><strong>Проверьте установку</strong> на официальном сайте <code>react.dev</code>: F12 → должны появиться вкладки <em>Components</em> и <em>Profiler</em>.</li>
+            <li><strong>Откройте 5 сайтов</strong> из списка и проверьте, написаны ли они на React:
+                <ul>
+                    <li><code>instagram.com</code></li>
+                    <li><code>airbnb.com</code></li>
+                    <li><code>netflix.com</code></li>
+                    <li><code>vercel.com</code></li>
+                    <li><code>notion.so</code></li>
+                </ul>
+                На каждом: F12 → вкладка <em>Components</em> → если вкладка не серая, сайт на React.
+            </li>
+            <li><strong>Составьте таблицу в блокноте / Word / Google Docs</strong>:
+                <table style="margin:8px 0;">
+                    <tr><th>Сайт</th><th>На React?</th><th>3 компонента из дерева</th></tr>
+                    <tr><td>instagram.com</td><td>?</td><td>?</td></tr>
+                    <tr><td>...</td><td>...</td><td>...</td></tr>
+                </table>
+                Имена компонентов видны в вкладке <em>Components</em> — записывайте те, что бросаются в глаза (Header, Feed, Post, Button, Sidebar, StoryCircle...).
+            </li>
+            <li><strong>Найдите 3 туркменских сайта / сервиса</strong>, которые по ощущению сделаны на React (всё обновляется без перезагрузки страницы). Проверьте через DevTools. Запишите результат.</li>
+            <li><strong>Сделайте скриншот</strong> вкладки <em>Components</em> с instagram.com — это ваше первое «селфи» с React в проде.</li>
+        </ol>
+        <ol data-lang="en">
+            <li><strong>Install React DevTools</strong> in Chrome or Firefox (if not already):
+                <ul>
+                    <li>Chrome: <code>chrome.google.com/webstore</code> → search <code>React Developer Tools</code> → "Add to Chrome"</li>
+                    <li>Firefox: <code>addons.mozilla.org</code> → search <code>React Developer Tools</code> → "Add"</li>
+                </ul>
+            </li>
+            <li><strong>Verify install</strong> on the official <code>react.dev</code>: F12 → tabs <em>Components</em> and <em>Profiler</em> should appear.</li>
+            <li><strong>Open 5 sites</strong> from the list and check if they're on React:
+                <ul>
+                    <li><code>instagram.com</code></li>
+                    <li><code>airbnb.com</code></li>
+                    <li><code>netflix.com</code></li>
+                    <li><code>vercel.com</code></li>
+                    <li><code>notion.so</code></li>
+                </ul>
+                On each: F12 → <em>Components</em> tab → if it's not grayed out, the site is on React.
+            </li>
+            <li><strong>Build a table</strong> in Notes / Word / Google Docs:
+                <table style="margin:8px 0;">
+                    <tr><th>Site</th><th>On React?</th><th>3 components from the tree</th></tr>
+                    <tr><td>instagram.com</td><td>?</td><td>?</td></tr>
+                    <tr><td>...</td><td>...</td><td>...</td></tr>
+                </table>
+                Component names are shown in the <em>Components</em> tab — write down the prominent ones (Header, Feed, Post, Button, Sidebar, StoryCircle...).
+            </li>
+            <li><strong>Find 3 Turkmen sites / services</strong> that feel like React (everything updates without page reload). Verify via DevTools. Record the result.</li>
+            <li><strong>Screenshot</strong> the <em>Components</em> tab on instagram.com — your first "selfie" with React in production.</li>
+        </ol>
+
+        <div class="hint" data-lang="ru">
+            <strong>Как понять, что сайт на React:</strong>
+            <ul>
+                <li>F12 → вкладка <em>Components</em> активна (не серая)</li>
+                <li>В дереве видны компоненты с именами вроде <code>App</code>, <code>Header</code>, <code>Post</code></li>
+                <li>Иконка React DevTools в панели расширений браузера <strong>синяя</strong> (не серая)</li>
+                <li>Также: View Page Source → если в HTML видно <code>&lt;div id="root"&gt;</code> или <code>&lt;div id="__next"&gt;</code> → точно React</li>
+            </ul>
+        </div>
+        <div class="hint" data-lang="en">
+            <strong>How to tell a site is on React:</strong>
+            <ul>
+                <li>F12 → <em>Components</em> tab active (not gray)</li>
+                <li>The tree shows components with names like <code>App</code>, <code>Header</code>, <code>Post</code></li>
+                <li>The React DevTools icon in the browser toolbar is <strong>blue</strong> (not gray)</li>
+                <li>Also: View Page Source → if you see <code>&lt;div id="root"&gt;</code> or <code>&lt;div id="__next"&gt;</code> → definitely React</li>
+            </ul>
+        </div>
+
+        <div class="criteria">
+            <ul data-lang="ru">
+                <li>React DevTools установлены и работают на react.dev</li>
+                <li>Проверены 5 сайтов из списка (Instagram, Airbnb, Netflix, Vercel, Notion)</li>
+                <li>Таблица с результатами заполнена (сайт / React да-нет / 3 компонента)</li>
+                <li>Найдены и проверены 3 туркменских сайта</li>
+                <li>Сделан скриншот вкладки Components с instagram.com</li>
+            </ul>
+            <ul data-lang="en">
+                <li>React DevTools installed and work on react.dev</li>
+                <li>5 listed sites checked (Instagram, Airbnb, Netflix, Vercel, Notion)</li>
+                <li>Results table filled (site / React yes-no / 3 components)</li>
+                <li>3 Turkmen sites found and checked</li>
+                <li>Screenshot of Components tab on instagram.com taken</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ==================== УРОК 1.2 ==================== -->
+    <h2 data-lang="ru">&#x1F3AF; УРОК 1.2: УСТАНОВКА ОКРУЖЕНИЯ РАЗРАБОТЧИКА</h2>
+    <h2 data-lang="en">&#x1F3AF; LESSON 1.2: DEV ENVIRONMENT SETUP</h2>
+
+    <div class="task">
+        <div class="task-header">
+            <span class="task-title" data-lang="ru">Задание 1.2: Node.js + VS Code + расширения + Prettier</span>
+            <span class="task-title" data-lang="en">Task 1.2: Node.js + VS Code + extensions + Prettier</span>
+            <div class="task-meta">
+                <span class="badge badge-medium" data-lang="ru">Среднее</span>
+                <span class="badge badge-medium" data-lang="en">Medium</span>
+                <span class="badge badge-time" data-lang="ru">45 минут</span>
+                <span class="badge badge-time" data-lang="en">45 min</span>
+            </div>
+        </div>
+
+        <div class="task-goal" data-lang="ru">Подготовить компьютер к разработке React-приложений — все инструменты установлены и настроены</div>
+        <div class="task-goal" data-lang="en">Prep the computer for React dev — all tools installed and configured</div>
+
+        <h3 data-lang="ru">Условие:</h3>
+        <h3 data-lang="en">Instructions:</h3>
+
+        <ol data-lang="ru">
+            <li><strong>Установите Node.js LTS</strong>:
+                <ul>
+                    <li>Зайти на <code>nodejs.org</code></li>
+                    <li>Скачать LTS-версию (зелёная кнопка с надписью «LTS»). В 2026 году это Node.js <strong>22.x</strong>.</li>
+                    <li>Запустить установщик, жать «Next» со всеми дефолтами. На шаге с чекбоксом «Add to PATH» — <strong>убедиться, что галочка стоит</strong>.</li>
+                    <li>На Mac можно через Homebrew: <code>brew install node</code></li>
+                </ul>
+            </li>
+            <li><strong>Проверка Node.js:</strong>
+                <ul>
+                    <li><strong>Закрыть</strong> все открытые терминалы / PowerShell полностью.</li>
+                    <li>Открыть <strong>новый</strong> терминал (Win: PowerShell или CMD, Mac: Terminal).</li>
+                    <li>Выполнить <code>node -v</code> — должно вывести <code>v22.x.x</code> (или ваша версия, минимум v20).</li>
+                    <li>Выполнить <code>npm -v</code> — должно вывести <code>10.x.x</code>.</li>
+                    <li>Записать версии в конспект (<em>student.html</em> → раздел «Мои инструменты»).</li>
+                </ul>
+            </li>
+            <li><strong>Установите VS Code</strong>:
+                <ul>
+                    <li><code>code.visualstudio.com</code> → «Download»</li>
+                    <li>Запустить установщик, «Next» по дефолту</li>
+                    <li>На Windows на шаге с опциями <strong>поставьте галочки</strong>:
+                        <ul>
+                            <li>«Add Open with Code action to Windows Explorer file context menu»</li>
+                            <li>«Add Open with Code action to Windows Explorer directory context menu»</li>
+                            <li>«Add to PATH»</li>
+                        </ul>
+                        Это даст возможность открывать папку в VS Code правым кликом.
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Установите 4 обязательных расширения</strong>:
+                <ul>
+                    <li>Открыть VS Code → <code>Ctrl+Shift+X</code> (Extensions)</li>
+                    <li>Найти и поставить: <strong>ES7+ React/Redux/React-Native snippets</strong> (автор dsznajder)</li>
+                    <li>Найти и поставить: <strong>Prettier - Code formatter</strong> (автор Prettier)</li>
+                    <li>Найти и поставить: <strong>Auto Rename Tag</strong> (автор Jun Han)</li>
+                    <li>Найти и поставить: <strong>Simple React Snippets</strong> (автор burkeholland)</li>
+                </ul>
+            </li>
+            <li><strong>Настройте Prettier как форматтер по умолчанию + Format on Save</strong>:
+                <ul>
+                    <li><code>Ctrl+,</code> (откроется Settings)</li>
+                    <li>В строке поиска вбить <code>format on save</code> → поставить галочку напротив <em>Editor: Format On Save</em></li>
+                    <li>В строке поиска вбить <code>default formatter</code> → выбрать <code>Prettier - Code formatter</code></li>
+                </ul>
+            </li>
+            <li><strong>Проверка работы Prettier:</strong>
+                <ul>
+                    <li>Создать тестовый файл <code>test.js</code> с корявым форматированием:
+<pre><code>const x=   1;
+function   foo(  a ,b){return a+b;}</code></pre>
+                    </li>
+                    <li>Нажать <code>Ctrl+S</code></li>
+                    <li>Код должен автоматически превратиться в:
+<pre><code>const x = 1;
+function foo(a, b) {
+    return a + b;
+}</code></pre>
+                    </li>
+                    <li>Если форматирования не произошло — проверить настройки из шага 5 ещё раз.</li>
+                </ul>
+            </li>
+            <li><strong>Проверка расширения сниппетов:</strong>
+                <ul>
+                    <li>Создать <code>test.jsx</code></li>
+                    <li>Набрать <code>rafce</code> + нажать Tab</li>
+                    <li>Должен автоматически вставиться шаблон компонента:
+<pre><code>import React from 'react'
+
+function test() {
+  return (
+    &lt;div&gt;test&lt;/div&gt;
+  )
+}
+
+export default test</code></pre>
+                    </li>
+                    <li>Если не сработало — перезапустить VS Code.</li>
+                </ul>
+            </li>
+            <li><strong>Отметьте все галочки</strong> в чеклисте «Мои инструменты» в конспекте (<em>student.html</em>).</li>
+        </ol>
+        <ol data-lang="en">
+            <li><strong>Install Node.js LTS</strong>:
+                <ul>
+                    <li>Go to <code>nodejs.org</code></li>
+                    <li>Download the LTS build (the green "LTS" button). In 2026 it's Node.js <strong>22.x</strong>.</li>
+                    <li>Run the installer, click "Next" with defaults. On the "Add to PATH" checkbox — <strong>make sure it's ticked</strong>.</li>
+                    <li>On Mac you can use Homebrew: <code>brew install node</code></li>
+                </ul>
+            </li>
+            <li><strong>Verify Node.js:</strong>
+                <ul>
+                    <li><strong>Close</strong> all open terminals / PowerShell completely.</li>
+                    <li>Open a <strong>new</strong> terminal (Win: PowerShell or CMD, Mac: Terminal).</li>
+                    <li>Run <code>node -v</code> — should print <code>v22.x.x</code> (or your version, min v20).</li>
+                    <li>Run <code>npm -v</code> — should print <code>10.x.x</code>.</li>
+                    <li>Record versions in the notes (<em>student.html</em> → "My tools" section).</li>
+                </ul>
+            </li>
+            <li><strong>Install VS Code</strong>:
+                <ul>
+                    <li><code>code.visualstudio.com</code> → "Download"</li>
+                    <li>Run installer, "Next" defaults</li>
+                    <li>On Windows on the options step <strong>tick</strong>:
+                        <ul>
+                            <li>"Add Open with Code action to Windows Explorer file context menu"</li>
+                            <li>"Add Open with Code action to Windows Explorer directory context menu"</li>
+                            <li>"Add to PATH"</li>
+                        </ul>
+                        This lets you right-click a folder and open it in VS Code.
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Install the 4 must-have extensions</strong>:
+                <ul>
+                    <li>Open VS Code → <code>Ctrl+Shift+X</code> (Extensions)</li>
+                    <li>Find and install: <strong>ES7+ React/Redux/React-Native snippets</strong> (by dsznajder)</li>
+                    <li>Find and install: <strong>Prettier - Code formatter</strong> (by Prettier)</li>
+                    <li>Find and install: <strong>Auto Rename Tag</strong> (by Jun Han)</li>
+                    <li>Find and install: <strong>Simple React Snippets</strong> (by burkeholland)</li>
+                </ul>
+            </li>
+            <li><strong>Set Prettier as default formatter + Format on Save</strong>:
+                <ul>
+                    <li><code>Ctrl+,</code> (opens Settings)</li>
+                    <li>Search <code>format on save</code> → check <em>Editor: Format On Save</em></li>
+                    <li>Search <code>default formatter</code> → pick <code>Prettier - Code formatter</code></li>
+                </ul>
+            </li>
+            <li><strong>Verify Prettier works:</strong>
+                <ul>
+                    <li>Create a test file <code>test.js</code> with ugly formatting:
+<pre><code>const x=   1;
+function   foo(  a ,b){return a+b;}</code></pre>
+                    </li>
+                    <li>Press <code>Ctrl+S</code></li>
+                    <li>Code should auto-reformat to:
+<pre><code>const x = 1;
+function foo(a, b) {
+    return a + b;
+}</code></pre>
+                    </li>
+                    <li>If no formatting happens — re-check settings from step 5.</li>
+                </ul>
+            </li>
+            <li><strong>Verify snippets extension:</strong>
+                <ul>
+                    <li>Create <code>test.jsx</code></li>
+                    <li>Type <code>rafce</code> and hit Tab</li>
+                    <li>A component template should auto-insert:
+<pre><code>import React from 'react'
+
+function test() {
+  return (
+    &lt;div&gt;test&lt;/div&gt;
+  )
+}
+
+export default test</code></pre>
+                    </li>
+                    <li>If not — restart VS Code.</li>
+                </ul>
+            </li>
+            <li><strong>Tick all boxes</strong> in the "My tools" checklist in the notes (<em>student.html</em>).</li>
+        </ol>
+
+        <div class="hint" data-lang="ru">
+            <strong>Если <code>node -v</code> не работает после установки (Windows):</strong>
+            <ol>
+                <li>Полностью закрыть PowerShell / CMD / VS Code</li>
+                <li>Открыть новый PowerShell (<code>Win + R</code> → <code>powershell</code> → Enter)</li>
+                <li>Если всё равно не работает — перезагрузить компьютер</li>
+                <li>Если и это не помогло — переустановить Node, <strong>не забыв галочку «Add to PATH»</strong></li>
+            </ol>
+            <strong>Список npm-команд, которые пригодятся (не запускайте сейчас):</strong>
+<pre><code>npm -v                  # версия npm
+npm init -y             # создать новый package.json
+npm install &lt;pkg&gt;       # установить пакет
+npm install             # установить всё из package.json
+npm run dev             # запустить dev-сервер (Vite)</code></pre>
+        </div>
+        <div class="hint" data-lang="en">
+            <strong>If <code>node -v</code> doesn't work after install (Windows):</strong>
+            <ol>
+                <li>Fully close PowerShell / CMD / VS Code</li>
+                <li>Open a new PowerShell (<code>Win + R</code> → <code>powershell</code> → Enter)</li>
+                <li>Still not working — reboot the computer</li>
+                <li>Still not — reinstall Node, <strong>remembering the "Add to PATH" checkbox</strong></li>
+            </ol>
+            <strong>Useful npm commands (don't run now):</strong>
+<pre><code>npm -v                  # npm version
+npm init -y             # create a new package.json
+npm install &lt;pkg&gt;       # install a package
+npm install             # install everything from package.json
+npm run dev             # start dev server (Vite)</code></pre>
+        </div>
+
+        <div class="criteria">
+            <ul data-lang="ru">
+                <li><code>node -v</code> в новом терминале показывает версию &ge; 20 (лучше 22)</li>
+                <li><code>npm -v</code> показывает версию &ge; 10</li>
+                <li>VS Code установлен, открывается</li>
+                <li>Все 4 расширения установлены (видны в списке Extensions)</li>
+                <li>Format on Save включён в Settings</li>
+                <li>Prettier выбран как Default Formatter</li>
+                <li>Тест с <code>test.js</code>: Ctrl+S форматирует код автоматически</li>
+                <li>Тест с <code>rafce</code>: шаблон компонента вставляется по Tab</li>
+                <li>Все галочки в чеклисте конспекта отмечены</li>
+            </ul>
+            <ul data-lang="en">
+                <li><code>node -v</code> in a new terminal shows version &ge; 20 (better 22)</li>
+                <li><code>npm -v</code> shows version &ge; 10</li>
+                <li>VS Code installed, opens</li>
+                <li>All 4 extensions installed (visible in Extensions list)</li>
+                <li>Format on Save enabled in Settings</li>
+                <li>Prettier picked as Default Formatter</li>
+                <li><code>test.js</code> test: Ctrl+S auto-formats</li>
+                <li><code>rafce</code> test: component template inserted on Tab</li>
+                <li>All checklist boxes in notes ticked</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ==================== УРОК 1.3 ==================== -->
+    <h2 data-lang="ru">&#x1F3AF; УРОК 1.3: ПЕРВЫЙ REACT СВОИМИ РУКАМИ (CDN)</h2>
+    <h2 data-lang="en">&#x1F3AF; LESSON 1.3: FIRST REACT WITH YOUR OWN HANDS (CDN)</h2>
+
+    <div class="task">
+        <div class="task-header">
+            <span class="task-title" data-lang="ru">Задание 1.3: Hello, React! — три компонента в одном файле</span>
+            <span class="task-title" data-lang="en">Task 1.3: Hello, React! — three components in one file</span>
+            <div class="task-meta">
+                <span class="badge badge-medium" data-lang="ru">Среднее</span>
+                <span class="badge badge-medium" data-lang="en">Medium</span>
+                <span class="badge badge-time" data-lang="ru">45 минут</span>
+                <span class="badge badge-time" data-lang="en">45 min</span>
+            </div>
+        </div>
+
+        <div class="task-goal" data-lang="ru">Написать первое настоящее React-приложение без npm и без сборки — прямо в HTML-файле</div>
+        <div class="task-goal" data-lang="en">Write your first real React app without npm and without a build — right in an HTML file</div>
+
+        <h3 data-lang="ru">Условие:</h3>
+        <h3 data-lang="en">Instructions:</h3>
+
+        <ol data-lang="ru">
+            <li><strong>Создать папку</strong> <code>react-lesson-1</code> в любом удобном месте (например, на рабочем столе).</li>
+            <li><strong>Открыть папку в VS Code</strong>: правый клик по папке → «Open with Code» (если добавили опцию при установке). Или: VS Code → File → Open Folder → выбрать папку.</li>
+            <li><strong>Создать файл</strong> <code>index.html</code> внутри папки. Вставить шаблон-заготовку из подсказки ниже.</li>
+            <li><strong>Написать 3 компонента</strong>:
+                <ul>
+                    <li><code>Hello</code> — возвращает <code>&lt;h1&gt;Привет, React!&lt;/h1&gt;</code></li>
+                    <li><code>About</code> — возвращает <code>&lt;p&gt;</code> с одним предложением о себе (ваше имя, возраст, город)</li>
+                    <li><code>Footer</code> — возвращает <code>&lt;footer&gt;</code> с текущим годом и вашим именем (вручную, через обычный HTML)</li>
+                </ul>
+            </li>
+            <li><strong>Отрендерить все 3 компонента</strong> внутри одного <code>&lt;div&gt;</code>:
+<pre><code>root.render(
+    &lt;div&gt;
+        &lt;Hello /&gt;
+        &lt;About /&gt;
+        &lt;Footer /&gt;
+    &lt;/div&gt;
+);</code></pre>
+            </li>
+            <li><strong>Открыть <code>index.html</code></strong> двойным кликом (или правый клик → «Open with» → Chrome). Должны увидеть все 3 блока на странице.</li>
+            <li><strong>Проверить через React DevTools</strong> (F12 → Components). В дереве должно быть:
+<pre><code>Hello
+About
+Footer</code></pre>
+                Кликните на <code>Hello</code> — справа увидите информацию о нём. Это первый раз, когда вы смотрите на свой React-код «изнутри».
+            </li>
+            <li><strong>Стили:</strong> добавить в <code>&lt;head&gt;</code> тег <code>&lt;style&gt;</code> и покрасить заголовок. Например:
+<pre><code>&lt;style&gt;
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { color: #3b82f6; }
+    footer { margin-top: 40px; color: #94a3b8; font-size: 14px; }
+&lt;/style&gt;</code></pre>
+            </li>
+            <li><strong>Сделать скриншот</strong> итоговой страницы в браузере. Это ваш первый React-артефакт — сохраните его, он вам будет дорог :)</li>
+        </ol>
+        <ol data-lang="en">
+            <li><strong>Create a folder</strong> <code>react-lesson-1</code> in any convenient place (e.g. the Desktop).</li>
+            <li><strong>Open the folder in VS Code</strong>: right-click the folder → "Open with Code" (if you added the option during install). Or: VS Code → File → Open Folder → pick it.</li>
+            <li><strong>Create a file</strong> <code>index.html</code> inside the folder. Paste the template from the hint below.</li>
+            <li><strong>Write 3 components</strong>:
+                <ul>
+                    <li><code>Hello</code> — returns <code>&lt;h1&gt;Hello, React!&lt;/h1&gt;</code></li>
+                    <li><code>About</code> — returns a <code>&lt;p&gt;</code> with one sentence about you (name, age, city)</li>
+                    <li><code>Footer</code> — returns a <code>&lt;footer&gt;</code> with the current year and your name (manually typed)</li>
+                </ul>
+            </li>
+            <li><strong>Render all 3 components</strong> inside a single <code>&lt;div&gt;</code>:
+<pre><code>root.render(
+    &lt;div&gt;
+        &lt;Hello /&gt;
+        &lt;About /&gt;
+        &lt;Footer /&gt;
+    &lt;/div&gt;
+);</code></pre>
+            </li>
+            <li><strong>Open <code>index.html</code></strong> with a double click (or right-click → "Open with" → Chrome). You should see all 3 blocks on the page.</li>
+            <li><strong>Inspect via React DevTools</strong> (F12 → Components). The tree should show:
+<pre><code>Hello
+About
+Footer</code></pre>
+                Click <code>Hello</code> — on the right you'll see info about it. First time you look at your React code "from the inside".
+            </li>
+            <li><strong>Styling:</strong> add a <code>&lt;style&gt;</code> block in <code>&lt;head&gt;</code> and color the heading. Example:
+<pre><code>&lt;style&gt;
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h1 { color: #3b82f6; }
+    footer { margin-top: 40px; color: #94a3b8; font-size: 14px; }
+&lt;/style&gt;</code></pre>
+            </li>
+            <li><strong>Screenshot</strong> the final page in the browser. Your first React artifact — save it, it'll mean something to you later :)</li>
+        </ol>
+
+        <div class="hint" data-lang="ru">
+            <strong>Полный шаблон <code>index.html</code> — копируйте и адаптируйте:</strong>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ru"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First React App&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #3b82f6; }
+        footer { margin-top: 40px; color: #94a3b8; font-size: 14px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+
+    &lt;script crossorigin src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
+    &lt;script crossorigin src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/babel"&gt;
+        function Hello() {
+            return &lt;h1&gt;Привет, React!&lt;/h1&gt;;
+        }
+
+        function About() {
+            return (
+                &lt;p&gt;
+                    Меня зовут [Имя], мне [возраст] лет,
+                    я учусь React в [город].
+                &lt;/p&gt;
+            );
+        }
+
+        function Footer() {
+            return (
+                &lt;footer&gt;
+                    © 2026 — [Ваше имя]. Сделано на первом занятии React Essentials.
+                &lt;/footer&gt;
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+            &lt;div&gt;
+                &lt;Hello /&gt;
+                &lt;About /&gt;
+                &lt;Footer /&gt;
+            &lt;/div&gt;
+        );
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <strong>Если страница пустая:</strong>
+            <ul>
+                <li>F12 → Console — там будет красная ошибка. Прочитайте её.</li>
+                <li>Самые частые ошибки: забыт <code>type="text/babel"</code>, опечатка в тегах, лишние скобки в JSX.</li>
+                <li>Компонент должен начинаться с <strong>большой буквы</strong> (<code>function Hello()</code>, не <code>function hello()</code>).</li>
+            </ul>
+        </div>
+        <div class="hint" data-lang="en">
+            <strong>Full <code>index.html</code> template — copy and adapt:</strong>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First React App&lt;/title&gt;
+    &lt;style&gt;
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #3b82f6; }
+        footer { margin-top: 40px; color: #94a3b8; font-size: 14px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+
+    &lt;script crossorigin src="https://unpkg.com/react@19/umd/react.development.js"&gt;&lt;/script&gt;
+    &lt;script crossorigin src="https://unpkg.com/react-dom@19/umd/react-dom.development.js"&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+
+    &lt;script type="text/babel"&gt;
+        function Hello() {
+            return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
+        }
+
+        function About() {
+            return (
+                &lt;p&gt;
+                    My name is [Name], I'm [age] years old,
+                    I'm learning React in [city].
+                &lt;/p&gt;
+            );
+        }
+
+        function Footer() {
+            return (
+                &lt;footer&gt;
+                    © 2026 — [Your name]. Made on lesson 1 of React Essentials.
+                &lt;/footer&gt;
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+            &lt;div&gt;
+                &lt;Hello /&gt;
+                &lt;About /&gt;
+                &lt;Footer /&gt;
+            &lt;/div&gt;
+        );
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            <strong>If the page is blank:</strong>
+            <ul>
+                <li>F12 → Console — a red error lives there. Read it.</li>
+                <li>Most common: missing <code>type="text/babel"</code>, typo in tags, extra braces in JSX.</li>
+                <li>Component name must start with a <strong>capital letter</strong> (<code>function Hello()</code>, not <code>function hello()</code>).</li>
+            </ul>
+        </div>
+
+        <div class="criteria">
+            <ul data-lang="ru">
+                <li>Папка <code>react-lesson-1</code> создана</li>
+                <li><code>index.html</code> открывается в браузере, страница не пустая</li>
+                <li>Компонент <code>Hello</code> показывает «Привет, React!»</li>
+                <li>Компонент <code>About</code> показывает предложение с вашими данными</li>
+                <li>Компонент <code>Footer</code> показывает копирайт с годом и именем</li>
+                <li>В F12 → Components видны все 3 компонента в дереве</li>
+                <li>Применены базовые стили (цвет <code>h1</code>, шрифт, отступы)</li>
+                <li>Сделан скриншот итоговой страницы</li>
+            </ul>
+            <ul data-lang="en">
+                <li>Folder <code>react-lesson-1</code> created</li>
+                <li><code>index.html</code> opens in the browser, page isn't blank</li>
+                <li>Component <code>Hello</code> shows "Hello, React!"</li>
+                <li>Component <code>About</code> shows a sentence with your details</li>
+                <li>Component <code>Footer</code> shows copyright with year and name</li>
+                <li>F12 → Components shows all 3 components in the tree</li>
+                <li>Basic styles applied (<code>h1</code> color, font, padding)</li>
+                <li>Screenshot of the final page taken</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- ==================== БОНУС ==================== -->
+    <h2 data-lang="ru">&#x2B50; БОНУСНОЕ ЗАДАНИЕ</h2>
+    <h2 data-lang="en">&#x2B50; BONUS TASK</h2>
+
+    <div class="task">
+        <div class="task-header">
+            <span class="task-title" data-lang="ru">Задание 1.4: Мини-визитка (8 компонентов)</span>
+            <span class="task-title" data-lang="en">Task 1.4: Mini business card (8 components)</span>
+            <div class="task-meta">
+                <span class="badge badge-hard" data-lang="ru">Сложное</span>
+                <span class="badge badge-hard" data-lang="en">Hard</span>
+                <span class="badge badge-time" data-lang="ru">30-45 минут</span>
+                <span class="badge badge-time" data-lang="en">30-45 min</span>
+            </div>
+        </div>
+
+        <div class="task-goal" data-lang="ru">Почувствовать компонентный подход: разбить простую страницу-визитку на 8 компонентов</div>
+        <div class="task-goal" data-lang="en">Feel the component approach: split a simple business card page into 8 components</div>
+
+        <h3 data-lang="ru">Условие:</h3>
+        <h3 data-lang="en">Instructions:</h3>
+
+        <ol data-lang="ru">
+            <li>Скопируйте файл из задания 1.3 в новый <code>card.html</code>.</li>
+            <li>Спроектируйте страницу-визитку с такой структурой (всё на CSS-стилях через inline <code>&lt;style&gt;</code>):
+<pre><code>&lt;App&gt;
+  ├── &lt;Avatar /&gt;              (круглая картинка-заглушка или эмодзи 👨‍💻)
+  ├── &lt;Name /&gt;                (ваше имя как &lt;h1&gt;)
+  ├── &lt;Title /&gt;               (роль: «React Student», «Front-end Learner»)
+  ├── &lt;Bio /&gt;                 (короткая биография, 2-3 предложения)
+  ├── &lt;Skills /&gt;              (список навыков через &lt;ul&gt;: HTML, CSS, JS, React)
+  ├── &lt;SocialLinks /&gt;         (кнопки-ссылки: Telegram, Instagram, GitHub)
+  ├── &lt;ContactBtn /&gt;          (одна большая кнопка «Связаться»)
+  └── &lt;Footer /&gt;              (копирайт с годом)</code></pre>
+            </li>
+            <li>Каждый компонент — отдельная функция, возвращающая JSX. Все обёрнуты в <code>&lt;App /&gt;</code>.</li>
+            <li>Все 8 компонентов отрендерить одной командой <code>root.render(&lt;App /&gt;)</code>.</li>
+            <li>Стилизовать страницу по-минимуму: центрированный контейнер, круглый аватар, ровные отступы. Не нужно делать шедевр — достаточно аккуратно.</li>
+            <li>В F12 → Components проверить, что дерево компонентов соответствует схеме.</li>
+            <li>Сделать скриншот визитки и дерева компонентов.</li>
+        </ol>
+        <ol data-lang="en">
+            <li>Copy the file from task 1.3 into a new <code>card.html</code>.</li>
+            <li>Design a business card page with this structure (styles go inline via <code>&lt;style&gt;</code>):
+<pre><code>&lt;App&gt;
+  ├── &lt;Avatar /&gt;              (round image placeholder or emoji 👨‍💻)
+  ├── &lt;Name /&gt;                (your name as &lt;h1&gt;)
+  ├── &lt;Title /&gt;               (role: "React Student", "Front-end Learner")
+  ├── &lt;Bio /&gt;                 (short bio, 2-3 sentences)
+  ├── &lt;Skills /&gt;              (skills as &lt;ul&gt;: HTML, CSS, JS, React)
+  ├── &lt;SocialLinks /&gt;         (link buttons: Telegram, Instagram, GitHub)
+  ├── &lt;ContactBtn /&gt;          (one big "Contact me" button)
+  └── &lt;Footer /&gt;              (copyright with year)</code></pre>
+            </li>
+            <li>Each component — a separate function returning JSX. All wrapped in <code>&lt;App /&gt;</code>.</li>
+            <li>Render all 8 components with a single <code>root.render(&lt;App /&gt;)</code>.</li>
+            <li>Style the page minimally: centered container, round avatar, consistent spacing. No need for a masterpiece — just neat.</li>
+            <li>In F12 → Components verify the tree matches the schema.</li>
+            <li>Screenshot the card and the component tree.</li>
+        </ol>
+
+        <div class="hint" data-lang="ru">
+            <strong>Костяк <code>&lt;App /&gt;</code>:</strong>
+<pre><code>function App() {
+    return (
+        &lt;div className="card"&gt;
+            &lt;Avatar /&gt;
+            &lt;Name /&gt;
+            &lt;Title /&gt;
+            &lt;Bio /&gt;
+            &lt;Skills /&gt;
+            &lt;SocialLinks /&gt;
+            &lt;ContactBtn /&gt;
+            &lt;Footer /&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+            <strong>Внимание к JSX:</strong>
+            <ul>
+                <li>В JSX пишется <code>className</code>, а не <code>class</code> (<code>class</code> — зарезервированное слово в JS)</li>
+                <li>Все теги должны закрываться, даже одиночные: <code>&lt;br /&gt;</code>, <code>&lt;img ... /&gt;</code>, <code>&lt;hr /&gt;</code></li>
+                <li>Компонент может возвращать только ОДИН корневой элемент — оберните в <code>&lt;div&gt;</code>, если нужно несколько</li>
+            </ul>
+            <strong>Простые CSS-стили для визитки:</strong>
+<pre><code>.card {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 32px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+    margin: 0 auto 16px;
+}
+.contact-btn {
+    background: #3b82f6; color: #fff;
+    padding: 12px 32px; border: none; border-radius: 8px;
+    font-size: 16px; cursor: pointer;
+}</code></pre>
+        </div>
+        <div class="hint" data-lang="en">
+            <strong><code>&lt;App /&gt;</code> skeleton:</strong>
+<pre><code>function App() {
+    return (
+        &lt;div className="card"&gt;
+            &lt;Avatar /&gt;
+            &lt;Name /&gt;
+            &lt;Title /&gt;
+            &lt;Bio /&gt;
+            &lt;Skills /&gt;
+            &lt;SocialLinks /&gt;
+            &lt;ContactBtn /&gt;
+            &lt;Footer /&gt;
+        &lt;/div&gt;
+    );
+}</code></pre>
+            <strong>JSX gotchas:</strong>
+            <ul>
+                <li>In JSX use <code>className</code>, not <code>class</code> (<code>class</code> is a reserved JS keyword)</li>
+                <li>All tags must close, even single: <code>&lt;br /&gt;</code>, <code>&lt;img ... /&gt;</code>, <code>&lt;hr /&gt;</code></li>
+                <li>A component can return only ONE root element — wrap in a <code>&lt;div&gt;</code> if you need several</li>
+            </ul>
+            <strong>Simple CSS for the card:</strong>
+<pre><code>.card {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 32px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+}
+.avatar {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+    margin: 0 auto 16px;
+}
+.contact-btn {
+    background: #3b82f6; color: #fff;
+    padding: 12px 32px; border: none; border-radius: 8px;
+    font-size: 16px; cursor: pointer;
+}</code></pre>
+        </div>
+
+        <div class="criteria">
+            <ul data-lang="ru">
+                <li>Файл <code>card.html</code> создан и открывается в браузере</li>
+                <li>8 компонентов определены как отдельные функции</li>
+                <li>Компонент <code>&lt;App /&gt;</code> объединяет все 8</li>
+                <li>Одна команда <code>root.render(&lt;App /&gt;)</code> рендерит всю страницу</li>
+                <li>Визитка выглядит аккуратно (центрирована, есть отступы и цвет)</li>
+                <li>F12 → Components показывает дерево из 9 элементов (App + 8)</li>
+                <li>Сделаны 2 скриншота: визитка и дерево</li>
+                <li>Ни одной ошибки в F12 → Console</li>
+            </ul>
+            <ul data-lang="en">
+                <li>File <code>card.html</code> created and opens in the browser</li>
+                <li>8 components defined as separate functions</li>
+                <li>Component <code>&lt;App /&gt;</code> wraps all 8</li>
+                <li>One <code>root.render(&lt;App /&gt;)</code> renders the whole page</li>
+                <li>Card looks neat (centered, spacing, color)</li>
+                <li>F12 → Components shows a tree of 9 elements (App + 8)</li>
+                <li>2 screenshots taken: card and tree</li>
+                <li>Zero errors in F12 → Console</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
